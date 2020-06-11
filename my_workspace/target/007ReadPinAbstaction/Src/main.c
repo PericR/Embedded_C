@@ -26,31 +26,30 @@
 
 int main(void)
 {
-	uint32_t *pClkCtrlReg = (uint32_t*)0x40023830;//RCC
-	uint32_t *pPortAModeReg = (uint32_t*)0x40020000;
-	uint32_t *pPortAOutReg = (uint32_t*)0x40020014;
-	uint32_t *pPortAInReg = (uint32_t*)0x40020010;
+	RCC_AHB1ENR_t volatile *const pClkCtrlReg = (uint32_t*)0x40023830;//RCC
+	GPIOx_MODER_t volatile *const pPortAModeReg = (uint32_t*)0x40020000;
+	GPIOx_ODR_t volatile *const pPortAOutReg = (uint32_t*)0x40020014;
+	GPIOx_IDR_t const *const pPortAInReg = (uint32_t*)0x40020010;
 
 	//Enable the clock for GPIOA peripheral in the AHB1ENR
-	*pClkCtrlReg = *pClkCtrlReg | 1;
+	pClkCtrlReg->gpioa_en = 1;
 
 	//configure the mode of the IO pin 5 as output
-	*pPortAModeReg = *pPortAModeReg & ~(3 << 10); // set 10th and 11th bit to zero
-	*pPortAModeReg = *pPortAModeReg | (1 << 10); // set 10th bit to 1(output)
+	pPortAModeReg->pin_5 = 1;
 
 	//configure the mode of the IO pin 0 as input
-	*pPortAModeReg = *pPortAModeReg & ~(3); // set 0th bit to 0(input)
+	pPortAModeReg->pin_0 = 0;
 
 	uint32_t in_a0;
 
 	while(1){
-		 in_a0 = *pPortAInReg & 1;
+		 in_a0 = pPortAInReg->pin_0;
 
 		if(in_a0){
-			*pPortAOutReg = *pPortAOutReg | (1 << 5); //turn on
+			pPortAOutReg->pin_5 = 1; //turn on
 		}
 		else{
-			*pPortAOutReg = *pPortAOutReg & ~(1 << 5); //turn off
+			pPortAOutReg->pin_5 = 0; //turn off
 		}
 	}
 }
