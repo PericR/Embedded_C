@@ -1,0 +1,10 @@
+19:54:24 **** Incremental Build of configuration Debug for project 005LedOnOffToggle ****
+make -j4 all 
+arm-none-eabi-size   005LedOnOffToggle.elf 
+   text	   data	    bss	    dec	    hex	filename
+    832	      8	   1568	   2408	    968	005LedOnOffToggle.elf
+Finished building: default.size.stdout
+ 
+
+19:54:24 Build Finished. 0 errors, 0 warnings. (took 441ms)
+

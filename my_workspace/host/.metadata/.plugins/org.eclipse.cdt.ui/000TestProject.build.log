@@ -1,0 +1,14 @@
+12:26:01 **** Incremental Build of configuration Debug for project 000TestProject ****
+make all 
+Building target: 000TestProject
+Invoking: GCC C Linker
+gcc  -o "000TestProject"  ./main.o   
+/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+makefile:29: recipe for target '000TestProject' failed
+collect2: error: ld returned 1 exit status
+make: *** [000TestProject] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+12:26:02 Build Failed. 3 errors, 0 warnings. (took 475ms)
+

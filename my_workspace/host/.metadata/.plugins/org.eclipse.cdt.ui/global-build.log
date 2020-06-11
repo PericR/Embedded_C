@@ -1,0 +1,207 @@
+12:21:37 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: arithmetics
+Invoking: GCC C Linker
+gcc  -o "arithmetics"  ./main.o ./math.o   
+Finished building target: arithmetics
+ 
+12:21:57 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+make: Nothing to be done for 'all'.
+12:22:24 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: arithmetics
+Invoking: GCC C Linker
+gcc  -o "arithmetics"  ./main.o ./math.o   
+Finished building target: arithmetics
+ 
+12:22:50 **** Incremental Build of configuration Debug for project 000TestProject ****
+make all 
+Building target: 000TestProject
+Invoking: GCC C Linker
+gcc  -o "000TestProject"  ./main.o   
+/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+makefile:29: recipe for target '000TestProject' failed
+collect2: error: ld returned 1 exit status
+make: *** [000TestProject] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+12:22:50 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: arithmetics
+Invoking: GCC C Linker
+gcc  -o "arithmetics"  ./main.o ./math.o   
+Finished building target: arithmetics
+ 
+12:22:53 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+make: Nothing to be done for 'all'.
+12:23:23 **** Incremental Build of configuration Debug for project 000TestProject ****
+make all 
+Building target: 000TestProject
+Invoking: GCC C Linker
+gcc  -o "000TestProject"  ./main.o   
+/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+makefile:29: recipe for target '000TestProject' failed
+collect2: error: ld returned 1 exit status
+make: *** [000TestProject] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+12:23:23 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: arithmetics
+Invoking: GCC C Linker
+gcc  -o "arithmetics"  ./main.o ./math.o   
+Finished building target: arithmetics
+ 
+12:23:30 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+make: Nothing to be done for 'all'.
+12:23:52 **** Incremental Build of configuration Debug for project 000TestProject ****
+make all 
+Building target: 000TestProject
+Invoking: GCC C Linker
+gcc  -o "000TestProject"  ./main.o   
+/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+makefile:29: recipe for target '000TestProject' failed
+collect2: error: ld returned 1 exit status
+make: *** [000TestProject] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+12:23:52 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: arithmetics
+Invoking: GCC C Linker
+gcc  -o "arithmetics"  ./main.o ./math.o   
+Finished building target: arithmetics
+ 
+12:23:54 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+make: Nothing to be done for 'all'.
+12:24:43 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: arithmetics
+Invoking: GCC C Linker
+gcc  -o "arithmetics"  ./main.o ./math.o   
+Finished building target: arithmetics
+ 
+12:24:58 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: arithmetics
+Invoking: GCC C Linker
+gcc  -o "arithmetics"  ./main.o ./math.o   
+Finished building target: arithmetics
+ 
+12:25:24 **** Incremental Build of configuration Debug for project 000TestProject ****
+make all 
+Building target: 000TestProject
+Invoking: GCC C Linker
+gcc  -o "000TestProject"  ./main.o   
+/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+makefile:29: recipe for target '000TestProject' failed
+collect2: error: ld returned 1 exit status
+make: *** [000TestProject] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+12:25:24 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+Building file: ../math.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"math.d" -MT"math.o" -o "math.o" "../math.c"
+Finished building: ../math.c
+ 
+Building target: arithmetics
+Invoking: GCC C Linker
+gcc  -o "arithmetics"  ./main.o ./math.o   
+Finished building target: arithmetics
+ 
+12:25:27 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+make: Nothing to be done for 'all'.
+12:25:44 **** Incremental Build of configuration Debug for project 000TestProject ****
+make all 
+Building target: 000TestProject
+Invoking: GCC C Linker
+gcc  -o "000TestProject"  ./main.o   
+/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+makefile:29: recipe for target '000TestProject' failed
+collect2: error: ld returned 1 exit status
+make: *** [000TestProject] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+12:25:44 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+Building file: ../math.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"math.d" -MT"math.o" -o "math.o" "../math.c"
+Finished building: ../math.c
+ 
+Building target: arithmetics
+Invoking: GCC C Linker
+gcc  -o "arithmetics"  ./main.o ./math.o   
+Finished building target: arithmetics
+ 
+12:25:47 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+make: Nothing to be done for 'all'.
+12:26:01 **** Incremental Build of configuration Debug for project 000TestProject ****
+make all 
+Building target: 000TestProject
+Invoking: GCC C Linker
+gcc  -o "000TestProject"  ./main.o   
+/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+makefile:29: recipe for target '000TestProject' failed
+collect2: error: ld returned 1 exit status
+make: *** [000TestProject] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+12:26:02 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+Building file: ../math.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"math.d" -MT"math.o" -o "math.o" "../math.c"
+Finished building: ../math.c
+ 
+Building target: arithmetics
+Invoking: GCC C Linker
+gcc  -o "arithmetics"  ./main.o ./math.o   
+Finished building target: arithmetics
+ 
+12:26:04 **** Incremental Build of configuration Debug for project arithmetics ****
+make all 
+make: Nothing to be done for 'all'.
