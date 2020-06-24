@@ -38,7 +38,7 @@ int main(void)
 
 	while(1){
 		*pPortAOutReg = *pPortAOutReg | (1 << 5); //turn on
-		for(uint32_t i=0; i<500000; i++){} //software delay
+		for(uint32_t i=0; i<1000000; i++){} //software delay
 
 		*pPortAOutReg = *pPortAOutReg & ~(1 << 5); // turn off
 		for(uint32_t i=0; i<500000; i++){} //software delay

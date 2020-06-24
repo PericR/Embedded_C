@@ -1,47 +1,136 @@
-21:37:58 **** Incremental Build of configuration Debug for project 007ReadPinAbstaction ****
+20:41:51 **** Build of configuration Debug for project 021_aritmetics_using_svc ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "021_aritmetics_using_svc.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/my_workspace/target/021_aritmetics_using_svc/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="021_aritmetics_using_svc.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 021_aritmetics_using_svc.elf
+ 
+arm-none-eabi-size   021_aritmetics_using_svc.elf 
+arm-none-eabi-objdump -h -S  021_aritmetics_using_svc.elf  > "021_aritmetics_using_svc.list"
+arm-none-eabi-objcopy  -O binary  021_aritmetics_using_svc.elf  "021_aritmetics_using_svc.bin"
+   text	   data	    bss	    dec	    hex	filename
+   5096	    108	   1580	   6784	   1a80	021_aritmetics_using_svc.elf
+Finished building: default.size.stdout
+ 
+Finished building: 021_aritmetics_using_svc.bin
+ 
+Finished building: 021_aritmetics_using_svc.list
+ 
+20:41:57 **** Incremental Build of configuration Debug for project 021_aritmetics_using_svc ****
+make -j4 all 
+arm-none-eabi-size   021_aritmetics_using_svc.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5096	    108	   1580	   6784	   1a80	021_aritmetics_using_svc.elf
+Finished building: default.size.stdout
+ 
+20:42:37 **** Incremental Build of configuration Debug for project 021_aritmetics_using_svc ****
 make -j4 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "007ReadPinAbstaction.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/my_workspace/target/007ReadPinAbstaction/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="007ReadPinAbstaction.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 007ReadPinAbstaction.elf
+arm-none-eabi-gcc -o "021_aritmetics_using_svc.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/my_workspace/target/021_aritmetics_using_svc/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="021_aritmetics_using_svc.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 021_aritmetics_using_svc.elf
  
-arm-none-eabi-objdump -h -S  007ReadPinAbstaction.elf  > "007ReadPinAbstaction.list"
-arm-none-eabi-objcopy  -O binary  007ReadPinAbstaction.elf  "007ReadPinAbstaction.bin"
-arm-none-eabi-size   007ReadPinAbstaction.elf 
+arm-none-eabi-objdump -h -S  021_aritmetics_using_svc.elf  > "021_aritmetics_using_svc.list"
+arm-none-eabi-objcopy  -O binary  021_aritmetics_using_svc.elf  "021_aritmetics_using_svc.bin"
+arm-none-eabi-size   021_aritmetics_using_svc.elf 
    text	   data	    bss	    dec	    hex	filename
-    828	      8	   1568	   2404	    964	007ReadPinAbstaction.elf
-Finished building: 007ReadPinAbstaction.list
- 
-Finished building: 007ReadPinAbstaction.bin
+   5300	    108	   1580	   6988	   1b4c	021_aritmetics_using_svc.elf
+Finished building: 021_aritmetics_using_svc.bin
 Finished building: default.size.stdout
  
  
-22:00:49 **** Incremental Build of configuration Debug for project 007ReadPinAbstaction ****
+Finished building: 021_aritmetics_using_svc.list
+ 
+20:42:53 **** Incremental Build of configuration Debug for project 021_aritmetics_using_svc ****
 make -j4 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-../Src/main.c: In function 'main':
-../Src/main.c:29:31: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
-  RCC_AHB1ENR_t *pClkCtrlReg = (uint32_t*)0x40023830;//RCC
-                               ^
-../Src/main.c:30:33: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
-  GPIOx_MODER_t *pPortAModeReg = (uint32_t*)0x40020000;
-                                 ^
-../Src/main.c:31:30: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
-  GPIOx_ODR_t *pPortAOutReg = (uint32_t*)0x40020014;
-                              ^
-../Src/main.c:32:29: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
-  GPIOx_IDR_t *pPortAInReg = (uint32_t*)0x40020010;
-                             ^
-arm-none-eabi-gcc -o "007ReadPinAbstaction.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/my_workspace/target/007ReadPinAbstaction/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="007ReadPinAbstaction.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 007ReadPinAbstaction.elf
- 
-arm-none-eabi-objdump -h -S  007ReadPinAbstaction.elf  > "007ReadPinAbstaction.list"
-arm-none-eabi-objcopy  -O binary  007ReadPinAbstaction.elf  "007ReadPinAbstaction.bin"
-Finished building: 007ReadPinAbstaction.list
-arm-none-eabi-size   007ReadPinAbstaction.elf 
+arm-none-eabi-size   021_aritmetics_using_svc.elf 
    text	   data	    bss	    dec	    hex	filename
-    808	      8	   1568	   2384	    950	007ReadPinAbstaction.elf
- 
+   5300	    108	   1580	   6988	   1b4c	021_aritmetics_using_svc.elf
 Finished building: default.size.stdout
  
-Finished building: 007ReadPinAbstaction.bin
+20:43:18 **** Incremental Build of configuration Debug for project 021_aritmetics_using_svc ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "021_aritmetics_using_svc.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/my_workspace/target/021_aritmetics_using_svc/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="021_aritmetics_using_svc.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 021_aritmetics_using_svc.elf
+ 
+arm-none-eabi-objdump -h -S  021_aritmetics_using_svc.elf  > "021_aritmetics_using_svc.list"
+arm-none-eabi-objcopy  -O binary  021_aritmetics_using_svc.elf  "021_aritmetics_using_svc.bin"
+arm-none-eabi-size   021_aritmetics_using_svc.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5300	    108	   1580	   6988	   1b4c	021_aritmetics_using_svc.elf
+Finished building: 021_aritmetics_using_svc.bin
+Finished building: default.size.stdout
+ 
+ 
+Finished building: 021_aritmetics_using_svc.list
+ 
+20:45:31 **** Incremental Build of configuration Debug for project 021_aritmetics_using_svc ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "021_aritmetics_using_svc.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/my_workspace/target/021_aritmetics_using_svc/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="021_aritmetics_using_svc.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 021_aritmetics_using_svc.elf
+ 
+arm-none-eabi-objdump -h -S  021_aritmetics_using_svc.elf  > "021_aritmetics_using_svc.list"
+arm-none-eabi-objcopy  -O binary  021_aritmetics_using_svc.elf  "021_aritmetics_using_svc.bin"
+arm-none-eabi-size   021_aritmetics_using_svc.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5352	    108	   1580	   7040	   1b80	021_aritmetics_using_svc.elf
+Finished building: default.size.stdout
+ 
+Finished building: 021_aritmetics_using_svc.bin
+ 
+Finished building: 021_aritmetics_using_svc.list
+ 
+20:45:57 **** Incremental Build of configuration Debug for project 021_aritmetics_using_svc ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "021_aritmetics_using_svc.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/my_workspace/target/021_aritmetics_using_svc/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="021_aritmetics_using_svc.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 021_aritmetics_using_svc.elf
+ 
+arm-none-eabi-objdump -h -S  021_aritmetics_using_svc.elf  > "021_aritmetics_using_svc.list"
+arm-none-eabi-objcopy  -O binary  021_aritmetics_using_svc.elf  "021_aritmetics_using_svc.bin"
+arm-none-eabi-size   021_aritmetics_using_svc.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5352	    108	   1580	   7040	   1b80	021_aritmetics_using_svc.elf
+Finished building: 021_aritmetics_using_svc.bin
+Finished building: default.size.stdout
+ 
+ 
+Finished building: 021_aritmetics_using_svc.list
+ 
+20:46:20 **** Incremental Build of configuration Debug for project 021_aritmetics_using_svc ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "021_aritmetics_using_svc.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/my_workspace/target/021_aritmetics_using_svc/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="021_aritmetics_using_svc.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 021_aritmetics_using_svc.elf
+ 
+arm-none-eabi-objdump -h -S  021_aritmetics_using_svc.elf  > "021_aritmetics_using_svc.list"
+arm-none-eabi-objcopy  -O binary  021_aritmetics_using_svc.elf  "021_aritmetics_using_svc.bin"
+arm-none-eabi-size   021_aritmetics_using_svc.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5352	    108	   1580	   7040	   1b80	021_aritmetics_using_svc.elf
+Finished building: default.size.stdout
+Finished building: 021_aritmetics_using_svc.bin
+ 
+ 
+Finished building: 021_aritmetics_using_svc.list
+ 
+20:46:40 **** Incremental Build of configuration Debug for project 021_aritmetics_using_svc ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "021_aritmetics_using_svc.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/my_workspace/target/021_aritmetics_using_svc/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="021_aritmetics_using_svc.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 021_aritmetics_using_svc.elf
+ 
+arm-none-eabi-objdump -h -S  021_aritmetics_using_svc.elf  > "021_aritmetics_using_svc.list"
+arm-none-eabi-objcopy  -O binary  021_aritmetics_using_svc.elf  "021_aritmetics_using_svc.bin"
+arm-none-eabi-size   021_aritmetics_using_svc.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5352	    108	   1580	   7040	   1b80	021_aritmetics_using_svc.elf
+Finished building: default.size.stdout
+Finished building: 021_aritmetics_using_svc.bin
+ 
+ 
+Finished building: 021_aritmetics_using_svc.list
  

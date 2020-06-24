@@ -1,0 +1,10 @@
+14:08:54 **** Incremental Build of configuration Debug for project 012access_levels_processor ****
+make -j4 all 
+arm-none-eabi-size   012access_levels_processor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3720	    108	   1580	   5408	   1520	012access_levels_processor.elf
+Finished building: default.size.stdout
+ 
+
+14:08:55 Build Finished. 0 errors, 0 warnings. (took 462ms)
+

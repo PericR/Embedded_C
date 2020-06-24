@@ -1,0 +1,10 @@
+20:52:03 **** Incremental Build of configuration Debug for project 014_bit_band ****
+make -j4 all 
+arm-none-eabi-size   014_bit_band.elf 
+   text	   data	    bss	    dec	    hex	filename
+    752	      8	   1568	   2328	    918	014_bit_band.elf
+Finished building: default.size.stdout
+ 
+
+20:52:04 Build Finished. 0 errors, 0 warnings. (took 484ms)
+

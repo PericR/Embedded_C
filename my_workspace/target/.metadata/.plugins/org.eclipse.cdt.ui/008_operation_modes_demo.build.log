@@ -1,0 +1,10 @@
+08:52:24 **** Build of configuration Debug for project 008_operation_modes_demo ****
+make -j4 all 
+arm-none-eabi-size   008_operation_modes_demo.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3656	    108	   1580	   5344	   14e0	008_operation_modes_demo.elf
+Finished building: default.size.stdout
+ 
+
+08:52:24 Build Finished. 0 errors, 0 warnings. (took 480ms)
+

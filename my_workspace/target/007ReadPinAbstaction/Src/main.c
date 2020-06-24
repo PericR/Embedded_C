@@ -26,11 +26,11 @@
 
 int main(void)
 {
-	RCC_AHB1ENR_t volatile *const pClkCtrlReg = (uint32_t*)0x40023830;//RCC
-	GPIOx_MODER_t volatile *const pPortAModeReg = (uint32_t*)0x40020000;
-	GPIOx_ODR_t volatile *const pPortAOutReg = (uint32_t*)0x40020014;
-	GPIOx_IDR_t const *const pPortAInReg = (uint32_t*)0x40020010;
-
+	RCC_AHB1ENR_t volatile *const pClkCtrlReg = (RCC_AHB1ENR_t*)0x40023830;//RCC
+	GPIOx_MODER_t volatile *const pPortAModeReg = (GPIOx_MODER_t*)0x40020000;
+	GPIOx_ODR_t volatile *const pPortAOutReg = (GPIOx_ODR_t*)0x40020014;
+	GPIOx_IDR_t const *const pPortAInReg = (GPIOx_IDR_t*)0x40020010;
+	GPIOx_PUPDR_t volatile * const pPortAPuPdReg = (GPIOx_PUPDR_t*) 0x4002000C;
 	//Enable the clock for GPIOA peripheral in the AHB1ENR
 	pClkCtrlReg->gpioa_en = 1;
 
@@ -39,6 +39,9 @@ int main(void)
 
 	//configure the mode of the IO pin 0 as input
 	pPortAModeReg->pin_0 = 0;
+
+	//Configure pull up resistor for pin 0
+	pPortAPuPdReg->pin_0 = 0;
 
 	uint32_t in_a0;
 
