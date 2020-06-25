@@ -5653,3 +5653,13 @@
 2020-06-24 20:36:28,087 [INFO] CrossSelectorPresenter:1319 - Cross Selector saved comparison directory: /home/robert/.stmcufinder/plugins/mcufinder/mcu/cs_comparisons_mx
 2020-06-24 20:37:20,704 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] withoutVersionV1.25.0
 2020-06-24 21:50:47,555 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SWT SessionManagerDBus: Failed to RegisterClient: GDBus.Error:org.gnome.SessionManager.NotInRunning: Unable to register client
+2020-06-25 09:35:52,470 [INFO] Activator:176 - 
+
+
+2020-06-25 09:35:52,598 [INFO] Activator:177 - !SESSION log4j initialized
+2020-06-25 13:30:17,886 [INFO] Activator:176 - 
+
+
+2020-06-25 13:30:17,934 [INFO] Activator:177 - !SESSION log4j initialized
+2020-06-25 13:31:09,273 [INFO] RetryExec:97 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://download.eclipse.org:443: The target server failed to respond
+2020-06-25 13:31:09,277 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443

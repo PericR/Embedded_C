@@ -29,6 +29,8 @@ void task2_handler(void);
 void task3_handler(void);
 void task4_handler(void);
 
+void init_systick_timer(uint32_t tick_hz);
+
 #define SIZE_TASK_STACK			1024U
 #define SIZE_SCHEDULER_STACK	1024U
 
@@ -42,8 +44,14 @@ void task4_handler(void);
 #define T4_STACK_START			((SRAM_END) - (3 * SIZE_TASK_STACK))
 #define SCHEDULER_STACK_START	((SRAM_END) - (4 * SIZE_TASK_STACK))
 
+#define TICK_HZ 				1000U
+#define HSI_CLOCK				16000000U
+#define SYSTICK_TIM_CLK			HSI_CLOCK
+
 int main(void)
 {
+	init_systick_timer(TICK_HZ);
+
 	for(;;);
 }
 
@@ -71,4 +79,26 @@ void task4_handler(void){
 	}
 }
 
+void init_systick_timer(uint32_t tick_hz){
+	uint32_t *pST_RVR = (uint32_t*)0xE000E014;
+	uint32_t *pST_CSR = (uint32_t*)0xE000E010;
+
+	uint32_t count_value = (SYSTICK_TIM_CLK / tick_hz) - 1;
+
+	//clear ST_RVR
+	*pST_RVR &= ~(0x00FFFFFF);
+	//load ST_RVR
+	*pST_RVR |= count_value;
+
+	//Do some settings
+	*pST_CSR |= (1 << 2);//select processor clock source
+	*pST_CSR |= (1 << 1);//Enables SysTick exception request
+
+	//enable SYS_TICK
+	*pST_CSR |= (1 << 0);//enables the counter
+}
+
+void SysTick_Handler(void){
+
+}
 
