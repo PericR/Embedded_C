@@ -31,19 +31,13 @@ void task3_handler(void);
 void task4_handler(void);
 
 __attribute__((naked)) void init_scheduler_stack(uint32_t scheduler_top_of_stack);
-__attribute__((naked)) void switch_sp_to_psp(void);
 void init_systick_timer(uint32_t tick_hz);
-void init_tasks_stack(void);
-void enable_processor_faults(void);
 
 uint32_t psp_of_tasks[MAX_TASKS] ={T1_STACK_START, T2_STACK_START, T3_STACK_START, T4_STACK_START};
 uint32_t task_handlers[MAX_TASKS];
-uint8_t current_task = 0;
 
 int main(void)
 {
-	enable_processor_faults();
-
 	init_scheduler_stack(SCHEDULER_STACK_START);
 
 	task_handlers[0] = (uint32_t)task1_handler;
@@ -54,10 +48,6 @@ int main(void)
 	init_tasks_stack();
 
 	init_systick_timer(TICK_HZ);
-
-	switch_sp_to_psp();
-
-	task1_handler();
 
 	for(;;);
 }
@@ -113,11 +103,11 @@ __attribute__((naked)) void init_scheduler_stack(uint32_t scheduler_top_of_stack
 void init_tasks_stack(void){
 	uint32_t *pPSP;
 
-	for (int i = 0; i < MAX_TASKS; i++) {
+	for (int i = 0; i < max; i++) {
 		pPSP = (uint32_t*)psp_of_tasks[i];
 
 		pPSP--;//XPRS
-		*pPSP = DUMMY_XPRS;//0x01000000
+		*pPSP = DUMMY_XPSR;//0x01000000
 
 		pPSP--;//PC
 		*pPSP = task_handlers[i];
@@ -135,51 +125,7 @@ void init_tasks_stack(void){
 	}
 }
 
-void enable_processor_faults(void){
-	uint32_t *pSHCSR = (uint32_t*)0xE000ED24;
-
-	*pSHCSR |= (1 << 16);//memory manage enable
-	*pSHCSR |= (1 << 17);//bus fault enable
-	*pSHCSR |= (1 << 18);//usage fault enable
-}
-
-uint32_t get_psp_value(void){
-	return psp_of_tasks[current_task];
-}
-
-__attribute__((naked)) void switch_sp_to_psp(void){
-	//initialize PSP with task1 stack address
-	__asm volatile("PUSH {LR}");
-	__asm volatile("BL get_psp_value");
-	__asm volatile("MSR PSP,r0");
-	__asm volatile("POP {LR}");
-
-
-	//set SP tp PSP
-	__asm volatile("MOV r0,#0x02");
-	__asm volatile("MSR CONTROL, r0");
-	__asm volatile("BX LR");
-}
-
-//exception handlers
 void SysTick_Handler(void){
 
 }
 
-void HardFault_Handler(void)
-{
-	printf("Exception: HardFault_Handler\n");
-	while(1);
-}
-
-void MemManage_Handler(void)
-{
-	printf("Exception: MemManage_Handler\n");
-	while(1);
-}
-
-void BusFault_Handler(void)
-{
-	printf("Exception: BusFault_Handler\n");
-	while(1);
-}

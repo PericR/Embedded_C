@@ -31,7 +31,6 @@ void task3_handler(void);
 void task4_handler(void);
 
 __attribute__((naked)) void init_scheduler_stack(uint32_t scheduler_top_of_stack);
-__attribute__((naked)) void switch_sp_to_psp(void);
 void init_systick_timer(uint32_t tick_hz);
 void init_tasks_stack(void);
 void enable_processor_faults(void);
@@ -158,7 +157,6 @@ __attribute__((naked)) void switch_sp_to_psp(void){
 	//set SP tp PSP
 	__asm volatile("MOV r0,#0x02");
 	__asm volatile("MSR CONTROL, r0");
-	__asm volatile("BX LR");
 }
 
 //exception handlers
