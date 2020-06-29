@@ -1,1 +1,4 @@
 1593023781116	Delete resource '020_task_scheduler'
+1593266320819	Delete resource '022_task_scheduler/Inc/main.h'
+1593266857293	Delete resource '022_task_scheduler/Src/led.c'
+1593266860700	Delete resource '022_task_scheduler/Inc/led.h'
