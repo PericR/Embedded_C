@@ -1592,3 +1592,7 @@
 2020-07-06 10:35:15,806 [INFO] CrossSelectorPresenter:1319 - Cross Selector saved comparison directory: /home/robert/.stmcufinder/plugins/mcufinder/mcu/cs_comparisons_mx
 2020-07-06 10:40:06,949 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] withoutVersionV1.25.0
 2020-07-06 10:57:03,547 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] swt-tree-arrow-mode and swt-tree-arrow-color are not supported on this platform
+2020-07-06 17:16:53,208 [INFO] Activator:176 - 
+
+
+2020-07-06 17:16:53,578 [INFO] Activator:177 - !SESSION log4j initialized
