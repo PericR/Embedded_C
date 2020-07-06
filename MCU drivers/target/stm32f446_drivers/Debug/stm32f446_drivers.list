@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  15 .debug_ranges 00000030  00000000  00000000  000103f0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00000a81  00000000  00000000  00010420  2**0
+ 16 .debug_macro  00000a77  00000000  00000000  00010420  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00000129  00000000  00000000  00010ea1  2**0
+ 17 .debug_line   000000c6  00000000  00000000  00010e97  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    00002d3a  00000000  00000000  00010fca  2**0
+ 18 .debug_str    00002d26  00000000  00000000  00010f5d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00013d04  2**0
+ 19 .comment      0000007b  00000000  00000000  00013c83  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000054  00000000  00000000  00013d80  2**2
+ 20 .debug_frame  00000054  00000000  00000000  00013d00  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -77,9 +77,9 @@ Disassembly of section .text:
  8000200:	080002a8 	.word	0x080002a8
 
 08000204 <main>:
+#if !defined(__SOFT_FP__) && defined(__ARM_FP)
+  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
-
-#include "stm32f446re.h"
 
 int main(void)
 {
