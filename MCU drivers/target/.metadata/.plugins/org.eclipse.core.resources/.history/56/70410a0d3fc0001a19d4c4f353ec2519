@@ -146,35 +146,21 @@ void GPIO_init(GPIO_handle_t *pGPIO_handle) {
 }
 
 /************************************************
- * @fn					- GPIO_deinit
+ * @fn					-
  *
- * @brief				- This function resets given pin
+ * @brief				-
  *
- * @params[in]			- base address of the GPIO peripheral
+ * @params[in]			-
+ * @params[in]			-
+ * @params[in]			-
  *
- * @return				- none
+ * @return				-
  *
- * @note				- none
+ * @note				-
  *
  */
 void GPIO_deinit(GPIO_reg_def_t *pGPIOx) {
-	if (pGPIOx == GPIOA) {
-		GPIOA_REG_RESET();
-	} else if (pGPIOx == GPIOB) {
-		GPIOB_REG_RESET();
-	} else if (pGPIOx == GPIOC) {
-		GPIOC_REG_RESET();
-	} else if (pGPIOx == GPIOD) {
-		GPIOD_REG_RESET();
-	} else if (pGPIOx == GPIOE) {
-		GPIOE_REG_RESET();
-	} else if (pGPIOx == GPIOF) {
-		GPIOF_REG_RESET();
-	} else if (pGPIOx == GPIOG) {
-		GPIOG_REG_RESET();
-	} else if (pGPIOx == GPIOH) {
-		GPIOH_REG_RESET();
-	}
+
 }
 
 //data read and write
