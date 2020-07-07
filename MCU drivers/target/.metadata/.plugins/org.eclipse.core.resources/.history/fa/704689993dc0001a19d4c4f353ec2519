@@ -76,71 +76,43 @@ void GPIO_peri_clock_control(GPIO_reg_def_t *pGPIOx, uint8_t en_or_di) {
  *
  */
 void GPIO_init(GPIO_handle_t *pGPIO_handle) {
-	uint32_t reset = 0;
-	uint32_t set = 0;
+	uint32_t temp = 0;
 
 	//configure the mode of GPIO pin
 	if(pGPIO_handle->GPIO_pin_config.GPIO_pin_mode <= GPIO_MODE_ANALOG){
 		//the non interrupt mode
-		reset = (11 << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-		pGPIO_handle->pGPIOx->MODER &= ~(reset);
-		reset = 0;
-
-		set = (pGPIO_handle->GPIO_pin_config.GPIO_pin_mode << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-		pGPIO_handle->pGPIOx->MODER |= set;
-		set = 0;
+		temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_mode << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
+		pGPIO_handle->pGPIOx->MODER |= temp;
+		temp = 0;
 	}else{
 		//interrupt mode
 	}
 
 	//configure the speed of GPIO pin
-	reset = (11 << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-	pGPIO_handle->pGPIOx->OSPEEDR &= ~(reset);
-	reset = 0;
-
-	set = (pGPIO_handle->GPIO_pin_config.GPIO_pin_speed << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-	pGPIO_handle->pGPIOx->OSPEEDR |= set;
-	set = 0;
-
+	temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_speed << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
+	pGPIO_handle->pGPIOx->OSPEEDR |= temp;
+	temp = 0;
 
 	//configure the pull up and pull down resistor of GPIO pin
-	reset = (11 << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-	pGPIO_handle->pGPIOx->PUPDR &= ~(reset);
-	reset = 0;
+	temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_pu_pd << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
+	pGPIO_handle->pGPIOx->PUPDR |= temp;
+	temp = 0;
 
-	set = (pGPIO_handle->GPIO_pin_config.GPIO_pin_pu_pd << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-	pGPIO_handle->pGPIOx->PUPDR |= set;
-	set = 0;
+	//configure the output type resistor of GPIO pin
+	temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_op_type << pGPIO_handle->GPIO_pin_config.GPIO_pin_num);
+	pGPIO_handle->pGPIOx->OTYPER |= temp;
+	temp = 0;
 
-
-	//configure the output type register of GPIO pin
-	reset = (11 << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-	pGPIO_handle->pGPIOx->OTYPER &= ~(reset);
-	reset = 0;
-
-	set = (pGPIO_handle->GPIO_pin_config.GPIO_pin_op_type << pGPIO_handle->GPIO_pin_config.GPIO_pin_num);
-	pGPIO_handle->pGPIOx->OTYPER |= set;
-	set = 0;
-
-
-	//configure the alternative functionality register of GPIO pin
+	//configure the alternative functionality resistor of GPIO pin
 	if(pGPIO_handle->GPIO_pin_config.GPIO_pin_mode == GPIO_MODE_ALTFN){
 		if(pGPIO_handle->GPIO_pin_config.GPIO_pin_num <= 7){
-			reset = (1111 << (4 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-			pGPIO_handle->pGPIOx->AFRLOW &= ~(reset);
-			reset = 0;
-
-			set = (pGPIO_handle->GPIO_pin_config.GPIO_pin_alt_fun_mode << (4 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-			pGPIO_handle->pGPIOx->AFRLOW |= set;
-			set = 0;
+			temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_alt_fun_mode << (4 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
+			pGPIO_handle->pGPIOx->AFRLOW |= temp;
+			temp = 0;
 		}else{
-			reset = (1111 << (4 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-			pGPIO_handle->pGPIOx->AFRHIGH &= ~(reset);
-			reset = 0;
-
-			set = (pGPIO_handle->GPIO_pin_config.GPIO_pin_alt_fun_mode << (4 * (pGPIO_handle->GPIO_pin_config.GPIO_pin_num % 8)));
-			pGPIO_handle->pGPIOx->AFRHIGH |= set;
-			set = 0;
+			temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_alt_fun_mode << (4 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
+			pGPIO_handle->pGPIOx->AFRHIGH |= temp;
+			temp = 0;
 		}
 	}
 }
