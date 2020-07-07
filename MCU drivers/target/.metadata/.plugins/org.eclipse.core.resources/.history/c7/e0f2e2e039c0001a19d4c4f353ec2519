@@ -64,15 +64,17 @@ void GPIO_peri_clock_control(GPIO_reg_def_t *pGPIOx, uint8_t en_or_di) {
 //initialization and de-initialization
 
 /************************************************
- * @fn					- GPIO_init
+ * @fn					-
  *
- * @brief				- This function initialize given pin
+ * @brief				-
  *
- * @params[in]			- GPIO handle which contains base port address and pin configuration settings
+ * @params[in]			-
+ * @params[in]			-
+ * @params[in]			-
  *
- * @return				- none
+ * @return				-
  *
- * @note				- none
+ * @note				-
  *
  */
 void GPIO_init(GPIO_handle_t *pGPIO_handle) {
@@ -82,7 +84,7 @@ void GPIO_init(GPIO_handle_t *pGPIO_handle) {
 	if(pGPIO_handle->GPIO_pin_config.GPIO_pin_mode <= GPIO_MODE_ANALOG){
 		//the non interrupt mode
 		temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_mode << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-		pGPIO_handle->pGPIOx->MODER |= temp;
+		pGPIO_handle->pGPIOx->MODER = temp;
 		temp = 0;
 	}else{
 		//interrupt mode
@@ -90,31 +92,8 @@ void GPIO_init(GPIO_handle_t *pGPIO_handle) {
 
 	//configure the speed of GPIO pin
 	temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_speed << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-	pGPIO_handle->pGPIOx->OSPEEDR |= temp;
+	pGPIO_handle->pGPIOx->OSPEEDR = temp;
 	temp = 0;
-
-	//configure the pull up and pull down resistor of GPIO pin
-	temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_pu_pd << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-	pGPIO_handle->pGPIOx->PUPDR |= temp;
-	temp = 0;
-
-	//configure the output type resistor of GPIO pin
-	temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_op_type << pGPIO_handle->GPIO_pin_config.GPIO_pin_num);
-	pGPIO_handle->pGPIOx->OTYPER |= temp;
-	temp = 0;
-
-	//configure the alternative functionality resistor of GPIO pin
-	if(pGPIO_handle->GPIO_pin_config.GPIO_pin_mode == GPIO_MODE_ALTFN){
-		if(pGPIO_handle->GPIO_pin_config.GPIO_pin_num <= 7){
-			temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_alt_fun_mode << (4 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-			pGPIO_handle->pGPIOx->AFRLOW |= temp;
-			temp = 0;
-		}else{
-			temp = (pGPIO_handle->GPIO_pin_config.GPIO_pin_alt_fun_mode << (4 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-			pGPIO_handle->pGPIOx->AFRHIGH |= temp;
-			temp = 0;
-		}
-	}
 }
 
 /************************************************

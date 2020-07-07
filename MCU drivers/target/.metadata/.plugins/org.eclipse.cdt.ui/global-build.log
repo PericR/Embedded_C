@@ -1,4 +1,4 @@
-11:31:11 **** Clean-only build of configuration Debug for project stm32f446_drivers ****
+12:09:12 **** Clean-only build of configuration Debug for project stm32f446_drivers ****
 make -j4 clean 
 rm -rf *
  

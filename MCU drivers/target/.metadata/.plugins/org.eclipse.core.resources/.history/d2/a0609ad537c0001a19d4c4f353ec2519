@@ -71,7 +71,7 @@
 typedef struct{
 	__vo uint32_t MODER;			//address offset :0x00. GPIO port mode register.
 	__vo uint32_t OTYPER;			//address offset :0x04. GPIO port output type register.
-	__vo uint32_t OSPEEDR;			//address offset :0x08. GPIO port output speed register.
+	__vo uint32_t OSPEEDER;			//address offset :0x08. GPIO port output speed register.
 	__vo uint32_t PUPDR;			//address offset :0x0C. GPIO port pull-up/pull-down register.
 	__vo uint32_t IDR;				//address offset :0x10. GPIO port input data register.
 	__vo uint32_t ODR;				//address offset :0x14. GPIO port output data register.
