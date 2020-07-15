@@ -180,71 +180,68 @@ void GPIO_deinit(GPIO_reg_def_t *pGPIOx) {
 //data read and write
 
 /************************************************
- * @fn					- GPIO_read_input_pin
+ * @fn					-
  *
- * @brief				- Returns value from given pin number for given GPIO peripheral
+ * @brief				-
  *
- * @params[in]			- base address of the GPIO peripheral
- * @params[in]			- pin number that's going to be read
+ * @params[in]			-
+ * @params[in]			-
+ * @params[in]			-
  *
- * @return				- uint8_t value that is read from given pin
+ * @return				-
  *
- * @note				- none
+ * @note				-
  *
  */
 uint8_t GPIO_read_input_pin(GPIO_reg_def_t *pGPIOx, uint8_t pin_number) {
-	uint8_t value;
-	value = (uint8_t)((pGPIOx->IDR >> 8) & 0x00000001);
-	return value;
+
 }
 
 /************************************************
- * @fn					- GPIO_read_input_port
+ * @fn					-
  *
- * @brief				- Returns value from given GPIO port
+ * @brief				-
  *
- * @params[in]			- base address of the GPIO peripheral
+ * @params[in]			-
+ * @params[in]			-
+ * @params[in]			-
  *
- * @return				- uint16_t value that is read from GPIO port
+ * @return				-
  *
- * @note				- none
+ * @note				-
  *
  */
 uint16_t GPIO_read_input_port(GPIO_reg_def_t *pGPIOx) {
-	uint16_t value;
-	value = (uint16_t)(pGPIOx->IDR);
-	return value;
+
 }
 
 /************************************************
- * @fn					- GPIO_write_output_pin
+ * @fn					-
  *
- * @brief				- Writes 1 or 0 to given pin from given GPIO peripheral
+ * @brief				-
  *
- * @params[in]			- base address of the GPIO peripheral
- * @params[in]			- pin number for given GPIO peripheral
- * @params[in]			- 1 or 0 value to write to given pin
+ * @params[in]			-
+ * @params[in]			-
+ * @params[in]			-
  *
- * @return				- none
+ * @return				-
  *
- * @note				- none
+ * @note				-
  *
  */
-void GPIO_write_output_pin(GPIO_reg_def_t *pGPIOx, uint8_t pin_number, uint8_t value) {
-	if(value == GPIO_PIN_SET){
-		pGPIOx->ODR |= (1 << pin_number);
-	} else{
-		pGPIOx->ODR &= ~(1 << pin_number);
-	}
+void GPIO_write_output_pin(GPIO_reg_def_t *pGPIOx, uint8_t pin_number,
+		uint8_t value) {
+
 }
 
 /************************************************
- * @fn					- GPIO_write_output_port
+ * @fn					-
  *
- * @brief				- Writes value to GPIO port
+ * @brief				-
  *
- * @params[in]			- base address of the GPIO peripheral
- * @params[in]			- 16 bit value to write to given GPIO port
+ * @params[in]			-
+ * @params[in]			-
+ * @params[in]			-
  *
  * @return				-
  *
@@ -252,24 +249,25 @@ void GPIO_write_output_pin(GPIO_reg_def_t *pGPIOx, uint8_t pin_number, uint8_t v
  *
  */
 void GPIO_write_output_port(GPIO_reg_def_t *pGPIOx, uint16_t value) {
-	pGPIOx->ODR = value;
+
 }
 
 /************************************************
- * @fn					- GPIO_toggle_output_pin
+ * @fn					-
  *
- * @brief				- Toggles given pin from 0 to 1 and vice versa
+ * @brief				-
  *
- * @params[in]			- base address of the GPIO peripheral
- * @params[in]			- pin number for given GPIO peripheral
+ * @params[in]			-
+ * @params[in]			-
+ * @params[in]			-
  *
- * @return				- none
+ * @return				-
  *
- * @note				- none
+ * @note				-
  *
  */
 void GPIO_toggle_output_pin(GPIO_reg_def_t *pGPIOx, uint8_t pin_number) {
-	pGPIOx->ODR ^= (1 << pin_number);
+
 }
 
 //IRQ configuration and ISR handling
