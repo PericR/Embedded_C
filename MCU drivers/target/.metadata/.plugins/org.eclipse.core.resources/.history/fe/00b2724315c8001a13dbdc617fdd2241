@@ -122,15 +122,6 @@ typedef struct{
 	__vo uint32_t DCKCFGR2;			//address offset :0x94. RCC dedicated clocks configuration register 2
 }RCC_reg_def_t;
 
-typedef struct{
-	__vo uint32_t IMR;				//address offset :0x00. Interrupt mask register.
-	__vo uint32_t EMR;				//address offset :0x04. Event mask register
-	__vo uint32_t RTSR;				//address offset :0x08. Rising trigger selection register
-	__vo uint32_t FTSR;				//address offset :0x0C. Falling trigger selection register
-	__vo uint32_t SWIER;			//address offset :0x10. Software interrupt event register
-	__vo uint32_t PR;				//address offset :0x14. Pending register
-}EXTI_reg_def_t;
-
 //peripheral definitions (peripheral base addresses typecasted to xxx_reg_def_t)
 #define GPIOA					((GPIO_reg_def_t*) GPIOA_BASE_ADDR)
 #define GPIOB					((GPIO_reg_def_t*) GPIOB_BASE_ADDR)
@@ -143,7 +134,6 @@ typedef struct{
 
 #define RCC						((RCC_reg_def_t*) RCC_BASE_ADDR)
 
-#define EXTI					((EXTI_reg_def_t*) EXTI_BASE_ADDR)
 
 //Clock enable macros for GPIOx peripherals
 #define GPIOA_PCLK_EN()			(RCC->AHB1ENR |= (1 << 0))
