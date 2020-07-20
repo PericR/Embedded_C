@@ -1,18 +1,7 @@
-09:37:43 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+12:45:38 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
 make -j4 all 
-arm-none-eabi-gcc "../drivers/Src/stm32f446re_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/Src/stm32f446re_gpio_driver.d" -MT"drivers/Src/stm32f446re_gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/Src/stm32f446re_gpio_driver.o"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f446_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
 arm-none-eabi-size   stm32f446_drivers.elf 
    text	   data	    bss	    dec	    hex	filename
-    788	      8	   1568	   2364	    93c	stm32f446_drivers.elf
-Finished building: stm32f446_drivers.list
-Finished building: stm32f446_drivers.bin
+   2728	      8	   1568	   4304	   10d0	stm32f446_drivers.elf
 Finished building: default.size.stdout
- 
- 
  

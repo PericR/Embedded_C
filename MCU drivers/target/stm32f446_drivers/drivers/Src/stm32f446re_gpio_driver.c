@@ -140,14 +140,15 @@ void GPIO_init(GPIO_handle_t *pGPIO_handle) {
 
 
 	//configure the output type register of GPIO pin
-	reset = (11 << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
-	pGPIO_handle->pGPIOx->OTYPER &= ~(reset);
-	reset = 0;
+	if(pGPIO_handle->GPIO_pin_config.GPIO_pin_mode == GPIO_MODE_OUT){
+		reset = (11 << (2 * pGPIO_handle->GPIO_pin_config.GPIO_pin_num));
+		pGPIO_handle->pGPIOx->OTYPER &= ~(reset);
+		reset = 0;
 
-	set = (pGPIO_handle->GPIO_pin_config.GPIO_pin_op_type << pGPIO_handle->GPIO_pin_config.GPIO_pin_num);
-	pGPIO_handle->pGPIOx->OTYPER |= set;
-	set = 0;
-
+		set = (pGPIO_handle->GPIO_pin_config.GPIO_pin_op_type << pGPIO_handle->GPIO_pin_config.GPIO_pin_num);
+		pGPIO_handle->pGPIOx->OTYPER |= set;
+		set = 0;
+	}
 
 	//configure the alternative functionality register of GPIO pin
 	if(pGPIO_handle->GPIO_pin_config.GPIO_pin_mode == GPIO_MODE_ALTFN){
@@ -345,11 +346,11 @@ void GPIO_IRQ_interrupt_config(uint8_t IRQ_number, uint8_t en_or_di) {
  * @note				- none
  *
  */
-void GPIO_IRQ_priority_config(uint8_t IRQ_number, uint8_t IRQ_priority){
-	uint8_t IPRx_register_offset = (IRQ_number/4) * 4;
+void GPIO_IRQ_priority_config(uint8_t IRQ_number, uint32_t IRQ_priority){
+	uint8_t IPRx_register_offset = (IRQ_number/4);
 	uint8_t IPRx_position = (IRQ_number % 4) * 8;
 
-	uint8_t shift_amount = (8 * IPRx_position) + (8 - NO_PR_BITS_IMPLEMENTED);
+	uint8_t shift_amount = (IPRx_position) + (8 - NO_PR_BITS_IMPLEMENTED);
 	*(NVIC_IPRO_BASSE_ADDR + IPRx_register_offset) |= (IRQ_priority << shift_amount);
 }
 

@@ -273,6 +273,24 @@ typedef struct{
 #define IRQ_NO_EXTI_9_5			23
 #define IRQ_NO_EXTI_15_10		40
 
+//IRQ priority macros for all possible priority levels
+#define IRQ_PR_0				0
+#define IRQ_PR_1				1
+#define IRQ_PR_2				2
+#define IRQ_PR_3				3
+#define IRQ_PR_4				4
+#define IRQ_PR_5				5
+#define IRQ_PR_6				6
+#define IRQ_PR_7				7
+#define IRQ_PR_8				8
+#define IRQ_PR_9				9
+#define IRQ_PR_10				10
+#define IRQ_PR_11				11
+#define IRQ_PR_12				12
+#define IRQ_PR_13				13
+#define IRQ_PR_14				14
+#define IRQ_PR_15				15
+
 //some generic macros
 #define HIGH					1
 #define LOW						0
