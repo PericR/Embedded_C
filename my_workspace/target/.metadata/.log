@@ -12906,3 +12906,18 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-06-30 11:42:15.840
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2020-10-28 19:39:04.946 -----------------------------------------------
+eclipse.buildId=Version 1.3.0
+java.version=1.8.0_242
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /home/robert/Projects/Embedded-C/my_workspace/target -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-10-28 19:39:19.546
+!MESSAGE Log4j initialized with config file /home/robert/Projects/Embedded-C/my_workspace/target/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-10-28 19:39:29.798
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-10-28 19:39:34.533
+!MESSAGE Started RMI Server, listening on port 41337
