@@ -55,14 +55,6 @@
 #define UART4_BASEADDR						(APB1_PERIPH_BASE + 0x4C00)
 #define UART5_BASEADDR						(APB1_PERIPH_BASE + 0x5000)
 
-/*
- * Base addresses of peripherals hanging on APB2 bus
- */
-#define SPI1_BASEADDR						(APB2_PERIPH_BASE + 0x3000)
 
-#define USART1_BASEADDR						(APB2_PERIPH_BASE + 0x1000)
-#define USART6_BASEADDR						(APB2_PERIPH_BASE + 0x1400)
 
-#define EXTI_BASEADDR						(APB2_PERIPH_BASE + 0x3C00)
-#define SYSCFG_BASEADDR						(APB2_PERIPH_BASE + 0x4000)
 #endif /* INC_STM32F446_H_ */
