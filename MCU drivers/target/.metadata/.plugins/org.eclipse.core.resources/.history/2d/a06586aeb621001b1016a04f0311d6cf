@@ -39,22 +39,5 @@
 #define GPIOG_BASEADDR						(AHB1_PERIPH_BASE + 0x1800)U	/*Base address of GPIOG Peripheral*/
 #define GPIOH_BASEADDR						(AHB1_PERIPH_BASE + 0x1C00)U	/*Base address of GPIOH Peripheral*/
 
-/*
- * Base addresses of peripherals hanging on APB1 bus
- */
-#define I2C1_BASEADDR						(APB1_PERIPH_BASE + 0x5400)
-#define I2C2_BASEADDR						(APB1_PERIPH_BASE + 0x5800)
-#define I2C3_BASEADDR						(APB1_PERIPH_BASE + 0x5C00)
-
-#define SPI2_BASEADDR						(APB1_PERIPH_BASE + 0x3800)
-#define SPI3_BASEADDR						(APB1_PERIPH_BASE + 0x3C00)
-
-#define USART2_BASEADDR						(APB1_PERIPH_BASE + 0x4400)
-#define USART3_BASEADDR						(APB1_PERIPH_BASE + 0x4800)
-
-#define UART4_BASEADDR						(APB1_PERIPH_BASE + 0x4C00)
-#define UART5_BASEADDR						(APB1_PERIPH_BASE + 0x5000)
-
-
 
 #endif /* INC_STM32F446_H_ */
