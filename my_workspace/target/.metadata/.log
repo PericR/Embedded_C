@@ -12921,3 +12921,47 @@ Command-line arguments:  -data /home/robert/Projects/Embedded-C/my_workspace/tar
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-10-28 19:39:34.533
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2020-11-08 11:28:45.226 -----------------------------------------------
+eclipse.buildId=Version 1.3.0
+java.version=1.8.0_242
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /home/robert/Projects/Embedded-C/my_workspace/target -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-11-08 11:28:58.216
+!MESSAGE Log4j initialized with config file /home/robert/Projects/Embedded-C/my_workspace/target/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-11-08 11:29:07.681
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-11-08 11:29:12.408
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2020-11-08 11:29:27.091
+!MESSAGE Connection to https://download.eclipse.org/releases/2019-09/p2.index failed on Remote host closed connection during handshake. Retry attempt 0 started
+!STACK 0
+javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:994)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1367)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1395)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1379)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:396)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:355)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:394)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.EOFException: SSL peer shut down incorrectly
+	at sun.security.ssl.InputRecord.read(InputRecord.java:505)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:975)
+	... 19 more
