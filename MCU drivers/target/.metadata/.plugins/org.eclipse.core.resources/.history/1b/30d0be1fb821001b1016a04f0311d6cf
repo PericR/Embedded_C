@@ -42,30 +42,27 @@
 /*
  * Base addresses of peripherals hanging on APB1 bus
  */
-#define I2C1_BASEADDR						(APB1_PERIPH_BASE + 0x5400)U	/*Base address of I2C1 Peripheral*/
-#define I2C2_BASEADDR						(APB1_PERIPH_BASE + 0x5800)U	/*Base address of I2C2 Peripheral*/
-#define I2C3_BASEADDR						(APB1_PERIPH_BASE + 0x5C00)U	/*Base address of I2C3 Peripheral*/
+#define I2C1_BASEADDR						(APB1_PERIPH_BASE + 0x5400)
+#define I2C2_BASEADDR						(APB1_PERIPH_BASE + 0x5800)
+#define I2C3_BASEADDR						(APB1_PERIPH_BASE + 0x5C00)
 
-#define SPI2_BASEADDR						(APB1_PERIPH_BASE + 0x3800)U	/*Base address of SPI2 Peripheral*/
-#define SPI3_BASEADDR						(APB1_PERIPH_BASE + 0x3C00)U	/*Base address of SPI3 Peripheral*/
+#define SPI2_BASEADDR						(APB1_PERIPH_BASE + 0x3800)
+#define SPI3_BASEADDR						(APB1_PERIPH_BASE + 0x3C00)
 
-#define USART2_BASEADDR						(APB1_PERIPH_BASE + 0x4400)U	/*Base address of USART2 Peripheral*/
-#define USART3_BASEADDR						(APB1_PERIPH_BASE + 0x4800)U	/*Base address of USART3 Peripheral*/
+#define USART2_BASEADDR						(APB1_PERIPH_BASE + 0x4400)
+#define USART3_BASEADDR						(APB1_PERIPH_BASE + 0x4800)
 
-#define UART4_BASEADDR						(APB1_PERIPH_BASE + 0x4C00)U	/*Base address of UART4 Peripheral*/
-#define UART5_BASEADDR						(APB1_PERIPH_BASE + 0x5000)U	/*Base address of UART5 Peripheral*/
+#define UART4_BASEADDR						(APB1_PERIPH_BASE + 0x4C00)
+#define UART5_BASEADDR						(APB1_PERIPH_BASE + 0x5000)
 
 /*
  * Base addresses of peripherals hanging on APB2 bus
  */
-#define SPI1_BASEADDR						(APB2_PERIPH_BASE + 0x3000)U	/*Base address of SPI1 Peripheral*/
-#define SPI4_BASEADDR						(APB2_PERIPH_BASE + 0x3400)U	/*Base address of SPI4 Peripheral*/
+#define SPI1_BASEADDR						(APB2_PERIPH_BASE + 0x3000)
 
-#define USART1_BASEADDR						(APB2_PERIPH_BASE + 0x1000)U	/*Base address of USART1 Peripheral*/
-#define USART6_BASEADDR						(APB2_PERIPH_BASE + 0x1400)U	/*Base address of USART6 Peripheral*/
+#define USART1_BASEADDR						(APB2_PERIPH_BASE + 0x1000)
+#define USART6_BASEADDR						(APB2_PERIPH_BASE + 0x1400)
 
-#define EXTI_BASEADDR						(APB2_PERIPH_BASE + 0x3C00)U	/*Base address of EXTI Peripheral*/
-#define SYSCFG_BASEADDR						(APB2_PERIPH_BASE + 0x4000)U	/*Base address of SYSCFG Peripheral*/
-
-
+#define EXTI_BASEADDR						(APB2_PERIPH_BASE + 0x3C00)
+#define SYSCFG_BASEADDR						(APB2_PERIPH_BASE + 0x4000)
 #endif /* INC_STM32F446_H_ */
