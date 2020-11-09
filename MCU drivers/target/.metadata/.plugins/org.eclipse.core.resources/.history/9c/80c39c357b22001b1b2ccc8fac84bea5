@@ -76,46 +76,6 @@
 /*************************PERIPHERAL REGISTER DEFINITION STRUCTURES**********************/
 
 /*
- *	peripheral register definition structure for RCC
- */
-typedef struct{
-	__vo uint32_t CR;						/*address offset: 0x00		RCC clock control register*/
-	__vo uint32_t PLLCFGR;					/*address offset: 0x04 		RCC PLL configuration register*/
-	__vo uint32_t CFGR;						/*address offset: 0x08 		RCC clock configuration register*/
-	__vo uint32_t CIR;						/*address offset: 0x0C 		RCC clock interrupt register*/
-	__vo uint32_t AHB1RSTR;					/*address offset: 0x10 		RCC AHB1 peripheral reset register*/
-	__vo uint32_t AHB2RSTR;					/*address offset: 0x14 		RCC AHB2 peripheral reset register*/
-	__vo uint32_t AHB3RSTR;					/*address offset: 0x18 		RCC AHB3 peripheral reset register*/
-	uint32_t RESERVED1;						/*address offset: 0x1C 		reserved*/
-	__vo uint32_t APB1RSTR;					/*address offset: 0x20 		RCC APB1 peripheral reset register*/
-	__vo uint32_t APB2RSTR;					/*address offset: 0x24 		RCC APB2 peripheral reset register*/
-	uint32_t RESERVED2[2];					/*address offset: 0x28 		reserved*/
-	__vo uint32_t AHB1ENR;					/*address offset: 0x30 		RCC AHB1 peripheral clock enable register*/
-	__vo uint32_t AHB2ENR;					/*address offset: 0x34 		RCC AHB2 peripheral clock enable register*/
-	__vo uint32_t AHB3ENR;					/*address offset: 0x38 		RCC AHB3 peripheral clock enable register*/
-	uint32_t RESERVED3;						/*address offset: 0x3C 		reserved*/
-	__vo uint32_t APB1ENR;					/*address offset: 0x40 		RCC APB1 peripheral clock enable register*/
-	__vo uint32_t APB2ENR;					/*address offset: 0x44 		RCC APB2 peripheral clock enable register*/
-	uint32_t RESERVED4[2];					/*address offset: 0x48 		reserved*/
-	__vo uint32_t AHB1LPENR;				/*address offset: 0x50 		RCC AHB1 peripheral clock enable in low power mode register*/
-	__vo uint32_t AHB2LPENR;				/*address offset: 0x54 		RCC AHB2 peripheral clock enable in low power mode register*/
-	__vo uint32_t AHB3LPENR;				/*address offset: 0x58 		RCC AHB3 peripheral clock enable in low power mode register*/
-	uint32_t RESERVED5;						/*address offset: 0x5C 		reserved*/
-	__vo uint32_t APB1LPENR;				/*address offset: 0x60 		RCC APB1 peripheral clock enable in low power mode register*/
-	__vo uint32_t APB2LPENR;				/*address offset: 0x64 		RCC APB2 peripheral clock enable in low power mode register*/
-	uint32_t RESERVED6[2];					/*address offset: 0x68 		reserved*/
-	__vo uint32_t BDCR;						/*address offset: 0x70 		RCC Backup domain control register*/
-	__vo uint32_t CSR;						/*address offset: 0x74 		RCC clock control & status register*/
-	uint32_t RESERVED7[2];					/*address offset: 0x78 		reserved*/
-	__vo uint32_t SSCGR;					/*address offset: 0x80 		RCC spread spectrum clock generation register*/
-	__vo uint32_t PLLI2SCFGR;				/*address offset: 0x84 		RCC PLLI2S configuration register*/
-	__vo uint32_t PLLSAICFGR;				/*address offset: 0x88 		RCC PLL configuration register*/
-	__vo uint32_t DCKCFGR;					/*address offset: 0x8C 		RCC Dedicated Clock Configuration Register*/
-	__vo uint32_t CKGATENR;					/*address offset: 0x90 		RCC clocks gated enable register*/
-	__vo uint32_t DCKCFGR2;					/*address offset: 0x94 		RCC dedicated clocks configuration register 2*/
-}RCC_RegDef_t;
-
-/*
  *	peripheral register definition structure for GPIO
  */
 typedef struct{
