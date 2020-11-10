@@ -252,17 +252,20 @@ Discarded input sections
  .group         0x0000000000000000        0xc drivers/src/stm32f446_gpio_driver .o
  .group         0x0000000000000000        0xc drivers/src/stm32f446_gpio_driver .o
  .group         0x0000000000000000        0xc drivers/src/stm32f446_gpio_driver .o
+ .group         0x0000000000000000        0xc drivers/src/stm32f446_gpio_driver .o
  .text          0x0000000000000000        0x0 drivers/src/stm32f446_gpio_driver .o
  .data          0x0000000000000000        0x0 drivers/src/stm32f446_gpio_driver .o
  .bss           0x0000000000000000        0x0 drivers/src/stm32f446_gpio_driver .o
  .text.GPIO_PeriClockControl
-                0x0000000000000000       0xf0 drivers/src/stm32f446_gpio_driver .o
- .debug_info    0x0000000000000000      0x325 drivers/src/stm32f446_gpio_driver .o
- .debug_abbrev  0x0000000000000000       0xae drivers/src/stm32f446_gpio_driver .o
+                0x0000000000000000      0x1a4 drivers/src/stm32f446_gpio_driver .o
+ .text.GPIO_Init
+                0x0000000000000000       0x12 drivers/src/stm32f446_gpio_driver .o
+ .debug_info    0x0000000000000000      0x3d7 drivers/src/stm32f446_gpio_driver .o
+ .debug_abbrev  0x0000000000000000       0xc8 drivers/src/stm32f446_gpio_driver .o
  .debug_aranges
-                0x0000000000000000       0x20 drivers/src/stm32f446_gpio_driver .o
- .debug_ranges  0x0000000000000000       0x10 drivers/src/stm32f446_gpio_driver .o
- .debug_macro   0x0000000000000000       0x7c drivers/src/stm32f446_gpio_driver .o
+                0x0000000000000000       0x28 drivers/src/stm32f446_gpio_driver .o
+ .debug_ranges  0x0000000000000000       0x18 drivers/src/stm32f446_gpio_driver .o
+ .debug_macro   0x0000000000000000       0x81 drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000      0xa66 drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000       0x22 drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000       0x8e drivers/src/stm32f446_gpio_driver .o
@@ -271,10 +274,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x6a drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000      0x1df drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000      0x279 drivers/src/stm32f446_gpio_driver .o
- .debug_line    0x0000000000000000      0x421 drivers/src/stm32f446_gpio_driver .o
- .debug_str     0x0000000000000000     0x4c65 drivers/src/stm32f446_gpio_driver .o
+ .debug_macro   0x0000000000000000       0xc4 drivers/src/stm32f446_gpio_driver .o
+ .debug_line    0x0000000000000000      0x467 drivers/src/stm32f446_gpio_driver .o
+ .debug_str     0x0000000000000000     0x4f2b drivers/src/stm32f446_gpio_driver .o
  .comment       0x0000000000000000       0x7c drivers/src/stm32f446_gpio_driver .o
- .debug_frame   0x0000000000000000       0x38 drivers/src/stm32f446_gpio_driver .o
+ .debug_frame   0x0000000000000000       0x60 drivers/src/stm32f446_gpio_driver .o
  .ARM.attributes
                 0x0000000000000000       0x33 drivers/src/stm32f446_gpio_driver .o
  .text          0x0000000000000000        0x0 /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libc_nano.a(lib_a-errno.o)

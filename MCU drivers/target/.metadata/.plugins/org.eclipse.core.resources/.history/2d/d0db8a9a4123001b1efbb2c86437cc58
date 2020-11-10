@@ -69,22 +69,7 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi){
 /*
  *	Init and De-init
  */
-
-/*****************************************************************
- * @fn					- GPIO_Init
- *
- * @brief				- This function initialize given GPIO peripheral with user values
- *
- * @param[in]			- GPIO handle with base address and initialization values
- *
- * @return				- none
- *
- * @note				- none
- *
- */
-void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
-
-}
+void GPIO_Init(GPIO_Handle_t *pGPIOHandle);
 
 void GPIO_DeInit(GPIO_RegDef_t *pGPIOx);
 

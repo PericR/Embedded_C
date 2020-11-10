@@ -63,6 +63,13 @@ typedef struct{
 #define GPIO_MODE_I_RFT						6
 
 /*
+ * @GPIO_PIN_OP_TYPE
+ *	GPIO pin output types
+ */
+#define GPIO_OP_TYPE_PP						0
+#define GPIO_OP_TYPE_OD						1
+
+/*
  * @GPIO_PIN_SPEED
  *	GPIO pin output speed
  */
@@ -78,14 +85,6 @@ typedef struct{
 #define GPIO_NO_PUPD						0
 #define GPIO_PU								1
 #define GPIO_PD								2
-
-/*
- * @GPIO_PIN_OP_TYPE
- *	GPIO pin output types
- */
-#define GPIO_OP_TYPE_PP						0
-#define GPIO_OP_TYPE_OD						1
-
 
 
 /**************************************************************************************************************
