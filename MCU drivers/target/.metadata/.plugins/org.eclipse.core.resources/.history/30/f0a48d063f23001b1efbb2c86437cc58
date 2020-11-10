@@ -35,16 +35,16 @@
 /*
  * Base addresses of peripherals hanging on AHB1 bus
  */
-#define RCC_BASEADDR						(AHB1_PERIPH_BASE + 0x3800)		/*Base address of RCC Peripheral*/
+#define RCC_BASEADDR						(AHB1_PERIPH_BASE + 0x3800)U	/*Base address of RCC Peripheral*/
 
-#define GPIOA_BASEADDR						(AHB1_PERIPH_BASE + 0x0000)		/*Base address of GPIOA Peripheral*/
-#define GPIOB_BASEADDR						(AHB1_PERIPH_BASE + 0x0400)		/*Base address of GPIOB Peripheral*/
-#define GPIOC_BASEADDR						(AHB1_PERIPH_BASE + 0x0800)		/*Base address of GPIOC Peripheral*/
-#define GPIOD_BASEADDR						(AHB1_PERIPH_BASE + 0x0C00)		/*Base address of GPIOD Peripheral*/
-#define GPIOE_BASEADDR						(AHB1_PERIPH_BASE + 0x1000)		/*Base address of GPIOE Peripheral*/
-#define GPIOF_BASEADDR						(AHB1_PERIPH_BASE + 0x1400)		/*Base address of GPIOF Peripheral*/
-#define GPIOG_BASEADDR						(AHB1_PERIPH_BASE + 0x1800)		/*Base address of GPIOG Peripheral*/
-#define GPIOH_BASEADDR						(AHB1_PERIPH_BASE + 0x1C00)		/*Base address of GPIOH Peripheral*/
+#define GPIOA_BASEADDR						(AHB1_PERIPH_BASE + 0x0000)U	/*Base address of GPIOA Peripheral*/
+#define GPIOB_BASEADDR						(AHB1_PERIPH_BASE + 0x0400)U	/*Base address of GPIOB Peripheral*/
+#define GPIOC_BASEADDR						(AHB1_PERIPH_BASE + 0x0800)U	/*Base address of GPIOC Peripheral*/
+#define GPIOD_BASEADDR						(AHB1_PERIPH_BASE + 0x0C00)U	/*Base address of GPIOD Peripheral*/
+#define GPIOE_BASEADDR						(AHB1_PERIPH_BASE + 0x1000)U	/*Base address of GPIOE Peripheral*/
+#define GPIOF_BASEADDR						(AHB1_PERIPH_BASE + 0x1400)U	/*Base address of GPIOF Peripheral*/
+#define GPIOG_BASEADDR						(AHB1_PERIPH_BASE + 0x1800)U	/*Base address of GPIOG Peripheral*/
+#define GPIOH_BASEADDR						(AHB1_PERIPH_BASE + 0x1C00)U	/*Base address of GPIOH Peripheral*/
 
 /*
  * Base addresses of peripherals hanging on APB1 bus
@@ -144,7 +144,7 @@ typedef struct{
 #define GPIOE								((GPIO_RegDef_t*) GPIOE_BASEADDR)
 #define GPIOF								((GPIO_RegDef_t*) GPIOF_BASEADDR)
 #define GPIOG								((GPIO_RegDef_t*) GPIOG_BASEADDR)
-#define GPIOH								((GPIO_RegDef_t*) GPIOH_BASEADDR)
+#define GPIOH								((GPIO_RegDef_t*) GPIO_BASEADDR)
 
 /*
  *	clock enable macros for GPIO peripherals
