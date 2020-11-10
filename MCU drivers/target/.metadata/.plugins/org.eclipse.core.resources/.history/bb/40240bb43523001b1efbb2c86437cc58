@@ -8,7 +8,7 @@
 #ifndef INC_STM32F446_GPIO_DRIVER_H_
 #define INC_STM32F446_GPIO_DRIVER_H_
 
-#include "stm32f446.h"
+#include "stm32f446_gpio_driver.h"
 #include <stdint.h>
 
 typedef struct{
