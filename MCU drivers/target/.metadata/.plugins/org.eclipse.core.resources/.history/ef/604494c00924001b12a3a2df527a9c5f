@@ -87,7 +87,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 
 	//reset, then set mode register
 	if( pGPIOHandle->GPIO_PinConfig.GPIO_PinMode <= GPIO_MODE_ANALOG){
-		reset_value = (0x3 << ((2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber)));
+		reset_value = (2 << ((2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber)));
 		pGPIOHandle->pGPIOx->MODER &= ~(reset_value);
 		reset_value = 0;
 
@@ -98,7 +98,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 	}
 
 	// reset, then set speed register
-	reset_value = (0x3 << ((2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber)));
+	reset_value = (2 << ((2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber)));
 	pGPIOHandle->pGPIOx->OSPEEDER &= ~(reset_value);
 	reset_value = 0;
 
@@ -106,7 +106,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 	pGPIOHandle->pGPIOx->OSPEEDER |= ospeedr_value;
 
 	//reset, then set pupd register
-	reset_value = (0x3 << ((2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber)));
+	reset_value = (2 << ((2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber)));
 	pGPIOHandle->pGPIOx->PUPDR &= ~(reset_value);
 	reset_value = 0;
 
@@ -114,7 +114,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 	pGPIOHandle->pGPIOx->PUPDR |= pupdr_value;
 
 	//reset, then set output type register
-	reset_value = (0x1 << (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+	reset_value = (1 << (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
 	pGPIOHandle->pGPIOx->OTYPER &= ~(reset_value);
 	reset_value = 0;
 
@@ -123,13 +123,12 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 
 	//reset, then set altfn register
 	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinAltFunMode == GPIO_MODE_ALTFN){
-		uint8_t index = (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber / 8);
-		uint8_t position = ((pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber % 8) * 4);
+		uint32_t index = (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber / 8);
+		uint32_t position = ((pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber % 8) * 4);
 
 		//reset
-		reset_value = (0xF << position);
+		reset_value = (15 << position);
 		pGPIOHandle->pGPIOx->AFR[index] &= ~(reset_value);
-		reset_value = 0;
 
 		//set
 		uint32_t afr_value = (pGPIOHandle->GPIO_PinConfig.GPIO_PinAltFunMode << position);
