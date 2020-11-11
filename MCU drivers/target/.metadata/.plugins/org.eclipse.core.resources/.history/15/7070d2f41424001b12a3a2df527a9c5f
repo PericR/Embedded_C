@@ -10,7 +10,6 @@
 
 #include <stdint.h>
 
-
 #define __vo volatile
 
 /*************************BASE ADDRESSES OF MEMORY AND PERIPHERALS*************************/
@@ -253,7 +252,5 @@ typedef struct{
 #define GPIOG_REG_RESET()								do{ RCC->AHB1RSTR |= (1 << 6); RCC->AHB1RSTR &= ~(1 << 6);} while(0)
 #define GPIOH_REG_RESET()								do{ RCC->AHB1RSTR |= (1 << 7); RCC->AHB1RSTR &= ~(1 << 7);} while(0)
 
-
-#include "stm32f446_gpio_driver.h"
 
 #endif /* INC_STM32F446_H_ */
