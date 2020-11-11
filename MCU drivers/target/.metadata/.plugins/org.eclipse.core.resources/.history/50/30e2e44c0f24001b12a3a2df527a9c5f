@@ -181,7 +181,7 @@ void GPIO_DeInit(GPIO_RegDef_t *pGPIOx){
  * @param[in]			- GPIO register definition with base address
  * @param[in]			- GPIO pin number
  *
- * @return				- 0 or 1
+ * @return				- none
  *
  * @note				- none
  *
@@ -191,25 +191,8 @@ uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber){
 	return value;
 }
 
-/*****************************************************************
- * @fn					- GPIO_ReadFromInputPort
- *
- * @brief				- This function returns value from input port
- *
- * @param[in]			- GPIO register definition with base address
- *
- * @return				- 16 bit unsigned integer
- *
- * @note				- none
- *
- */
-uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx){
-	uint16_t value = (uint16_t)pGPIOx->IDR;
-	return value;
-}
 
-
-
+uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx);
 void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Value);
 void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint8_t Value);
 void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
