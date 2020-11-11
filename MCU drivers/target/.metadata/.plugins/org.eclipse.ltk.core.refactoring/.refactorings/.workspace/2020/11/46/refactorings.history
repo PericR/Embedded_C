@@ -1,4 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete resource &apos;stm32f446_drivers/Src/001_led_toggle&apos;" deleteContents="false" description="Delete resource &apos;stm32f446_drivers/Src/001_led_toggle&apos;" element1="/stm32f446_drivers/Src/001_led_toggle" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1605095137390"/>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;stm32f446_drivers/Src/001_led_toggle&apos;" deleteContents="false" description="Delete resource &apos;stm32f446_drivers/Src/001_led_toggle&apos;" element1="/stm32f446_drivers/Src/001_led_toggle" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1605095137390"/>&#x0A;<refactoring comment="Delete resource &apos;stm32f446_drivers/Src/003_external_led_button&apos;" deleteContents="false" description="Delete resource &apos;stm32f446_drivers/Src/003_external_led_button&apos;" element1="/stm32f446_drivers/Src/003_external_led_button" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1605117342660"/>
 </session>

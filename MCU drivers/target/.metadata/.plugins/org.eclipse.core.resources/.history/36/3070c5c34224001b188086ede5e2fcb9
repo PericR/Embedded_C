@@ -12,7 +12,7 @@
 #include <stdint.h>
 
 typedef struct{
-	uint8_t GPIO_PinNumber;					/*Possible values from @GPIO_PIN_NUMBERS*/
+	uint8_t GPIO_PinNumber;
 	uint8_t GPIO_PinMode;					/*Possible values from @GPIO_PIN_MODES*/
 	uint8_t GPIO_PinSpeed;					/*Possible values from @GPIO_PIN_SPEED*/
 	uint8_t GPIO_PinPuPdControl;			/*Possible values from @GPIO_PIN_PUPD*/
@@ -31,7 +31,7 @@ typedef struct{
 
 /*
  * @GPIO_PIN_NUMBERS
- *	GPIO pin possible numbers
+ *	GPIO pin possible modes
  */
 #define GPIO_PIN_NO_0						0
 #define GPIO_PIN_NO_1						1
