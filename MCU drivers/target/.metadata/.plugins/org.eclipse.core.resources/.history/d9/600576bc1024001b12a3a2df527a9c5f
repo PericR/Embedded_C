@@ -217,7 +217,7 @@ uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx){
  * @param[in]			- GPIO pin number
  * @param[in]			- value to write, can be 1 or 0
  *
- * @return				- none
+ * @return				- 16 bit unsigned integer
  *
  * @note				- none
  *
@@ -230,24 +230,8 @@ void GPIO_WriteToOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Val
 	}
 }
 
-/*****************************************************************
- * @fn					- GPIO_WriteToOutputPort
- *
- * @brief				- This function writes value to output port
- *
- * @param[in]			- GPIO register definition with base address
- * @param[in]			- value to write
- *
- * @return				- none
- *
- * @note				- none
- *
- */
-void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint8_t Value){
-	pGPIOx->ODR = Value;
-}
 
-
+void GPIO_WriteToOutputPort(GPIO_RegDef_t *pGPIOx, uint8_t Value);
 void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
 
 /*
