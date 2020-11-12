@@ -34,7 +34,7 @@
 /*
  * ARM cortex M4 processor priority register address calculations
  */
-#define NVIC_PR_BASE_ADDR 					((__vo uint32_t*) 0xE000E400)
+#define NVIC_PR_BASE_ADDR					((__vo uint32_t*) 0xE000E400)
 
 
 /*
