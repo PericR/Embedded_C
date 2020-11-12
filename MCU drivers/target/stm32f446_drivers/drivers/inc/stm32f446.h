@@ -50,30 +50,30 @@
 /*
  * Base addresses of peripherals hanging on APB1 bus
  */
-#define I2C1_BASEADDR						(APB1_PERIPH_BASE + 0x5400)U	/*Base address of I2C1 Peripheral*/
-#define I2C2_BASEADDR						(APB1_PERIPH_BASE + 0x5800)U	/*Base address of I2C2 Peripheral*/
-#define I2C3_BASEADDR						(APB1_PERIPH_BASE + 0x5C00)U	/*Base address of I2C3 Peripheral*/
+#define I2C1_BASEADDR						(APB1_PERIPH_BASE + 0x5400)		/*Base address of I2C1 Peripheral*/
+#define I2C2_BASEADDR						(APB1_PERIPH_BASE + 0x5800)		/*Base address of I2C2 Peripheral*/
+#define I2C3_BASEADDR						(APB1_PERIPH_BASE + 0x5C00)		/*Base address of I2C3 Peripheral*/
 
-#define SPI2_BASEADDR						(APB1_PERIPH_BASE + 0x3800)U	/*Base address of SPI2 Peripheral*/
-#define SPI3_BASEADDR						(APB1_PERIPH_BASE + 0x3C00)U	/*Base address of SPI3 Peripheral*/
+#define SPI2_BASEADDR						(APB1_PERIPH_BASE + 0x3800)		/*Base address of SPI2 Peripheral*/
+#define SPI3_BASEADDR						(APB1_PERIPH_BASE + 0x3C00)		/*Base address of SPI3 Peripheral*/
 
-#define USART2_BASEADDR						(APB1_PERIPH_BASE + 0x4400)U	/*Base address of USART2 Peripheral*/
-#define USART3_BASEADDR						(APB1_PERIPH_BASE + 0x4800)U	/*Base address of USART3 Peripheral*/
+#define USART2_BASEADDR						(APB1_PERIPH_BASE + 0x4400)		/*Base address of USART2 Peripheral*/
+#define USART3_BASEADDR						(APB1_PERIPH_BASE + 0x4800)		/*Base address of USART3 Peripheral*/
 
-#define UART4_BASEADDR						(APB1_PERIPH_BASE + 0x4C00)U	/*Base address of UART4 Peripheral*/
-#define UART5_BASEADDR						(APB1_PERIPH_BASE + 0x5000)U	/*Base address of UART5 Peripheral*/
+#define UART4_BASEADDR						(APB1_PERIPH_BASE + 0x4C00)		/*Base address of UART4 Peripheral*/
+#define UART5_BASEADDR						(APB1_PERIPH_BASE + 0x5000)		/*Base address of UART5 Peripheral*/
 
 /*
  * Base addresses of peripherals hanging on APB2 bus
  */
-#define SPI1_BASEADDR						(APB2_PERIPH_BASE + 0x3000)U	/*Base address of SPI1 Peripheral*/
-#define SPI4_BASEADDR						(APB2_PERIPH_BASE + 0x3400)U	/*Base address of SPI4 Peripheral*/
+#define SPI1_BASEADDR						(APB2_PERIPH_BASE + 0x3000)		/*Base address of SPI1 Peripheral*/
+#define SPI4_BASEADDR						(APB2_PERIPH_BASE + 0x3400)		/*Base address of SPI4 Peripheral*/
 
-#define USART1_BASEADDR						(APB2_PERIPH_BASE + 0x1000)U	/*Base address of USART1 Peripheral*/
-#define USART6_BASEADDR						(APB2_PERIPH_BASE + 0x1400)U	/*Base address of USART6 Peripheral*/
+#define USART1_BASEADDR						(APB2_PERIPH_BASE + 0x1000)		/*Base address of USART1 Peripheral*/
+#define USART6_BASEADDR						(APB2_PERIPH_BASE + 0x1400)		/*Base address of USART6 Peripheral*/
 
-#define EXTI_BASEADDR						(APB2_PERIPH_BASE + 0x3C00)U	/*Base address of EXTI Peripheral*/
-#define SYSCFG_BASEADDR						(APB2_PERIPH_BASE + 0x4000)U	/*Base address of SYSCFG Peripheral*/
+#define EXTI_BASEADDR						(APB2_PERIPH_BASE + 0x3C00)		/*Base address of EXTI Peripheral*/
+#define SYSCFG_BASEADDR						(APB2_PERIPH_BASE + 0x4000)		/*Base address of SYSCFG Peripheral*/
 
 
 /*************************PERIPHERAL REGISTER DEFINITION STRUCTURES**********************/
@@ -119,6 +119,31 @@ typedef struct{
 }RCC_RegDef_t;
 
 /*
+ *	peripheral register definition structure for EXTI
+ */
+typedef struct{
+	__vo uint32_t IMR;					/*address offset: 0x00		EXTI port interrupt mask register*/
+	__vo uint32_t EMR;					/*address offset: 0x04 		EXTI port Event mask register*/
+	__vo uint32_t RTSR;					/*address offset: 0x08 		EXTI port Rising trigger selection register*/
+	__vo uint32_t FTSR;					/*address offset: 0x0C 		EXTI port Falling trigger selection register*/
+	__vo uint32_t SWIER;				/*address offset: 0x10 		EXTI port Software interrupt event register*/
+	__vo uint32_t PR;					/*address offset: 0x14 		EXTI port Pending register*/
+}EXTI_RegDef_t;
+
+/*
+ *	peripheral register definition structure for GPIO
+ */
+typedef struct{
+	__vo uint32_t MEMRMP;					/*address offset: 0x00		SYSCFG memory remap register*/
+	__vo uint32_t PMC;						/*address offset: 0x04 		SYSCFG peripheral mode configuration register*/
+	__vo uint32_t EXTICR[4];				/*address offset: 0x08 		SYSCFG external interrupt configuration register*/
+	uint32_t RESERVED1[2];					/*address offset: 0x18 		reserved*/
+	__vo uint32_t CMPCR;					/*address offset: 0x20 		Compensation cell control register*/
+	uint32_t RESERVED2[2];					/*address offset: 0x24 		reserved*/
+	__vo uint32_t CFGR;						/*address offset: 0x2C 		SYSCFG configuration register*/
+}SYSCFG_RegDef_t;
+
+/*
  *	peripheral register definition structure for GPIO
  */
 typedef struct{
@@ -137,6 +162,8 @@ typedef struct{
  *	peripheral definitions
  */
 #define RCC									((RCC_RegDef_t*) RCC_BASEADDR)
+#define EXTI								((EXTI_RegDef_t*) EXTI_BASEADDR)
+#define SYSCFG								((SYSCFG_RegDef_t*) SYSCFG_BASEADDR)
 
 #define GPIOA								((GPIO_RegDef_t*) GPIOA_BASEADDR)
 #define GPIOB								((GPIO_RegDef_t*) GPIOB_BASEADDR)
@@ -232,14 +259,6 @@ typedef struct{
  */
 #define SYSCFG_PCLK_DI()						(RCC->APB2ENR &= ~(1 << 14))
 
-// some generic macros
-#define ENABLE 									1
-#define DISABLE 								0
-#define SET										ENABLE
-#define RESET									DISABLE
-#define GPIO_PIN_SET							SET
-#define GPIO_PIN_RESET							RESET
-
 
 /*
  *	GPIO peripherals reset macros
@@ -252,6 +271,36 @@ typedef struct{
 #define GPIOF_REG_RESET()								do{ RCC->AHB1RSTR |= (1 << 5); RCC->AHB1RSTR &= ~(1 << 5);} while(0)
 #define GPIOG_REG_RESET()								do{ RCC->AHB1RSTR |= (1 << 6); RCC->AHB1RSTR &= ~(1 << 6);} while(0)
 #define GPIOH_REG_RESET()								do{ RCC->AHB1RSTR |= (1 << 7); RCC->AHB1RSTR &= ~(1 << 7);} while(0)
+
+
+#define GPIO_BASEADDR_TO_CODE(gpio_baseaddr)			(	(gpio_baseaddr == GPIOA)? 0:\
+															(gpio_baseaddr == GPIOB)? 1:\
+															(gpio_baseaddr == GPIOC)? 2:\
+															(gpio_baseaddr == GPIOD)? 3:\
+															(gpio_baseaddr == GPIOE)? 4:\
+															(gpio_baseaddr == GPIOF)? 5:\
+															(gpio_baseaddr == GPIOG)? 6:\
+															(gpio_baseaddr == GPIOH)? 7:0	)
+
+
+//EXTI IRQ numbers
+#define IRQ_NO_EXTI0 							6
+#define IRQ_NO_EXTI1 							7
+#define IRQ_NO_EXTI2 							8
+#define IRQ_NO_EXTI3 							9
+#define IRQ_NO_EXTI4 							10
+#define IRQ_NO_EXTI9_5 							23
+#define IRQ_NO_EXTI15_10 						40
+
+
+// some generic macros
+#define ENABLE 									1
+#define DISABLE 								0
+#define SET										ENABLE
+#define RESET									DISABLE
+#define GPIO_PIN_SET							SET
+#define GPIO_PIN_RESET							RESET
+
 
 
 #include "stm32f446_gpio_driver.h"

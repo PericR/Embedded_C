@@ -60,7 +60,7 @@ typedef struct{
 #define GPIO_MODE_ANALOG					3
 #define GPIO_MODE_IT_FT						4
 #define GPIO_MODE_IT_RT						5
-#define GPIO_MODE_I_RFT						6
+#define GPIO_MODE_IT_RFT					6
 
 /*
  * @GPIO_PIN_SPEED
