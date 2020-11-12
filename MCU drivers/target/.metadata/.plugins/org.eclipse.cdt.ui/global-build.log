@@ -1,7 +1,6 @@
-19:04:45 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+20:08:25 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
 make -j4 all 
 arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
-arm-none-eabi-gcc "../Src/003_external_led_btn.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/003_external_led_btn.d" -MT"Src/003_external_led_btn.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/003_external_led_btn.o"
 arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32f446_drivers.elf
  
@@ -12,7 +11,7 @@ arm-none-eabi-size   stm32f446_drivers.elf
    2268	      8	   1568	   3844	    f04	stm32f446_drivers.elf
 Finished building: stm32f446_drivers.bin
 Finished building: default.size.stdout
-Finished building: stm32f446_drivers.list
  
+Finished building: stm32f446_drivers.list
  
  

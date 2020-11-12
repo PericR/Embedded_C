@@ -337,7 +337,7 @@ void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi){
 
 
 /*****************************************************************
- * @fn					- GPIO_IRQPriorityConfig
+ * @fn					- GPIO_IRQConfig
  *
  * @brief				- This function configures priority registers
  *
@@ -348,13 +348,8 @@ void GPIO_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi){
  * @note				- none
  *
  */
-void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint8_t IRQPriority){
-	uint8_t iprx = IRQNumber / 4;
-	uint8_t iprx_section = IRQNumber % 4;
+void GPIO_IRQPriorityConfig(uint8_t IRQPriority){
 
-	uint8_t shift_value = (8 * iprx_section) - (8 - NO_PR_BITS_IMPLEMENTED)
-
-	*(NVIC_PR_BASE_ADDR + (iprx * 4)) |= (IRQPriority << shift_value);
 }
 
 
