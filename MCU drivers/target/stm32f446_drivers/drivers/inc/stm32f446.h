@@ -102,7 +102,7 @@
 #define USART6_BASEADDR						(APB2_PERIPH_BASE + 0x1400)		/*Base address of USART6 Peripheral*/
 
 #define EXTI_BASEADDR						(APB2_PERIPH_BASE + 0x3C00)		/*Base address of EXTI Peripheral*/
-#define SYSCFG_BASEADDR						(APB2_PERIPH_BASE + 0x4000)		/*Base address of SYSCFG Peripheral*/
+#define SYSCFG_BASEADDR						(APB2_PERIPH_BASE + 0x3800)		/*Base address of SYSCFG Peripheral*/
 
 
 /*************************PERIPHERAL REGISTER DEFINITION STRUCTURES**********************/
@@ -321,6 +321,17 @@ typedef struct{
 #define IRQ_NO_EXTI9_5 							23
 #define IRQ_NO_EXTI15_10 						40
 
+//macros for the all possible EXTI IRQ priority levels
+#define NVIC_IRQ_PRI0 							0
+#define NVIC_IRQ_PRI1 							1
+#define NVIC_IRQ_PRI2 							2
+#define NVIC_IRQ_PRI3 							3
+#define NVIC_IRQ_PRI4 							4
+#define NVIC_IRQ_PRI5 							5
+#define NVIC_IRQ_PRI6 							6
+#define NVIC_IRQ_PRI7 							7
+#define NVIC_IRQ_PRI8 							8
+#define NVIC_IRQ_PRI9 							9
 
 // some generic macros
 #define ENABLE 									1
