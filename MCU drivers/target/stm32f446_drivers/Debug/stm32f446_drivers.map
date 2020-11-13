@@ -282,7 +282,7 @@ Discarded input sections
  .text.GPIO_WriteToOutputPort
                 0x0000000000000000       0x1c drivers/src/stm32f446_gpio_driver .o
  .text.GPIO_IRQPriorityConfig
-                0x0000000000000000       0x5a drivers/src/stm32f446_gpio_driver .o
+                0x0000000000000000       0x52 drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000      0xa66 drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000       0x22 drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000       0xef drivers/src/stm32f446_gpio_driver .o
