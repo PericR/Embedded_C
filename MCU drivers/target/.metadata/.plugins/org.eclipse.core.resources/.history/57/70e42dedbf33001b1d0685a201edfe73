@@ -62,8 +62,4 @@ void SPI_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi);
 void SPI_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority);
 void SPI_IRQHandling(SPI_Handle_t *pSPIHandle);
 
-/*
- * 	Other Peripheral Control APIs
- */
-
 #endif /* INC_STM32F446_SPI_DRIVER_H_ */

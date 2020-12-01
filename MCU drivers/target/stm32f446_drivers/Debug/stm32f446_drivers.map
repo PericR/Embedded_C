@@ -288,8 +288,23 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xef drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000       0x6a drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000      0x1df drivers/src/stm32f446_gpio_driver .o
- .debug_macro   0x0000000000000000      0x379 drivers/src/stm32f446_gpio_driver .o
+ .debug_macro   0x0000000000000000      0x395 drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000       0xc4 drivers/src/stm32f446_gpio_driver .o
+ .group         0x0000000000000000        0xc drivers/src/stm32f446_spi_driver.o
+ .text          0x0000000000000000        0x0 drivers/src/stm32f446_spi_driver.o
+ .data          0x0000000000000000        0x0 drivers/src/stm32f446_spi_driver.o
+ .bss           0x0000000000000000        0x0 drivers/src/stm32f446_spi_driver.o
+ .debug_info    0x0000000000000000       0x21 drivers/src/stm32f446_spi_driver.o
+ .debug_abbrev  0x0000000000000000       0x13 drivers/src/stm32f446_spi_driver.o
+ .debug_aranges
+                0x0000000000000000       0x18 drivers/src/stm32f446_spi_driver.o
+ .debug_macro   0x0000000000000000       0x11 drivers/src/stm32f446_spi_driver.o
+ .debug_macro   0x0000000000000000      0xa66 drivers/src/stm32f446_spi_driver.o
+ .debug_line    0x0000000000000000       0x46 drivers/src/stm32f446_spi_driver.o
+ .debug_str     0x0000000000000000     0x2d08 drivers/src/stm32f446_spi_driver.o
+ .comment       0x0000000000000000       0x7c drivers/src/stm32f446_spi_driver.o
+ .ARM.attributes
+                0x0000000000000000       0x33 drivers/src/stm32f446_spi_driver.o
  .text          0x0000000000000000        0x0 /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libc_nano.a(lib_a-errno.o)
  .data          0x0000000000000000        0x0 /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libc_nano.a(lib_a-errno.o)
  .bss           0x0000000000000000        0x0 /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libc_nano.a(lib_a-errno.o)
@@ -348,6 +363,7 @@ LOAD Src/syscalls.o
 LOAD Src/sysmem.o
 LOAD Startup/startup_stm32f446retx.o
 LOAD drivers/src/stm32f446_gpio_driver .o
+LOAD drivers/src/stm32f446_spi_driver.o
 START GROUP
 LOAD /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libc_nano.a
 LOAD /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libm.a
@@ -669,7 +685,7 @@ OUTPUT(stm32f446_drivers.elf elf32-littlearm)
  .debug_ranges  0x0000000000000020       0x20 Startup/startup_stm32f446retx.o
  .debug_ranges  0x0000000000000040       0x60 drivers/src/stm32f446_gpio_driver .o
 
-.debug_macro    0x0000000000000000     0x1ddb
+.debug_macro    0x0000000000000000     0x1df7
  .debug_macro   0x0000000000000000      0x146 Src/004_button_interrupt.o
  .debug_macro   0x0000000000000146      0xa66 Src/004_button_interrupt.o
  .debug_macro   0x0000000000000bac       0x22 Src/004_button_interrupt.o
@@ -692,24 +708,24 @@ OUTPUT(stm32f446_drivers.elf elf32-littlearm)
  .debug_macro   0x0000000000001501       0xef Src/004_button_interrupt.o
  .debug_macro   0x00000000000015f0       0x6a Src/004_button_interrupt.o
  .debug_macro   0x000000000000165a      0x1df Src/004_button_interrupt.o
- .debug_macro   0x0000000000001839      0x379 Src/004_button_interrupt.o
- .debug_macro   0x0000000000001bb2       0xc4 Src/004_button_interrupt.o
- .debug_macro   0x0000000000001c76       0x86 drivers/src/stm32f446_gpio_driver .o
- .debug_macro   0x0000000000001cfc       0x8e drivers/src/stm32f446_gpio_driver .o
- .debug_macro   0x0000000000001d8a       0x51 drivers/src/stm32f446_gpio_driver .o
+ .debug_macro   0x0000000000001839      0x395 Src/004_button_interrupt.o
+ .debug_macro   0x0000000000001bce       0xc4 Src/004_button_interrupt.o
+ .debug_macro   0x0000000000001c92       0x86 drivers/src/stm32f446_gpio_driver .o
+ .debug_macro   0x0000000000001d18       0x8e drivers/src/stm32f446_gpio_driver .o
+ .debug_macro   0x0000000000001da6       0x51 drivers/src/stm32f446_gpio_driver .o
 
 .debug_line     0x0000000000000000      0xc18
  .debug_line    0x0000000000000000      0x580 Src/004_button_interrupt.o
  .debug_line    0x0000000000000580       0x84 Startup/startup_stm32f446retx.o
  .debug_line    0x0000000000000604      0x614 drivers/src/stm32f446_gpio_driver .o
 
-.debug_str      0x0000000000000000     0x887b
- .debug_str     0x0000000000000000     0x852d Src/004_button_interrupt.o
-                                       0x877a (size before relaxing)
- .debug_str     0x000000000000852d       0x31 Startup/startup_stm32f446retx.o
+.debug_str      0x0000000000000000     0x890f
+ .debug_str     0x0000000000000000     0x85c1 Src/004_button_interrupt.o
+                                       0x880e (size before relaxing)
+ .debug_str     0x00000000000085c1       0x31 Startup/startup_stm32f446retx.o
                                          0x7d (size before relaxing)
- .debug_str     0x000000000000855e      0x31d drivers/src/stm32f446_gpio_driver .o
-                                       0x579a (size before relaxing)
+ .debug_str     0x00000000000085f2      0x31d drivers/src/stm32f446_gpio_driver .o
+                                       0x582e (size before relaxing)
 
 .comment        0x0000000000000000       0x7b
  .comment       0x0000000000000000       0x7b Src/004_button_interrupt.o
