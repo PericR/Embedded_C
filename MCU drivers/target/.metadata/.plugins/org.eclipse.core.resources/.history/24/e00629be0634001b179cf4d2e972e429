@@ -65,41 +65,39 @@ void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi){
  *
  */
 void SPI_Init(SPI_Handle_t *pSPIHandle){
-	uint32_t ControlReg1 = 0;
+	uint32_t reset_value = 0;
 
 	//configure device mode
-	ControlReg1 |= pSPIHandle->SPI_Config.SPI_DeviceMode << 2;
+
+	pSPIHandle->pSPIx->CR1 |= pSPIHandle->SPI_Config.SPI_DeviceMode << 2;
 
 	//Bus Configuration
 	if(pSPIHandle->SPI_Config.SPI_BusConfig == SPI_BUS_CONFIG_FD){
 		//bidi mode should be cleared
-		ControlReg1 &= ~(1 << SPI_CR1_BIDIMODE);
+		reset_value = (1 << 15);
+		pSPIHandle->pSPIx->CR1 &= ~(reset_value);
+		reset_value = 0;
 	} else if(pSPIHandle->SPI_Config.SPI_BusConfig == SPI_BUS_CONFIG_HD){
 		//bidi mode should be set
-		ControlReg1 |= (1 << SPI_CR1_BIDIMODE);
+		pSPIHandle->pSPIx->CR1 |= (1 << 15);
 	} else if(pSPIHandle->SPI_Config.SPI_BusConfig == SPI_BUS_CONFIG_SIMPLEX_RXONLY){
 		//bidi mode should be cleared
-		ControlReg1 &= ~(1 << SPI_CR1_BIDIMODE);
+		reset_value = (1 << 15);
+		pSPIHandle->pSPIx->CR1 &= (reset_value);
+		reset_value = 0;
 		//rxonly bit must be set
-		ControlReg1 |= (1 << SPI_CR1_RXONLY);
+		pSPIHandle->pSPIx->CR1 |= (1 << 10);
 	}
 
 	//Serial clk Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_SclkSpeed << SPI_CR1_BR);
+	//Reset
+	reset_value = (0x7 << 3);
+	pSPIHandle->pSPIx->CR1 &= ~(reset_value);
+	reset_value = 0;
+	//Set
+	pSPIHandle->pSPIx->CR1 |= (pSPIHandle->SPI_Config.SPI_SclkSpeed << 3);
 
-	//Data Frame Format Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_DFF << SPI_CR1_DFF);
 
-	//CPOL Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_CPOL << SPI_CR1_CPOL);
-
-	//CPHA Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_CPHA << SPI_CR1_CPHA);
-
-	//Software Slave Select Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_SSM << SPI_CR1_SSM);
-
-	pSPIHandle->pSPIx->CR1 = ControlReg1;
 }
 
 /*****************************************************************
