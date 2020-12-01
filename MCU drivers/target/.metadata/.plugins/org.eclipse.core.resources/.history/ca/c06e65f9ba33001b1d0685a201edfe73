@@ -160,7 +160,7 @@ typedef struct{
 }EXTI_RegDef_t;
 
 /*
- *	peripheral register definition structure for SYSCFG
+ *	peripheral register definition structure for GPIO
  */
 typedef struct{
 	__vo uint32_t MEMRMP;					/*address offset: 0x00		SYSCFG memory remap register*/
@@ -186,23 +186,6 @@ typedef struct{
 	__vo uint32_t LCKR;						/*address offset: 0x1C 		GPIO port configuration lock register*/
 	__vo uint32_t AFR[2];					/*address offset: 0x20 		[0] = GPIO alternate function low register, [1] = GPIO alternate function high register*/
 }GPIO_RegDef_t;
-
-/*
- *	peripheral register definition structure for SPI
- */
-typedef struct{
-	__vo uint32_t CR1;						/*address offset: 0x00		SPI control register 1 (not used in I2S mode)*/
-	__vo uint32_t CR2;						/*address offset: 0x04 		SPI control register 2*/
-	__vo uint32_t SR;						/*address offset: 0x08 		SPI status register*/
-	__vo uint32_t DR;						/*address offset: 0x0C 		SPI data register*/
-	__vo uint32_t CRCPR;					/*address offset: 0x10 		SPI CRC polynomial register (not used in I2S mode*/
-	__vo uint32_t RXCRCR;					/*address offset: 0x14 		SPI RX CRC register (not used in I 2 S mode)*/
-	__vo uint32_t TXCRCR;					/*address offset: 0x18 		SPI RX CRC register (not used in I 2 S mode)*/
-	__vo uint32_t I2SCFGR;					/*address offset: 0x1C 		SPI_I2S configuration register*/
-	__vo uint32_t I2SPR;					/*address offset: 0x20 		SPI_I2S prescaler register*/
-}SPI_RegDef_t;
-
-
 
 /*
  *	peripheral definitions
