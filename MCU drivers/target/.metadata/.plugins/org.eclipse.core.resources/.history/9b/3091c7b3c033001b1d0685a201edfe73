@@ -2,7 +2,7 @@
  * stm32f446.h
  *
  *  Created on: Nov 8, 2020
- *      Author: Robert
+ *      Author: robert
  */
 
 #ifndef INC_STM32F446_H_
@@ -366,6 +366,5 @@ typedef struct{
 
 
 #include "stm32f446_gpio_driver.h"
-#include "stm32f446_spi_driver.h"
 
 #endif /* INC_STM32F446_H_ */
