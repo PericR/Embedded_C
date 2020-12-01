@@ -333,14 +333,6 @@ typedef struct{
 															(gpio_baseaddr == GPIOG)? 6:\
 															(gpio_baseaddr == GPIOH)? 7:0	)
 
-/*
- *	SPI peripherals reset macros
- */
-#define SPI1_REG_RESET()								do{ RCC->APB2RSTR |= (1 << 12); RCC->APB2RSTR &= ~(1 << 12);} while(0)
-#define SPI2_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 14); RCC->APB1RSTR &= ~(1 << 14);} while(0)
-#define SPI3_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 15); RCC->APB1RSTR &= ~(1 << 15);} while(0)
-#define SPI4_REG_RESET()								do{ RCC->APB2RSTR |= (1 << 13); RCC->APB2RSTR &= ~(1 << 13);} while(0)
-
 
 //EXTI IRQ numbers
 #define IRQ_NO_EXTI0 							6
