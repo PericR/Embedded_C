@@ -21,14 +21,14 @@ typedef struct{
 	uint8_t SPI_CPOL;						/*Possible values from @SPI_CPOL*/
 	uint8_t SPI_CPHA;						/*Possible values from @SPI_CPHA*/
 	uint8_t SPI_SSM;						/*Possible values from @SPI_SSM*/
-} SPI_Config_t;
+} SPI_PinConfig_t;
 
 /*
  *	 This is the handle for SPIx peripheral
  */
 typedef struct{
 	SPI_RegDef_t *pSPIx;					/*This holds the base address of the SPI port*/
-	SPI_Config_t SPI_Config;				/*This holds SPI peripheral configuration settings*/
+	SPI_PinConfig_t SPI_PinConfig;			/*This holds SPI peripheral configuration settings*/
 } SPI_Handle_t;
 
 
@@ -43,7 +43,8 @@ typedef struct{
  */
 #define SPI_BUS_CONFIG_FD					1
 #define SPI_BUS_CONFIG_HD					2
-#define SPI_BUS_CONFIG_SIMPLEX_RXONLY		3
+#define SPI_BUS_CONFIG_SIMPLEX_TXONLY		3
+#define SPI_BUS_CONFIG_SIMPLEX_RXONLY		4
 
 /*
  * 	@SPI_SclkSpeed
@@ -68,19 +69,6 @@ typedef struct{
  */
 #define SPI_CPOL_LOW						0
 #define SPI_CPOL_HIGH						1
-
-/*
- * 	@SPI_CPHA
- */
-#define SPI_CPHA_FIRST						0
-#define SPI_CPHA_SECOND						1
-
-/*
- * 	@SPI_SSM
- */
-#define SPI_SSM_DI							0
-#define SPI_SSM_EN							1
-
 /**************************************************************************************************************
  * 										APIs supported by this driver
  *

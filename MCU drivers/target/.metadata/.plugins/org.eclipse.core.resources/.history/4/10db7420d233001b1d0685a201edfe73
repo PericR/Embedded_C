@@ -21,14 +21,14 @@ typedef struct{
 	uint8_t SPI_CPOL;						/*Possible values from @SPI_CPOL*/
 	uint8_t SPI_CPHA;						/*Possible values from @SPI_CPHA*/
 	uint8_t SPI_SSM;						/*Possible values from @SPI_SSM*/
-} SPI_Config_t;
+} SPI_PinConfig_t;
 
 /*
  *	 This is the handle for SPIx peripheral
  */
 typedef struct{
 	SPI_RegDef_t *pSPIx;					/*This holds the base address of the SPI port*/
-	SPI_Config_t SPI_Config;				/*This holds SPI peripheral configuration settings*/
+	SPI_PinConfig_t SPI_PinConfig;			/*This holds SPI peripheral configuration settings*/
 } SPI_Handle_t;
 
 

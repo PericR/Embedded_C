@@ -28,7 +28,7 @@ typedef struct{
  */
 typedef struct{
 	SPI_RegDef_t *pSPIx;					/*This holds the base address of the SPI port*/
-	SPI_Config_t SPI_Config;				/*This holds SPI peripheral configuration settings*/
+	SPI_PinConfig_t SPI_Config;				/*This holds SPI peripheral configuration settings*/
 } SPI_Handle_t;
 
 
