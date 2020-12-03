@@ -148,7 +148,7 @@ uint8_t SPI_GetFlagStatus(SPI_RegDef_t *pSPIx, uint32_t FlagName){
  *
  * @return				- none
  *
- * @note				- This is blocking call
+ * @note				- none
  *
  */
 void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t Len){
@@ -159,14 +159,9 @@ void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t Len){
 		if(pSPIx->CR1 & (1 << SPI_CR1_DFF)){
 			//16 bit data frame format
 			pSPIx->DR = *((uint16_t*) pTxBuffer);
-			Len--;
-			Len--;
-			(uint16_t*) pTxBuffer++;
 		} else{
 			//8 bit data frame format
-			pSPIx->DR = *pTxBuffer;
-			Len--;
-			pTxBuffer++;
+			pSPIx->DR = *(pTxBuffer);
 		}
 	}
 }

@@ -1,4 +1,4 @@
-20:27:59 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+20:45:25 **** Build of configuration Debug for project stm32f446_drivers ****
 make -j4 all 
 arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
 arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
@@ -21,5 +21,5 @@ Finished building: stm32f446_drivers.bin
 Finished building: stm32f446_drivers.list
  
 
-20:28:02 Build Finished. 0 errors, 0 warnings. (took 2s.592ms)
+20:45:27 Build Finished. 0 errors, 0 warnings. (took 2s.409ms)
 

@@ -148,26 +148,14 @@ uint8_t SPI_GetFlagStatus(SPI_RegDef_t *pSPIx, uint32_t FlagName){
  *
  * @return				- none
  *
- * @note				- This is blocking call
+ * @note				- none
  *
  */
 void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t Len){
 	while(Len > 0){
 		//Wait until TX is set
 		while(SPI_GetFlagStatus(pSPIx, SPI_TXE_FLAG) == FLAG_RESET);
-		//Check DFF bit in CR1
-		if(pSPIx->CR1 & (1 << SPI_CR1_DFF)){
-			//16 bit data frame format
-			pSPIx->DR = *((uint16_t*) pTxBuffer);
-			Len--;
-			Len--;
-			(uint16_t*) pTxBuffer++;
-		} else{
-			//8 bit data frame format
-			pSPIx->DR = *pTxBuffer;
-			Len--;
-			pTxBuffer++;
-		}
+
 	}
 }
 
