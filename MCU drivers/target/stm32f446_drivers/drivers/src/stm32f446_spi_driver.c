@@ -183,3 +183,45 @@ void SPI_IRQHandling(SPI_Handle_t *pSPIHandle);
 /*
  * 	Other Peripheral Control APIs
  */
+
+/*****************************************************************
+ * @fn					- SPI_PeripheralControl
+ *
+ * @brief				- This function configures SPI Peripheral
+ *
+ * @param[in]			- Base address of the SPI peripheral
+ * @param[in]			- Enable or disable
+ *
+ * @return				- none
+ *
+ * @note				- none
+ *
+ */
+void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi){
+	if(EnOrDi == ENABLE){
+		pSPIx->CR1 |= (1 << SPI_CR1_SPE);
+	} else{
+		pSPIx->CR1 &= ~(1 << SPI_CR1_SPE);
+	}
+}
+
+/*****************************************************************
+ * @fn					- SPI_SSI_Config
+ *
+ * @brief				- This function configures SPI SSI bit
+ *
+ * @param[in]			- Base address of the SPI peripheral
+ * @param[in]			- Enable or disable
+ *
+ * @return				- none
+ *
+ * @note				- none
+ *
+ */
+void SPI_SSI_Config(SPI_RegDef_t *pSPIx, uint8_t EnOrDi){
+	if(EnOrDi == ENABLE){
+		pSPIx->CR1 |= (1 << SPI_CR1_SSI);
+	} else{
+		pSPIx->CR1 &= ~(1 << SPI_CR1_SSI);
+	}
+}

@@ -3,3 +3,5 @@ stm32f446_spi_driver.c:67:6:SPI_Init	24	static
 stm32f446_spi_driver.c:117:6:SPI_DeInit	16	static
 stm32f446_spi_driver.c:133:9:SPI_GetFlagStatus	16	static
 stm32f446_spi_driver.c:154:6:SPI_SendData	24	static
+stm32f446_spi_driver.c:200:6:SPI_PeripheralControl	16	static
+stm32f446_spi_driver.c:221:6:SPI_SSI_Config	16	static

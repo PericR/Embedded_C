@@ -1,0 +1,52 @@
+/*
+ * 006_spi_tx_test.c
+ *
+ *  Created on: Dec 3, 2020
+ *      Author: robert
+ */
+
+/*
+ *
+ * 	PB 12 as SPI2 NSS
+ * 	PB 13 as SPI2 SCLK
+ * 	PB 14 as SPI2 MISO
+ * 	PB 15 as SPI2 MOSI
+ *
+ *	ALT Function mode = 5
+ */
+
+#include "stm32f446.h"
+
+void SPI2_GPIO_Inits(void){
+	GPIO_Handle_t SPI_Pins;
+	SPI_Pins.pGPIOx = GPIOB;
+
+	SPI_Pins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN;
+	SPI_Pins.GPIO_PinConfig.GPIO_PinAltFunMode = 5;
+	SPI_Pins.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
+	SPI_Pins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_NO_PUPD;
+	SPI_Pins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_OP_SPEED_FAST;
+
+	GPIO_PeriClockControl(SPI_Pins.pGPIOx, ENABLE);
+
+	//NSS
+	SPI_Pins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_12;
+	GPIO_Init(&SPI_Pins);
+
+	//SCLK
+	SPI_Pins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
+	GPIO_Init(&SPI_Pins);
+
+	//MISO
+	SPI_Pins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_14;
+	GPIO_Init(&SPI_Pins);
+
+	//MOSI
+	SPI_Pins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_15;
+	GPIO_Init(&SPI_Pins);
+}
+
+int main(void)
+{
+	return 0;
+}

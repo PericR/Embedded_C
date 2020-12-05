@@ -72,8 +72,8 @@ typedef struct{
 /*
  * 	@SPI_CPHA
  */
-#define SPI_CPHA_FIRST						0
-#define SPI_CPHA_SECOND						1
+#define SPI_CPHA_LOW						0
+#define SPI_CPHA_HIGH						1
 
 /*
  * 	@SPI_SSM
@@ -127,5 +127,7 @@ void SPI_IRQHandling(SPI_Handle_t *pSPIHandle);
 /*
  * 	Other Peripheral Control APIs
  */
+void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
+void SPI_SSI_Config(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
 
 #endif /* INC_STM32F446_SPI_DRIVER_H_ */
