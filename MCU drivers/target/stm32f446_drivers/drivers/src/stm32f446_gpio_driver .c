@@ -161,7 +161,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 		pGPIOHandle->pGPIOx->OTYPER |= optyper_value;
 	}
 	//reset, then set altfn register
-	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinAltFunMode == GPIO_MODE_ALTFN){
+	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_ALTFN){
 		uint8_t index = (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber / 8);
 		uint8_t position = ((pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber % 8) * 4);
 

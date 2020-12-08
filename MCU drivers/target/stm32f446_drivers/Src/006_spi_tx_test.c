@@ -83,6 +83,9 @@ int main(void)
 
 	SPI_SendData(SPI2, (uint8_t*)userData, strlen(userData));
 
+	//check till SPI is finished with transmission
+	while(SPI_GetFlagStatus(SPI2, SPI_BSY_FLAG)){};
+
 	SPI_PeripheralControl(SPI2, DISABLE);
 
 	for(;;);

@@ -3092,3 +3092,41 @@
 
 
 2020-12-05 10:33:50,585 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-05 11:27:23,184 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SWT SessionManagerDBus: Failed to RegisterClient: GDBus.Error:org.gnome.SessionManager.NotInRunning: Unable to register client
+2020-12-05 11:27:41,171 [INFO] Activator:176 - 
+
+
+2020-12-05 11:27:41,178 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-06 10:54:48,162 [INFO] Activator:176 - 
+
+
+2020-12-06 10:54:48,253 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-07 18:57:21,840 [INFO] Activator:176 - 
+
+
+2020-12-07 18:57:22,393 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-07 19:17:31,555 [INFO] Activator:176 - 
+
+
+2020-12-07 19:17:31,562 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-07 21:49:10,489 [INFO] Activator:176 - 
+
+
+2020-12-07 21:49:10,522 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-07 22:32:22,374 [INFO] Activator:176 - 
+
+
+2020-12-07 22:32:22,379 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-07 22:58:54,548 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SWT SessionManagerDBus: Failed to RegisterClient: GDBus.Error:org.gnome.SessionManager.NotInRunning: Unable to register client
+2020-12-08 16:09:20,043 [INFO] Activator:176 - 
+
+
+2020-12-08 16:09:20,067 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-08 16:18:20,239 [INFO] Activator:176 - 
+
+
+2020-12-08 16:18:20,246 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-08 16:39:56,705 [INFO] Activator:176 - 
+
+
+2020-12-08 16:39:56,711 [INFO] Activator:177 - !SESSION log4j initialized
