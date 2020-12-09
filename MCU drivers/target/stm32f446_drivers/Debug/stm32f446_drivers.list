@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 0000002a  00000000  00000000  00010c88  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000018cb  00000000  00000000  00010cb2  2**0
+ 12 .debug_info   0000190e  00000000  00000000  00010cb2  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 0000044c  00000000  00000000  0001257d  2**0
+ 13 .debug_abbrev 00000475  00000000  00000000  000125c0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000130  00000000  00000000  000129d0  2**3
+ 14 .debug_aranges 00000138  00000000  00000000  00012a38  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 000000f8  00000000  00000000  00012b00  2**3
+ 15 .debug_ranges 00000100  00000000  00000000  00012b70  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00002121  00000000  00000000  00012bf8  2**0
+ 16 .debug_macro  00002121  00000000  00000000  00012c70  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00001187  00000000  00000000  00014d19  2**0
+ 17 .debug_line   000011ae  00000000  00000000  00014d91  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    00009102  00000000  00000000  00015ea0  2**0
+ 18 .debug_str    0000911c  00000000  00000000  00015f3f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0001efa2  2**0
+ 19 .comment      0000007b  00000000  00000000  0001f05b  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000408  00000000  00000000  0001f020  2**2
+ 20 .debug_frame  0000042c  00000000  00000000  0001f0d8  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1589,7 +1589,7 @@ void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t Len){
  8000b38:	607a      	str	r2, [r7, #4]
 	while(Len > 0){
  8000b3a:	e027      	b.n	8000b8c <SPI_SendData+0x5e>
-		//Wait until TX is set
+		//Wait until TXE is set
 		while(SPI_GetFlagStatus(pSPIx, SPI_TXE_FLAG) == FLAG_RESET);
  8000b3c:	bf00      	nop
  8000b3e:	2102      	movs	r1, #2
