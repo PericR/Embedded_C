@@ -3134,3 +3134,48 @@
 
 
 2020-12-09 19:34:25,018 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-09 21:50:31,403 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SWT SessionManagerDBus: Failed to RegisterClient: GDBus.Error:org.gnome.SessionManager.NotInRunning: Unable to register client
+2020-12-11 19:37:47,646 [INFO] Activator:176 - 
+
+
+2020-12-11 19:37:47,704 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-11 22:15:54,226 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SWT SessionManagerDBus: Failed to RegisterClient: GDBus.Error:org.gnome.SessionManager.NotInRunning: Unable to register client
+2020-12-12 18:01:00,021 [INFO] Activator:176 - 
+
+
+2020-12-12 18:01:00,060 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-12 19:10:14,922 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Exception in thread "SWV client thread" java.lang.NullPointerException
+2020-12-12 19:10:14,993 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVPlugin.debugTrace(SWVPlugin.java:93)
+2020-12-12 19:10:14,994 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.TRACE(SWVClient.java:789)
+2020-12-12 19:10:14,994 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.readByte(SWVClient.java:288)
+2020-12-12 19:10:14,995 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.getNextByte(SWVClient.java:271)
+2020-12-12 19:10:14,996 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.run(SWVClient.java:316)
+2020-12-12 19:10:15,003 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SWT SessionManagerDBus: Failed to RegisterClient: GDBus.Error:org.gnome.SessionManager.NotInRunning: Unable to register client
+2020-12-16 10:22:13,655 [INFO] Activator:176 - 
+
+
+2020-12-16 10:22:13,751 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-16 10:57:21,677 [INFO] Activator:176 - 
+
+
+2020-12-16 10:57:21,684 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-16 11:11:50,645 [INFO] Activator:176 - 
+
+
+2020-12-16 11:11:50,649 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-16 11:15:26,014 [INFO] Activator:176 - 
+
+
+2020-12-16 11:15:26,020 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-16 11:22:38,386 [INFO] Activator:176 - 
+
+
+2020-12-16 11:22:38,392 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-16 12:16:22,516 [INFO] Activator:176 - 
+
+
+2020-12-16 12:16:22,532 [INFO] Activator:177 - !SESSION log4j initialized
+2020-12-16 12:21:24,477 [INFO] Activator:176 - 
+
+
+2020-12-16 12:21:24,482 [INFO] Activator:177 - !SESSION log4j initialized
