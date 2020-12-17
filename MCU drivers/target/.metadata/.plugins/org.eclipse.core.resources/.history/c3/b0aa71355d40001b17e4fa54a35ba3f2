@@ -382,23 +382,5 @@ uint8_t SPI_SendData_IT(SPI_Handle_t *pHandle, uint8_t *pTxBuffer, uint32_t Len)
  * @note				- This is Interrupt mode
  *
  */
-uint8_t SPI_ReceiveData_IT(SPI_Handle_t *pHandle, uint8_t *pRxBuffer, uint32_t Len){
-	uint8_t SPI_state = pHandle->RxState;
-
-	if(SPI_state != SPI_BSY_IN_RX){
-		//Save TxBuffer address and length in global variable
-		pHandle->pRxBuffer = pRxBuffer;
-		pHandle->RxLen = Len;
-
-		//Mark the SPI state as busy in transmission so no other code can use same SPI peripheral until transmission is over
-		pHandle->RxState = SPI_BSY_IN_RX;
-
-		//Enable TXEIE control bit to get interrupt whenever TXE flag is set in SR
-		pHandle->pSPIx->CR2 |= (1 << SPI_CR2_RXNEIE);
-
-		//Data transmission will be handled by ISR code
-	}
-
-	return SPI_state;
-}
+uint8_t SPI_ReceiveData_IT(SPI_Handle_t *pHandle, uint8_t *pRxBuffer, uint32_t Len);
 
