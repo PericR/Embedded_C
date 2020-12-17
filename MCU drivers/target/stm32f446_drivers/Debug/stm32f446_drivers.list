@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 0000002a  00000000  00000000  0002006c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00002376  00000000  00000000  00020096  2**0
+ 12 .debug_info   000024e4  00000000  00000000  00020096  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00000684  00000000  00000000  0002240c  2**0
+ 13 .debug_abbrev 00000693  00000000  00000000  0002257a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000160  00000000  00000000  00022a90  2**3
+ 14 .debug_aranges 00000178  00000000  00000000  00022c10  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000118  00000000  00000000  00022bf0  2**3
+ 15 .debug_ranges 00000130  00000000  00000000  00022d88  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00002b86  00000000  00000000  00022d08  2**0
+ 16 .debug_macro  00002ba2  00000000  00000000  00022eb8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00001829  00000000  00000000  0002588e  2**0
+ 17 .debug_line   00001899  00000000  00000000  00025a5a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0000a89a  00000000  00000000  000270b7  2**0
+ 18 .debug_str    0000a937  00000000  00000000  000272f3  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00031951  2**0
+ 19 .comment      0000007b  00000000  00000000  00031c2a  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000f78  00000000  00000000  000319cc  2**2
+ 20 .debug_frame  00000ff0  00000000  00000000  00031ca8  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -254,48 +254,48 @@ void SPI2_GPIO_Inits(void){
 
 void SPI2_Inits(void){
  800034c:	b580      	push	{r7, lr}
- 800034e:	b084      	sub	sp, #16
+ 800034e:	b088      	sub	sp, #32
  8000350:	af00      	add	r7, sp, #0
 	SPI_Handle_t SPI2_Handle;
 	SPI2_Handle.pSPIx = SPI2;
  8000352:	4b0e      	ldr	r3, [pc, #56]	; (800038c <SPI2_Inits+0x40>)
- 8000354:	607b      	str	r3, [r7, #4]
+ 8000354:	603b      	str	r3, [r7, #0]
 
 	SPI2_Handle.SPI_Config.SPI_BusConfig = SPI_BUS_CONFIG_FD;
  8000356:	2301      	movs	r3, #1
- 8000358:	727b      	strb	r3, [r7, #9]
+ 8000358:	717b      	strb	r3, [r7, #5]
 	SPI2_Handle.SPI_Config.SPI_DeviceMode = SPI_DEVICE_MODE_MASTER;
  800035a:	2301      	movs	r3, #1
- 800035c:	723b      	strb	r3, [r7, #8]
+ 800035c:	713b      	strb	r3, [r7, #4]
 	SPI2_Handle.SPI_Config.SPI_SclkSpeed = SPI_SCLK_SPEED_DIV8;			//Generate SCLK of 2MHz
  800035e:	2302      	movs	r3, #2
- 8000360:	72bb      	strb	r3, [r7, #10]
+ 8000360:	71bb      	strb	r3, [r7, #6]
 	SPI2_Handle.SPI_Config.SPI_DFF = SPI_DFF_8BITS;
  8000362:	2300      	movs	r3, #0
- 8000364:	72fb      	strb	r3, [r7, #11]
+ 8000364:	71fb      	strb	r3, [r7, #7]
 	SPI2_Handle.SPI_Config.SPI_CPOL = SPI_CPOL_LOW;
  8000366:	2300      	movs	r3, #0
- 8000368:	733b      	strb	r3, [r7, #12]
+ 8000368:	723b      	strb	r3, [r7, #8]
 	SPI2_Handle.SPI_Config.SPI_CPHA = SPI_CPHA_LOW;
  800036a:	2300      	movs	r3, #0
- 800036c:	737b      	strb	r3, [r7, #13]
+ 800036c:	727b      	strb	r3, [r7, #9]
 	SPI2_Handle.SPI_Config.SPI_SSM = SPI_SSM_DI;						//Hardware slave management enabled
  800036e:	2300      	movs	r3, #0
- 8000370:	73bb      	strb	r3, [r7, #14]
+ 8000370:	72bb      	strb	r3, [r7, #10]
 
 	SPI_PeriClockControl(SPI2_Handle.pSPIx, ENABLE);
- 8000372:	687b      	ldr	r3, [r7, #4]
+ 8000372:	683b      	ldr	r3, [r7, #0]
  8000374:	2101      	movs	r1, #1
  8000376:	4618      	mov	r0, r3
  8000378:	f000 fd58 	bl	8000e2c <SPI_PeriClockControl>
 
 	SPI_Init(&SPI2_Handle);
- 800037c:	1d3b      	adds	r3, r7, #4
+ 800037c:	463b      	mov	r3, r7
  800037e:	4618      	mov	r0, r3
  8000380:	f000 fdc6 	bl	8000f10 <SPI_Init>
 }
  8000384:	bf00      	nop
- 8000386:	3710      	adds	r7, #16
+ 8000386:	3720      	adds	r7, #32
  8000388:	46bd      	mov	sp, r7
  800038a:	bd80      	pop	{r7, pc}
  800038c:	40003800 	.word	0x40003800
