@@ -9,7 +9,7 @@
 #define INC_STM32F446_SPI_DRIVER_H_
 
 #include "stm32f446.h"
-#include <stdint.h>
+
 /*
  *	Configuration structure for SPIx peripheral
  */
@@ -45,6 +45,12 @@ typedef struct{
 #define SPI_BSY_IN_RX						1
 #define SPI_BSY_IN_TX						2
 
+/*
+ * Possible SPI Application events
+ */
+#define SPI_EVENT_TX_CMPLT					1
+#define SPI_EVENT_RX_CMPLT					2
+#define SPI_EVENT_OVR_ERR					3
 
 /*
  * 	@SPI_DeviceMode
@@ -98,7 +104,7 @@ typedef struct{
 /*
  * SPI Related Flag Definitions
  */
-#define SPI_RXNE_FLAG						(1 << SPI_SR_RXEN)
+#define SPI_RXNE_FLAG						(1 << SPI_SR_RXNE)
 #define SPI_TXE_FLAG						(1 << SPI_SR_TXE)
 #define SPI_CHSIDE_FLAG						(1 << SPI_SR_CHSIDE)
 #define SPI_UDR_FLAG						(1 << SPI_SR_UDR)
@@ -148,5 +154,14 @@ void SPI_PeripheralControl(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
 void SPI_SSI_Config(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
 void SPI_SSOE_Config(SPI_RegDef_t *pSPIx, uint8_t EnOrDi);
 uint8_t SPI_GetFlagStatus(SPI_RegDef_t *pSPIx, uint32_t FlagName);
+void SPI_ClearOVRFlag(SPI_RegDef_t *pSPIx);
+void SPI_CloseTransmission(SPI_Handle_t *pSPIHandle);
+void SPI_CloseReception(SPI_Handle_t *pSPIHandle);
+
+/*
+ * Application callback
+ */
+void SPI_ApplicationEventCallback(SPI_Handle_t *pSPIHandle, uint8_t AppEv);
+
 
 #endif /* INC_STM32F446_SPI_DRIVER_H_ */

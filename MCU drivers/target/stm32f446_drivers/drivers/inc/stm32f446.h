@@ -8,11 +8,12 @@
 #ifndef INC_STM32F446_H_
 #define INC_STM32F446_H_
 
+#include <stddef.h>
 #include <stdint.h>
 
 
-#define __vo volatile
-
+#define __vo 			volatile
+#define __weak 			__attribute__((weak))
 /*********************************PROCESSOR SPRECIFIC DETAILS*******************************/
 
 /*
@@ -415,7 +416,7 @@ typedef struct{
 /*
  * SPI Status Register
  */
-#define SPI_SR_RXEN								0
+#define SPI_SR_RXNE								0
 #define SPI_SR_TXE								1
 #define SPI_SR_CHSIDE							2
 #define SPI_SR_UDR								3
