@@ -21,7 +21,7 @@ typedef struct {
 typedef struct{
 	I2C_RegDef_t *pI2Cx;						/*This holds the base address of the I2C port to which the pin belongs*/
 	I2C_Config_t I2C_Config;					/*This holds I2C configuration settings*/
-}I2C_Handle_t;
+};
 
 
 #endif /* INC_STM32F446_I2C_DRIVER_H_ */

@@ -9,7 +9,7 @@
 #define INC_STM32F446_GPIO_DRIVER_H_
 
 #include "stm32f446.h"
-
+#include <stdint.h>
 
 typedef struct{
 	uint8_t GPIO_PinNumber;					/*Possible values from @GPIO_PIN_NUMBERS*/

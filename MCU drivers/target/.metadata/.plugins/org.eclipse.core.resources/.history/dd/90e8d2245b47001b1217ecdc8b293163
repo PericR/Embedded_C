@@ -491,7 +491,7 @@ typedef struct{
  * I2C own address register 1
  */
 #define I2C_OAR1_ADD0							0
-#define I2C_OAR1_ADD7_1							1
+#define I2C_OAR1_ADD							1
 #define I2C_OAR1_ADD9_8							8
 #define I2C_OAR1_ADDMODE						15
 
