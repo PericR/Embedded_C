@@ -10,9 +10,7 @@
 
 #include "stm32f446.h"
 
-/*
- * Configuration structure for I2C peripheral
- */
+
 typedef struct {
 	uint32_t I2C_SCLSpeed;						/*Possible values from @GPIO_PIN_NUMBERS*/
 	uint8_t I2C_DeviceAddress;					/*Possible values from @GPIO_PIN_NUMBERS*/
@@ -20,9 +18,6 @@ typedef struct {
 	uint32_t I2C_FMDutyCycle;					/*Possible values from @GPIO_PIN_NUMBERS*/
 }I2C_Config_t;
 
-/*
- * Handle structure for I2C peripheral
- */
 typedef struct{
 	I2C_RegDef_t *pI2Cx;						/*This holds the base address of the I2C port to which the pin belongs*/
 	I2C_Config_t I2C_Config;					/*This holds I2C configuration settings*/
