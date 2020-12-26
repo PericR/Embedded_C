@@ -217,7 +217,7 @@ typedef struct{
 	__vo uint32_t CCR;						/*address offset: 0x1C 		I2C clock control register*/
 	__vo uint32_t TRISE;					/*address offset: 0x20 		I2C TRISE register*/
 	__vo uint32_t FLTR;						/*address offset: 0x20 		I2C FLTR register*/
-}I2C_RegDef_t;
+}SPI_RegDef_t;
 
 
 /*

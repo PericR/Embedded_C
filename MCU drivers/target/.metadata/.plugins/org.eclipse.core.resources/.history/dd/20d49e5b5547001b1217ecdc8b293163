@@ -203,21 +203,6 @@ typedef struct{
 	__vo uint32_t I2SPR;					/*address offset: 0x20 		SPI_I2S prescaler register*/
 }SPI_RegDef_t;
 
-/*
- *	peripheral register definition structure for I2C
- */
-typedef struct{
-	__vo uint32_t CR1;						/*address offset: 0x00		I2C control register 1*/
-	__vo uint32_t CR2;						/*address offset: 0x04 		I2C control register 2*/
-	__vo uint32_t OAR1;						/*address offset: 0x08 		I2C own address register 1*/
-	__vo uint32_t OAR2;						/*address offset: 0x0C 		I2C own address register 2*/
-	__vo uint32_t DR;						/*address offset: 0x10 		I2C data register*/
-	__vo uint32_t SR1;						/*address offset: 0x14 		I2C status register 1*/
-	__vo uint32_t SR2;						/*address offset: 0x18 		I2C status register 2*/
-	__vo uint32_t CCR;						/*address offset: 0x1C 		I2C clock control register*/
-	__vo uint32_t TRISE;					/*address offset: 0x20 		I2C TRISE register*/
-	__vo uint32_t FLTR;						/*address offset: 0x20 		I2C FLTR register*/
-}I2C_RegDef_t;
 
 
 /*
