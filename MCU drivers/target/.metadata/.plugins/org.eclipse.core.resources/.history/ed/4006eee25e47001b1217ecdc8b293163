@@ -15,9 +15,9 @@
  */
 typedef struct {
 	uint32_t I2C_SCLSpeed;						/*Possible values from @I2C_SCLSPEED*/
-	uint8_t I2C_DeviceAddress;					/*Provided by user*/
-	uint32_t I2C_ACKControl;					/*Possible values from @I2C_ACKCONTROL*/
-	uint32_t I2C_FMDutyCycle;					/*Possible values from @I2C_FMDUTYCYCLE*/
+	uint8_t I2C_DeviceAddress;					/*Possible values from @GPIO_PIN_NUMBERS*/
+	uint32_t I2C_ACKControl;					/*Possible values from @GPIO_PIN_NUMBERS*/
+	uint32_t I2C_FMDutyCycle;					/*Possible values from @GPIO_PIN_NUMBERS*/
 }I2C_Config_t;
 
 /*
@@ -35,17 +35,4 @@ typedef struct{
 #define I2C_SCL_SPEED_SM						100000
 #define I2C_SCL_SPEED_FM2K						200000
 #define I2C_SCL_SPEED_FM4K						400000
-
-/*
- * @I2C_ACKCONTROL
- */
-#define I2C_ACK_ENABLE							1
-#define I2C_ACK_DISABLE							0
-
-/*
- * @I2C_FMDUTYCYCLE
- */
-#define I2C_FM_DUTY_2							0
-#define I2C_FM_DUTY_16_9						1
-
 #endif /* INC_STM32F446_I2C_DRIVER_H_ */

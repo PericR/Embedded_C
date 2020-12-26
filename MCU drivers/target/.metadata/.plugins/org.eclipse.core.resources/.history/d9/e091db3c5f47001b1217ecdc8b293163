@@ -17,7 +17,7 @@ typedef struct {
 	uint32_t I2C_SCLSpeed;						/*Possible values from @I2C_SCLSPEED*/
 	uint8_t I2C_DeviceAddress;					/*Provided by user*/
 	uint32_t I2C_ACKControl;					/*Possible values from @I2C_ACKCONTROL*/
-	uint32_t I2C_FMDutyCycle;					/*Possible values from @I2C_FMDUTYCYCLE*/
+	uint32_t I2C_FMDutyCycle;					/*Possible values from @I2C_FMDutyCycle*/
 }I2C_Config_t;
 
 /*
@@ -43,7 +43,7 @@ typedef struct{
 #define I2C_ACK_DISABLE							0
 
 /*
- * @I2C_FMDUTYCYCLE
+ * @I2C_FMDutyCycle
  */
 #define I2C_FM_DUTY_2							0
 #define I2C_FM_DUTY_16_9						1
