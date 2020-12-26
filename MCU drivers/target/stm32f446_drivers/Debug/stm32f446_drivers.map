@@ -237,7 +237,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xef drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000       0x6a drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000      0x1df drivers/src/stm32f446_gpio_driver .o
- .debug_macro   0x0000000000000000      0x4b3 drivers/src/stm32f446_gpio_driver .o
+ .debug_macro   0x0000000000000000      0x65e drivers/src/stm32f446_gpio_driver .o
  .debug_macro   0x0000000000000000       0xc4 drivers/src/stm32f446_gpio_driver .o
  .group         0x0000000000000000        0xc drivers/src/stm32f446_i2c_driver.o
  .text          0x0000000000000000        0x0 drivers/src/stm32f446_i2c_driver.o
@@ -304,7 +304,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xef drivers/src/stm32f446_spi_driver.o
  .debug_macro   0x0000000000000000       0x6a drivers/src/stm32f446_spi_driver.o
  .debug_macro   0x0000000000000000      0x1df drivers/src/stm32f446_spi_driver.o
- .debug_macro   0x0000000000000000      0x4b3 drivers/src/stm32f446_spi_driver.o
+ .debug_macro   0x0000000000000000      0x65e drivers/src/stm32f446_spi_driver.o
  .debug_macro   0x0000000000000000       0xc4 drivers/src/stm32f446_spi_driver.o
  .debug_macro   0x0000000000000000       0xdc drivers/src/stm32f446_spi_driver.o
  .text          0x0000000000000000        0x0 /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libc_nano.a(lib_a-errno.o)
@@ -1157,7 +1157,7 @@ OUTPUT(stm32f446_drivers.elf elf32-littlearm)
  .debug_ranges  0x0000000000000068       0x60 drivers/src/stm32f446_gpio_driver .o
  .debug_ranges  0x00000000000000c8       0xb0 drivers/src/stm32f446_spi_driver.o
 
-.debug_macro    0x0000000000000000     0x2c06
+.debug_macro    0x0000000000000000     0x2db1
  .debug_macro   0x0000000000000000      0x267 Src/008_SPI_cmd_handling.o
  .debug_macro   0x0000000000000267      0xa66 Src/008_SPI_cmd_handling.o
  .debug_macro   0x0000000000000ccd       0x22 Src/008_SPI_cmd_handling.o
@@ -1194,18 +1194,18 @@ OUTPUT(stm32f446_drivers.elf elf32-littlearm)
  .debug_macro   0x0000000000001a51       0x20 Src/008_SPI_cmd_handling.o
  .debug_macro   0x0000000000001a71       0xef Src/008_SPI_cmd_handling.o
  .debug_macro   0x0000000000001b60      0x1df Src/008_SPI_cmd_handling.o
- .debug_macro   0x0000000000001d3f      0x4b3 Src/008_SPI_cmd_handling.o
- .debug_macro   0x00000000000021f2       0xc4 Src/008_SPI_cmd_handling.o
- .debug_macro   0x00000000000022b6       0xe2 Src/008_SPI_cmd_handling.o
- .debug_macro   0x0000000000002398      0x1ae Src/sysmem.o
- .debug_macro   0x0000000000002546       0x10 Src/sysmem.o
- .debug_macro   0x0000000000002556      0x174 Src/sysmem.o
- .debug_macro   0x00000000000026ca      0x23b Src/sysmem.o
- .debug_macro   0x0000000000002905       0xa3 drivers/src/stm32f446_gpio_driver .o
- .debug_macro   0x00000000000029a8       0x8e drivers/src/stm32f446_gpio_driver .o
- .debug_macro   0x0000000000002a36       0x51 drivers/src/stm32f446_gpio_driver .o
- .debug_macro   0x0000000000002a87       0xdc drivers/src/stm32f446_gpio_driver .o
- .debug_macro   0x0000000000002b63       0xa3 drivers/src/stm32f446_spi_driver.o
+ .debug_macro   0x0000000000001d3f      0x65e Src/008_SPI_cmd_handling.o
+ .debug_macro   0x000000000000239d       0xc4 Src/008_SPI_cmd_handling.o
+ .debug_macro   0x0000000000002461       0xe2 Src/008_SPI_cmd_handling.o
+ .debug_macro   0x0000000000002543      0x1ae Src/sysmem.o
+ .debug_macro   0x00000000000026f1       0x10 Src/sysmem.o
+ .debug_macro   0x0000000000002701      0x174 Src/sysmem.o
+ .debug_macro   0x0000000000002875      0x23b Src/sysmem.o
+ .debug_macro   0x0000000000002ab0       0xa3 drivers/src/stm32f446_gpio_driver .o
+ .debug_macro   0x0000000000002b53       0x8e drivers/src/stm32f446_gpio_driver .o
+ .debug_macro   0x0000000000002be1       0x51 drivers/src/stm32f446_gpio_driver .o
+ .debug_macro   0x0000000000002c32       0xdc drivers/src/stm32f446_gpio_driver .o
+ .debug_macro   0x0000000000002d0e       0xa3 drivers/src/stm32f446_spi_driver.o
 
 .debug_line     0x0000000000000000     0x199d
  .debug_line    0x0000000000000000      0x732 Src/008_SPI_cmd_handling.o
@@ -1214,17 +1214,17 @@ OUTPUT(stm32f446_drivers.elf elf32-littlearm)
  .debug_line    0x0000000000000ce2      0x63e drivers/src/stm32f446_gpio_driver .o
  .debug_line    0x0000000000001320      0x67d drivers/src/stm32f446_spi_driver.o
 
-.debug_str      0x0000000000000000     0xaad2
- .debug_str     0x0000000000000000     0xa098 Src/008_SPI_cmd_handling.o
-                                       0xa2ff (size before relaxing)
- .debug_str     0x000000000000a098      0x4b9 Src/sysmem.o
+.debug_str      0x0000000000000000     0xafbf
+ .debug_str     0x0000000000000000     0xa585 Src/008_SPI_cmd_handling.o
+                                       0xa7ec (size before relaxing)
+ .debug_str     0x000000000000a585      0x4b9 Src/sysmem.o
                                        0x7af0 (size before relaxing)
- .debug_str     0x000000000000a551       0x31 Startup/startup_stm32f446retx.o
+ .debug_str     0x000000000000aa3e       0x31 Startup/startup_stm32f446retx.o
                                          0x7d (size before relaxing)
- .debug_str     0x000000000000a582      0x31d drivers/src/stm32f446_gpio_driver .o
-                                       0x6245 (size before relaxing)
- .debug_str     0x000000000000a89f      0x233 drivers/src/stm32f446_spi_driver.o
-                                       0x62c7 (size before relaxing)
+ .debug_str     0x000000000000aa6f      0x31d drivers/src/stm32f446_gpio_driver .o
+                                       0x6732 (size before relaxing)
+ .debug_str     0x000000000000ad8c      0x233 drivers/src/stm32f446_spi_driver.o
+                                       0x67b4 (size before relaxing)
 
 .comment        0x0000000000000000       0x7b
  .comment       0x0000000000000000       0x7b Src/008_SPI_cmd_handling.o
