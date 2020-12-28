@@ -39,11 +39,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  17 .debug_line   000019eb  00000000  00000000  00025fcb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0000b05e  00000000  00000000  000279b6  2**0
+ 18 .debug_str    0000b05a  00000000  00000000  000279b6  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00032a14  2**0
+ 19 .comment      0000007b  00000000  00000000  00032a10  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001148  00000000  00000000  00032a90  2**2
+ 20 .debug_frame  00001148  00000000  00000000  00032a8c  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -2092,12 +2092,12 @@ void SPI_Init(SPI_Handle_t *pSPIHandle){
  8000f12:	b085      	sub	sp, #20
  8000f14:	af00      	add	r7, sp, #0
  8000f16:	6078      	str	r0, [r7, #4]
-	uint32_t ControlReg1 = 0;
+	uint32_t spi_cr1 = 0;
  8000f18:	2300      	movs	r3, #0
  8000f1a:	60fb      	str	r3, [r7, #12]
 
 	//configure device mode
-	ControlReg1 |= pSPIHandle->SPI_Config.SPI_DeviceMode << 2;
+	spi_cr1 |= pSPIHandle->SPI_Config.SPI_DeviceMode << 2;
  8000f1c:	687b      	ldr	r3, [r7, #4]
  8000f1e:	791b      	ldrb	r3, [r3, #4]
  8000f20:	009b      	lsls	r3, r3, #2
@@ -2113,7 +2113,7 @@ void SPI_Init(SPI_Handle_t *pSPIHandle){
  8000f2e:	2b01      	cmp	r3, #1
  8000f30:	d104      	bne.n	8000f3c <SPI_Init+0x2c>
 		//bidi mode should be cleared
-		ControlReg1 &= ~(1 << SPI_CR1_BIDIMODE);
+		spi_cr1 &= ~(1 << SPI_CR1_BIDIMODE);
  8000f32:	68fb      	ldr	r3, [r7, #12]
  8000f34:	f423 4300 	bic.w	r3, r3, #32768	; 0x8000
  8000f38:	60fb      	str	r3, [r7, #12]
@@ -2124,7 +2124,7 @@ void SPI_Init(SPI_Handle_t *pSPIHandle){
  8000f40:	2b02      	cmp	r3, #2
  8000f42:	d104      	bne.n	8000f4e <SPI_Init+0x3e>
 		//bidi mode should be set
-		ControlReg1 |= (1 << SPI_CR1_BIDIMODE);
+		spi_cr1 |= (1 << SPI_CR1_BIDIMODE);
  8000f44:	68fb      	ldr	r3, [r7, #12]
  8000f46:	f443 4300 	orr.w	r3, r3, #32768	; 0x8000
  8000f4a:	60fb      	str	r3, [r7, #12]
@@ -2135,19 +2135,19 @@ void SPI_Init(SPI_Handle_t *pSPIHandle){
  8000f52:	2b03      	cmp	r3, #3
  8000f54:	d107      	bne.n	8000f66 <SPI_Init+0x56>
 		//bidi mode should be cleared
-		ControlReg1 &= ~(1 << SPI_CR1_BIDIMODE);
+		spi_cr1 &= ~(1 << SPI_CR1_BIDIMODE);
  8000f56:	68fb      	ldr	r3, [r7, #12]
  8000f58:	f423 4300 	bic.w	r3, r3, #32768	; 0x8000
  8000f5c:	60fb      	str	r3, [r7, #12]
 		//rxonly bit must be set
-		ControlReg1 |= (1 << SPI_CR1_RXONLY);
+		spi_cr1 |= (1 << SPI_CR1_RXONLY);
  8000f5e:	68fb      	ldr	r3, [r7, #12]
  8000f60:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
  8000f64:	60fb      	str	r3, [r7, #12]
 	}
 
 	//Serial clk Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_SclkSpeed << SPI_CR1_BR);
+	spi_cr1 |= (pSPIHandle->SPI_Config.SPI_SclkSpeed << SPI_CR1_BR);
  8000f66:	687b      	ldr	r3, [r7, #4]
  8000f68:	799b      	ldrb	r3, [r3, #6]
  8000f6a:	00db      	lsls	r3, r3, #3
@@ -2157,7 +2157,7 @@ void SPI_Init(SPI_Handle_t *pSPIHandle){
  8000f72:	60fb      	str	r3, [r7, #12]
 
 	//Data Frame Format Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_DFF << SPI_CR1_DFF);
+	spi_cr1 |= (pSPIHandle->SPI_Config.SPI_DFF << SPI_CR1_DFF);
  8000f74:	687b      	ldr	r3, [r7, #4]
  8000f76:	79db      	ldrb	r3, [r3, #7]
  8000f78:	02db      	lsls	r3, r3, #11
@@ -2167,7 +2167,7 @@ void SPI_Init(SPI_Handle_t *pSPIHandle){
  8000f80:	60fb      	str	r3, [r7, #12]
 
 	//CPOL Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_CPOL << SPI_CR1_CPOL);
+	spi_cr1 |= (pSPIHandle->SPI_Config.SPI_CPOL << SPI_CR1_CPOL);
  8000f82:	687b      	ldr	r3, [r7, #4]
  8000f84:	7a1b      	ldrb	r3, [r3, #8]
  8000f86:	005b      	lsls	r3, r3, #1
@@ -2177,7 +2177,7 @@ void SPI_Init(SPI_Handle_t *pSPIHandle){
  8000f8e:	60fb      	str	r3, [r7, #12]
 
 	//CPHA Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_CPHA << SPI_CR1_CPHA);
+	spi_cr1 |= (pSPIHandle->SPI_Config.SPI_CPHA << SPI_CR1_CPHA);
  8000f90:	687b      	ldr	r3, [r7, #4]
  8000f92:	7a5b      	ldrb	r3, [r3, #9]
  8000f94:	461a      	mov	r2, r3
@@ -2186,7 +2186,7 @@ void SPI_Init(SPI_Handle_t *pSPIHandle){
  8000f9a:	60fb      	str	r3, [r7, #12]
 
 	//Software Slave Select Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_SSM << SPI_CR1_SSM);
+	spi_cr1 |= (pSPIHandle->SPI_Config.SPI_SSM << SPI_CR1_SSM);
  8000f9c:	687b      	ldr	r3, [r7, #4]
  8000f9e:	7a9b      	ldrb	r3, [r3, #10]
  8000fa0:	025b      	lsls	r3, r3, #9
@@ -2195,7 +2195,7 @@ void SPI_Init(SPI_Handle_t *pSPIHandle){
  8000fa6:	4313      	orrs	r3, r2
  8000fa8:	60fb      	str	r3, [r7, #12]
 
-	pSPIHandle->pSPIx->CR1 = ControlReg1;
+	pSPIHandle->pSPIx->CR1 = spi_cr1;
  8000faa:	687b      	ldr	r3, [r7, #4]
  8000fac:	681b      	ldr	r3, [r3, #0]
  8000fae:	68fa      	ldr	r2, [r7, #12]
