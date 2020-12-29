@@ -324,7 +324,7 @@ int main(void)
 
 
 		//check till SPI is finished with transmission
-		while(SPI_GetFlagStatus(SPI2, SPI_BSY_FLAG)){};
+		while(SPI_GetFlagStatus(SPI2, SPI_FLAG_BSY)){};
 
 		SPI_PeripheralControl(SPI2, DISABLE);
 

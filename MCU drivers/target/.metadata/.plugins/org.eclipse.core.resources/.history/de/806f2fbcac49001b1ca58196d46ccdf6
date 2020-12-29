@@ -74,41 +74,41 @@ void SPI_PeriClockControl(SPI_RegDef_t *pSPIx, uint8_t EnorDi){
  *
  */
 void SPI_Init(SPI_Handle_t *pSPIHandle){
-	uint32_t ControlReg1 = 0;
+	uint32_t spi_cr1 = 0;
 
 	//configure device mode
-	ControlReg1 |= pSPIHandle->SPI_Config.SPI_DeviceMode << 2;
+	spi_cr1 |= pSPIHandle->SPI_Config.SPI_DeviceMode << 2;
 
 	//Bus Configuration
 	if(pSPIHandle->SPI_Config.SPI_BusConfig == SPI_BUS_CONFIG_FD){
 		//bidi mode should be cleared
-		ControlReg1 &= ~(1 << SPI_CR1_BIDIMODE);
+		spi_cr1 &= ~(1 << SPI_CR1_BIDIMODE);
 	} else if(pSPIHandle->SPI_Config.SPI_BusConfig == SPI_BUS_CONFIG_HD){
 		//bidi mode should be set
-		ControlReg1 |= (1 << SPI_CR1_BIDIMODE);
+		spi_cr1 |= (1 << SPI_CR1_BIDIMODE);
 	} else if(pSPIHandle->SPI_Config.SPI_BusConfig == SPI_BUS_CONFIG_SIMPLEX_RXONLY){
 		//bidi mode should be cleared
-		ControlReg1 &= ~(1 << SPI_CR1_BIDIMODE);
+		spi_cr1 &= ~(1 << SPI_CR1_BIDIMODE);
 		//rxonly bit must be set
-		ControlReg1 |= (1 << SPI_CR1_RXONLY);
+		spi_cr1 |= (1 << SPI_CR1_RXONLY);
 	}
 
 	//Serial clk Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_SclkSpeed << SPI_CR1_BR);
+	spi_cr1 |= (pSPIHandle->SPI_Config.SPI_SclkSpeed << SPI_CR1_BR);
 
 	//Data Frame Format Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_DFF << SPI_CR1_DFF);
+	spi_cr1 |= (pSPIHandle->SPI_Config.SPI_DFF << SPI_CR1_DFF);
 
 	//CPOL Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_CPOL << SPI_CR1_CPOL);
+	spi_cr1 |= (pSPIHandle->SPI_Config.SPI_CPOL << SPI_CR1_CPOL);
 
 	//CPHA Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_CPHA << SPI_CR1_CPHA);
+	spi_cr1 |= (pSPIHandle->SPI_Config.SPI_CPHA << SPI_CR1_CPHA);
 
 	//Software Slave Select Configuration
-	ControlReg1 |= (pSPIHandle->SPI_Config.SPI_SSM << SPI_CR1_SSM);
+	spi_cr1 |= (pSPIHandle->SPI_Config.SPI_SSM << SPI_CR1_SSM);
 
-	pSPIHandle->pSPIx->CR1 = ControlReg1;
+	pSPIHandle->pSPIx->CR1 = spi_cr1;
 }
 
 /*****************************************************************
@@ -256,7 +256,7 @@ void SPI_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority){
 
 	uint8_t shift_value = (8 * iprx_section) + (8 - NO_PR_BITS_IMPLEMENTED);
 
-	*(NVIC_PR_BASE_ADDR + iprx) |=  ( IRQPriority << shift_value );
+	*(NVIC_PR_BASE_ADDR + iprx) |= (IRQPriority << shift_value);
 }
 
 /*****************************************************************

@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  15 .debug_ranges 00000178  00000000  00000000  00023050  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00002e03  00000000  00000000  000231c8  2**0
+ 16 .debug_macro  00002e57  00000000  00000000  000231c8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   000019eb  00000000  00000000  00025fcb  2**0
+ 17 .debug_line   000019eb  00000000  00000000  0002601f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0000b05a  00000000  00000000  000279b6  2**0
+ 18 .debug_str    0000b23f  00000000  00000000  00027a0a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00032a10  2**0
+ 19 .comment      0000007b  00000000  00000000  00032c49  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001148  00000000  00000000  00032a8c  2**2
+ 20 .debug_frame  00001148  00000000  00000000  00032cc4  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -948,7 +948,7 @@ int main(void)
 
 
 		//check till SPI is finished with transmission
-		while(SPI_GetFlagStatus(SPI2, SPI_BSY_FLAG)){};
+		while(SPI_GetFlagStatus(SPI2, SPI_FLAG_BSY)){};
  80007e6:	bf00      	nop
  80007e8:	2180      	movs	r1, #128	; 0x80
  80007ea:	4805      	ldr	r0, [pc, #20]	; (8000800 <main+0x420>)
@@ -2255,7 +2255,7 @@ void SPI_SendData(SPI_RegDef_t *pSPIx, uint8_t *pTxBuffer, uint32_t Len){
 	while(Len > 0){
  8000fee:	e027      	b.n	8001040 <SPI_SendData+0x5e>
 		//Wait until TXE is set
-		while(SPI_GetFlagStatus(pSPIx, SPI_TXE_FLAG) == FLAG_RESET);
+		while(SPI_GetFlagStatus(pSPIx, SPI_FLAG_TXE) == FLAG_RESET);
  8000ff0:	bf00      	nop
  8000ff2:	2102      	movs	r1, #2
  8000ff4:	68f8      	ldr	r0, [r7, #12]
@@ -2330,7 +2330,7 @@ void SPI_ReceiveData(SPI_RegDef_t *pSPIx, uint8_t *pRxBuffer, uint32_t Len){
 	while(Len > 0){
  800105a:	e027      	b.n	80010ac <SPI_ReceiveData+0x5e>
 			//Wait until RXNE is set
-			while(SPI_GetFlagStatus(pSPIx, SPI_RXNE_FLAG) == FLAG_RESET);
+			while(SPI_GetFlagStatus(pSPIx, SPI_FLAG_RXNE) == FLAG_RESET);
  800105c:	bf00      	nop
  800105e:	2101      	movs	r1, #1
  8001060:	68f8      	ldr	r0, [r7, #12]
