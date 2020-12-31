@@ -86,7 +86,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 	uint32_t reset_value = 0;
 
 	//reset, then set mode register
-	if( pGPIOHandle->GPIO_PinConfig.GPIO_PinMode <= GPIO_MODE_ANALOG){
+	if( pGPIOHandle->GPIO_PinConfig.GPIO_PinMode <= GPIO_PIN_MODE_ANALOG){
 		reset_value = (0x3 << ((2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber)));
 		pGPIOHandle->pGPIOx->MODER &= ~(reset_value);
 		reset_value = 0;
@@ -95,7 +95,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 		pGPIOHandle->pGPIOx->MODER |= moder_value;
 	} else{
 		//interrupt mode
-		if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_IT_FT){
+		if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_PIN_MODE_IT_FT){
 			//reset RTSR
 			reset_value = (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
 			EXTI->RTSR &= ~(reset_value);
@@ -103,7 +103,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 
 			//configure FTSR
 			EXTI->FTSR |= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
-		} else if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_IT_RT){
+		} else if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_PIN_MODE_IT_RT){
 			//reset FTSR
 			reset_value = (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
 			EXTI->FTSR &= ~(reset_value);
@@ -111,7 +111,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 
 			//configure RTSR
 			EXTI->RTSR |= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
-		} else if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_IT_RFT){
+		} else if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_PIN_MODE_IT_RFT){
 			//configure RTSR and FTSR
 			EXTI->RTSR |= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
 			EXTI->FTSR |= (1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
@@ -139,7 +139,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 	pGPIOHandle->pGPIOx->OSPEEDER &= ~(reset_value);
 	reset_value = 0;
 
-	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_OUT){
+	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_PIN_MODE_OUT){
 		uint32_t ospeedr_value = (pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed << (2 * pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
 		pGPIOHandle->pGPIOx->OSPEEDER |= ospeedr_value;
 	}
@@ -156,12 +156,12 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 	pGPIOHandle->pGPIOx->OTYPER &= ~(reset_value);
 	reset_value = 0;
 
-	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_OUT){
+	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_PIN_MODE_OUT){
 		uint32_t optyper_value = (pGPIOHandle->GPIO_PinConfig.GPIO_PinOPType << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
 		pGPIOHandle->pGPIOx->OTYPER |= optyper_value;
 	}
 	//reset, then set altfn register
-	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_ALTFN){
+	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_PIN_MODE_ALTFN){
 		uint8_t index = (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber / 8);
 		uint8_t position = ((pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber % 8) * 4);
 

@@ -27,11 +27,11 @@ void SPI2_GPIO_Inits(void){
 	GPIO_Handle_t SPI_Pins;
 	SPI_Pins.pGPIOx = GPIOB;
 
-	SPI_Pins.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_ALTFN;
+	SPI_Pins.GPIO_PinConfig.GPIO_PinMode = GPIO_PIN_MODE_ALTFN;
 	SPI_Pins.GPIO_PinConfig.GPIO_PinAltFunMode = 5;
-	SPI_Pins.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
-	SPI_Pins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PU;
-	SPI_Pins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_OP_SPEED_FAST;
+	SPI_Pins.GPIO_PinConfig.GPIO_PinOPType = GPIO_PIN_OP_TYPE_PP;
+	SPI_Pins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
+	SPI_Pins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_PIN_OP_SPEED_FAST;
 
 	//GPIOB PCLK enable
 	GPIO_PeriClockControl(SPI_Pins.pGPIOx, ENABLE);
@@ -75,7 +75,7 @@ void GPIO_Button_Init(){
 	gpioc_button.pGPIOx = GPIOC;
 
 	gpioc_button.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
-	gpioc_button.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
+	gpioc_button.GPIO_PinConfig.GPIO_PinMode = GPIO_PIN_MODE_IN;
 
 	GPIO_PeriClockControl(gpioc_button.pGPIOx, ENABLE);
 	GPIO_Init(&gpioc_button);
@@ -110,7 +110,7 @@ int main(void)
 			SPI_SendData(SPI2, (uint8_t*)userData, strlen(userData));
 
 			//check till SPI is finished with transmission
-			while(SPI_GetFlagStatus(SPI2, SPI_BSY_FLAG)){};
+			while(SPI_GetFlagStatus(SPI2, SPI_FLAG_BSY)){};
 
 			SPI_PeripheralControl(SPI2, DISABLE);
 			delay();

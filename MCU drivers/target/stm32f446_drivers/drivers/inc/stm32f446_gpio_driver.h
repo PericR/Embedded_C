@@ -54,39 +54,58 @@ typedef struct{
  * @GPIO_PIN_MODES
  *	GPIO pin possible modes
  */
-#define GPIO_MODE_IN						0
-#define GPIO_MODE_OUT						1
-#define GPIO_MODE_ALTFN						2
-#define GPIO_MODE_ANALOG					3
-#define GPIO_MODE_IT_FT						4
-#define GPIO_MODE_IT_RT						5
-#define GPIO_MODE_IT_RFT					6
+#define GPIO_PIN_MODE_IN						0
+#define GPIO_PIN_MODE_OUT						1
+#define GPIO_PIN_MODE_ALTFN						2
+#define GPIO_PIN_MODE_ANALOG					3
+#define GPIO_PIN_MODE_IT_FT						4
+#define GPIO_PIN_MODE_IT_RT						5
+#define GPIO_PIN_MODE_IT_RFT					6
 
 /*
  * @GPIO_PIN_SPEED
  *	GPIO pin output speed
  */
-#define GPIO_OP_SPEED_LOW					0
-#define GPIO_OP_SPEED_MEDIUM				1
-#define GPIO_OP_SPEED_FAST					2
-#define GPIO_OP_SPEED_HIGH					3
+#define GPIO_PIN_OP_SPEED_LOW					0
+#define GPIO_PIN_OP_SPEED_MEDIUM				1
+#define GPIO_PIN_OP_SPEED_FAST					2
+#define GPIO_PIN_OP_SPEED_HIGH					3
 
 /*
  * @GPIO_PIN_PUPD
  *	GPIO pin pull up, pull down configuration
  */
-#define GPIO_NO_PUPD						0
-#define GPIO_PU								1
-#define GPIO_PD								2
+#define GPIO_PIN_NO_PUPD						0
+#define GPIO_PIN_PU								1
+#define GPIO_PIN_PD								2
 
 /*
  * @GPIO_PIN_OP_TYPE
  *	GPIO pin output types
  */
-#define GPIO_OP_TYPE_PP						0
-#define GPIO_OP_TYPE_OD						1
+#define GPIO_PIN_OP_TYPE_PP						0
+#define GPIO_PIN_OP_TYPE_OD						1
 
+/*
+ * @GPIO_PIN_ALT_FUN
+ */
 
+#define GPIO_PIN_ALT_FUN_0					0
+#define GPIO_PIN_ALT_FUN_1					1
+#define GPIO_PIN_ALT_FUN_2					2
+#define GPIO_PIN_ALT_FUN_3					3
+#define GPIO_PIN_ALT_FUN_4					4
+#define GPIO_PIN_ALT_FUN_5					5
+#define GPIO_PIN_ALT_FUN_6					6
+#define GPIO_PIN_ALT_FUN_7					7
+#define GPIO_PIN_ALT_FUN_8					8
+#define GPIO_PIN_ALT_FUN_9					9
+#define GPIO_PIN_ALT_FUN_10					10
+#define GPIO_PIN_ALT_FUN_11					11
+#define GPIO_PIN_ALT_FUN_12					12
+#define GPIO_PIN_ALT_FUN_13					13
+#define GPIO_PIN_ALT_FUN_14					14
+#define GPIO_PIN_ALT_FUN_15					15
 
 /**************************************************************************************************************
  * 										APIs supported by this driver

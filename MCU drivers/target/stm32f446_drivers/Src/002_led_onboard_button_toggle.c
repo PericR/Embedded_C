@@ -22,14 +22,14 @@ int main(void)
 	GPIO_Handle_t gpioa_led;
 	gpioa_led.pGPIOx = GPIOA;
 	gpioa_led.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_5;
-	gpioa_led.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_OUT;
-	gpioa_led.GPIO_PinConfig.GPIO_PinOPType = GPIO_OP_TYPE_PP;
+	gpioa_led.GPIO_PinConfig.GPIO_PinMode = GPIO_PIN_MODE_OUT;
+	gpioa_led.GPIO_PinConfig.GPIO_PinOPType = GPIO_PIN_OP_TYPE_PP;
 
 	GPIO_Handle_t gpioc_button;
 	gpioc_button.pGPIOx = GPIOC;
 
 	gpioc_button.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_13;
-	gpioc_button.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_IN;
+	gpioc_button.GPIO_PinConfig.GPIO_PinMode = GPIO_PIN_MODE_IN;
 
 	GPIO_PeriClockControl(gpioa_led.pGPIOx, ENABLE);
 	GPIO_PeriClockControl(gpioc_button.pGPIOx, ENABLE);

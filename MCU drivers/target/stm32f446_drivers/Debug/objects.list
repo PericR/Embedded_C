@@ -1,4 +1,4 @@
-"Src/008_SPI_cmd_handling.o"
+"Src/010i2c_master_tx_test.o"
 "Src/sysmem.o"
 "Startup/startup_stm32f446retx.o"
 "drivers/src/stm32f446_gpio_driver .o"
