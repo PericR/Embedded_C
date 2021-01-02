@@ -15,3 +15,485 @@ Finished building: default.size.stdout
  
  
  
+09:44:58 **** Clean-only build of configuration Debug for project stm32f446_drivers ****
+make -j4 clean 
+rm -rf *
+ 
+09:44:59 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/010i2c_master_tx_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010i2c_master_tx_test.d" -MT"Src/010i2c_master_tx_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010i2c_master_tx_test.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-size   stm32f446_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+Finished building: default.size.stdout
+ 
+Finished building: stm32f446_drivers.bin
+ 
+Finished building: stm32f446_drivers.list
+ 
+09:45:18 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+09:45:41 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+09:46:13 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+09:46:37 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+09:46:58 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+09:47:25 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+09:48:14 **** Clean-only build of configuration Debug for project stm32f446_drivers ****
+make -j4 clean 
+rm -rf *
+ 
+09:48:15 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/010i2c_master_tx_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010i2c_master_tx_test.d" -MT"Src/010i2c_master_tx_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010i2c_master_tx_test.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-size   stm32f446_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+Finished building: default.size.stdout
+Finished building: stm32f446_drivers.bin
+Finished building: stm32f446_drivers.list
+ 
+ 
+ 
+09:52:28 **** Clean-only build of configuration Debug for project stm32f446_drivers ****
+make -j4 clean 
+rm -rf *
+ 
+09:52:29 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/010i2c_master_tx_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010i2c_master_tx_test.d" -MT"Src/010i2c_master_tx_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010i2c_master_tx_test.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-size   stm32f446_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+Finished building: default.size.stdout
+ 
+Finished building: stm32f446_drivers.list
+Finished building: stm32f446_drivers.bin
+ 
+ 
+09:53:36 **** Clean-only build of configuration Debug for project stm32f446_drivers ****
+make -j4 clean 
+rm -rf *
+ 
+09:53:37 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/008_SPI_cmd_handling.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_cmd_handling.d" -MT"Src/008_SPI_cmd_handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_cmd_handling.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-size   stm32f446_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   9908	    116	   1756	  11780	   2e04	stm32f446_drivers.elf
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+Finished building: default.size.stdout
+Finished building: stm32f446_drivers.bin
+ 
+ 
+Finished building: stm32f446_drivers.list
+ 
+09:55:12 **** Clean-only build of configuration Debug for project stm32f446_drivers ****
+make -j4 clean 
+rm -rf *
+ 
+09:55:12 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/010i2c_master_tx_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010i2c_master_tx_test.d" -MT"Src/010i2c_master_tx_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010i2c_master_tx_test.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-size   stm32f446_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f446_drivers.bin
+ 
+ 
+Finished building: stm32f446_drivers.list
+ 
+10:03:07 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc "../Src/010i2c_master_tx_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010i2c_master_tx_test.d" -MT"Src/010i2c_master_tx_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010i2c_master_tx_test.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f446_drivers.bin
+Finished building: stm32f446_drivers.list
+ 
+ 
+10:03:18 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:03:47 **** Clean-only build of configuration Debug for project stm32f446_drivers ****
+make -j4 clean 
+rm -rf *
+ 
+10:03:47 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/010i2c_master_tx_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010i2c_master_tx_test.d" -MT"Src/010i2c_master_tx_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010i2c_master_tx_test.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-size   stm32f446_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+Finished building: default.size.stdout
+ 
+Finished building: stm32f446_drivers.list
+ 
+Finished building: stm32f446_drivers.bin
+ 
+10:05:34 **** Clean-only build of configuration Debug for project stm32f446_drivers ****
+make -j4 clean 
+rm -rf *
+ 
+10:05:35 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/008_SPI_cmd_handling.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/008_SPI_cmd_handling.d" -MT"Src/008_SPI_cmd_handling.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/008_SPI_cmd_handling.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-size   stm32f446_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+   text	   data	    bss	    dec	    hex	filename
+   9908	    116	   1756	  11780	   2e04	stm32f446_drivers.elf
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+Finished building: default.size.stdout
+Finished building: stm32f446_drivers.bin
+ 
+ 
+Finished building: stm32f446_drivers.list
+ 
+10:05:42 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9908	    116	   1756	  11780	   2e04	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:06:27 **** Clean-only build of configuration Debug for project stm32f446_drivers ****
+make -j4 clean 
+rm -rf *
+ 
+10:06:27 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/010i2c_master_tx_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/010i2c_master_tx_test.d" -MT"Src/010i2c_master_tx_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/010i2c_master_tx_test.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-size   stm32f446_drivers.elf 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f446_drivers.bin
+ 
+ 
+Finished building: stm32f446_drivers.list
+ 
+10:08:45 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3692	      8	   1584	   5284	   14a4	stm32f446_drivers.elf
+Finished building: stm32f446_drivers.bin
+Finished building: default.size.stdout
+ 
+Finished building: stm32f446_drivers.list
+ 
+ 
+10:12:03 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3672	      8	   1584	   5264	   1490	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f446_drivers.bin
+Finished building: stm32f446_drivers.list
+ 
+ 
+10:12:40 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3672	      8	   1584	   5264	   1490	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:13:35 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3672	      8	   1584	   5264	   1490	stm32f446_drivers.elf
+Finished building: stm32f446_drivers.bin
+Finished building: default.size.stdout
+ 
+Finished building: stm32f446_drivers.list
+ 
+ 
+10:16:22 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f446_drivers.bin
+Finished building: stm32f446_drivers.list
+ 
+ 
+ 
+10:17:11 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:17:50 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:22:43 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:23:31 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:28:57 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:38:05 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:43:56 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:44:25 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:45:30 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:53:59 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:54:01 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+10:54:08 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+11:03:43 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3660	      8	   1584	   5252	   1484	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+11:04:21 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3652	      8	   1584	   5244	   147c	stm32f446_drivers.elf
+Finished building: stm32f446_drivers.bin
+Finished building: default.size.stdout
+ 
+ 
+Finished building: stm32f446_drivers.list
+ 
+11:07:27 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3644	      8	   1584	   5236	   1474	stm32f446_drivers.elf
+Finished building: default.size.stdout
+Finished building: stm32f446_drivers.list
+Finished building: stm32f446_drivers.bin
+ 
+ 
+ 
