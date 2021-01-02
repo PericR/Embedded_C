@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 0000002a  00000000  00000000  00010e74  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00001a57  00000000  00000000  00010e9e  2**0
+ 12 .debug_info   00001b2a  00000000  00000000  00010e9e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 0000050d  00000000  00000000  000128f5  2**0
+ 13 .debug_abbrev 0000051c  00000000  00000000  000129c8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000158  00000000  00000000  00012e08  2**3
+ 14 .debug_aranges 00000170  00000000  00000000  00012ee8  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000120  00000000  00000000  00012f60  2**3
+ 15 .debug_ranges 00000138  00000000  00000000  00013058  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  0000298a  00000000  00000000  00013080  2**0
+ 16 .debug_macro  0000298a  00000000  00000000  00013190  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00001351  00000000  00000000  00015a0a  2**0
+ 17 .debug_line   000013d5  00000000  00000000  00015b1a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0000ad61  00000000  00000000  00016d5b  2**0
+ 18 .debug_str    0000adbd  00000000  00000000  00016eef  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00021abc  2**0
+ 19 .comment      0000007b  00000000  00000000  00021cac  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000004c0  00000000  00000000  00021b38  2**2
+ 20 .debug_frame  00000534  00000000  00000000  00021d28  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1236,13 +1236,13 @@ static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx){
  800093c:	bc80      	pop	{r7}
  800093e:	4770      	bx	lr
 
-08000940 <ExecuteAddressPhase>:
+08000940 <I2C_ExecuteAddressPhaseWrite>:
  * @return				- none
  *
  * @note				- none
  *
  */
-static void ExecuteAddressPhase(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr){
+static void I2C_ExecuteAddressPhaseWrite(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr){
  8000940:	b480      	push	{r7}
  8000942:	b083      	sub	sp, #12
  8000944:	af00      	add	r7, sp, #0
@@ -1255,7 +1255,7 @@ static void ExecuteAddressPhase(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr){
  800094e:	005b      	lsls	r3, r3, #1
  8000950:	70fb      	strb	r3, [r7, #3]
 	//Clear 0th bit so r/w is set to write
-	SlaveAddr &= ~(1);
+	SlaveAddr &= ~(1 << 0);
  8000952:	78fb      	ldrb	r3, [r7, #3]
  8000954:	f023 0301 	bic.w	r3, r3, #1
  8000958:	70fb      	strb	r3, [r7, #3]
@@ -1883,13 +1883,13 @@ void I2C_MasterSendData(I2C_Handle_t *pI2CHandle, uint8_t *pTxbuffer, uint32_t L
  8000d0a:	d0f6      	beq.n	8000cfa <I2C_MasterSendData+0x1a>
 
 	//Send the address of the slave with r/w bit set to write (0)
-	ExecuteAddressPhase(pI2CHandle->pI2Cx, SlaveAddr);
+	I2C_ExecuteAddressPhaseWrite(pI2CHandle->pI2Cx, SlaveAddr);
  8000d0c:	68fb      	ldr	r3, [r7, #12]
  8000d0e:	681b      	ldr	r3, [r3, #0]
  8000d10:	78fa      	ldrb	r2, [r7, #3]
  8000d12:	4611      	mov	r1, r2
  8000d14:	4618      	mov	r0, r3
- 8000d16:	f7ff fe13 	bl	8000940 <ExecuteAddressPhase>
+ 8000d16:	f7ff fe13 	bl	8000940 <I2C_ExecuteAddressPhaseWrite>
 
 	//Confirm that address phase is completed by checking the ADDR flag in the SR1
 	while(!I2C_GetFlagStatus(pI2CHandle->pI2Cx, I2C_FLAG_ADDR));
@@ -2019,8 +2019,11 @@ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi){
  8000dd8:	4770      	bx	lr
 
 08000dda <I2C_GetFlagStatus>:
-
-
+ * @return				- Flag status (1 or 0)
+ *
+ * @note				- none
+ *
+ */
 uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName){
  8000dda:	b480      	push	{r7}
  8000ddc:	b083      	sub	sp, #12
