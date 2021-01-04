@@ -21,29 +21,29 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   8 .data         0000006c  20000000  080025e8  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000000ec  2000006c  08002654  0002006c  2**2
+  9 .bss          00000108  2000006c  08002654  0002006c  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  20000158  08002654  00020158  2**0
+ 10 ._user_heap_stack 00000604  20000174  08002654  00020174  2**0
                   ALLOC
  11 .ARM.attributes 0000002a  00000000  00000000  0002006c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000241e  00000000  00000000  00020096  2**0
+ 12 .debug_info   000025ac  00000000  00000000  00020096  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 000006cc  00000000  00000000  000224b4  2**0
+ 13 .debug_abbrev 000006cc  00000000  00000000  00022642  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000190  00000000  00000000  00022b80  2**3
+ 14 .debug_aranges 000001a0  00000000  00000000  00022d10  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000148  00000000  00000000  00022d10  2**3
+ 15 .debug_ranges 00000158  00000000  00000000  00022eb0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00002f1b  00000000  00000000  00022e58  2**0
+ 16 .debug_macro  00002f3f  00000000  00000000  00023008  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   0000190a  00000000  00000000  00025d73  2**0
+ 17 .debug_line   0000192c  00000000  00000000  00025f47  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0000b2c9  00000000  00000000  0002767d  2**0
+ 18 .debug_str    0000b362  00000000  00000000  00027873  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00032946  2**0
+ 19 .comment      0000007b  00000000  00000000  00032bd5  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001058  00000000  00000000  000329c4  2**2
+ 20 .debug_frame  000010a8  00000000  00000000  00032c50  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -469,7 +469,7 @@ caddr_t _sbrk(int incr)
  8000498:	46bd      	mov	sp, r7
  800049a:	bd80      	pop	{r7, pc}
  800049c:	20000088 	.word	0x20000088
- 80004a0:	20000158 	.word	0x20000158
+ 80004a0:	20000178 	.word	0x20000178
 
 080004a4 <Reset_Handler>:
 
@@ -566,7 +566,7 @@ LoopForever:
   ldr r2, =_sbss
  80004ec:	2000006c 	.word	0x2000006c
   ldr r4, =_ebss
- 80004f0:	20000158 	.word	0x20000158
+ 80004f0:	20000174 	.word	0x20000174
 
 080004f4 <ADC_IRQHandler>:
  * @retval : None
@@ -4009,7 +4009,7 @@ void I2C_ManageAcking(I2C_RegDef_t *pI2CX, uint8_t EnOrDi){
  8001e3e:	b103      	cbz	r3, 8001e42 <_sbrk_r+0x1a>
  8001e40:	602b      	str	r3, [r5, #0]
  8001e42:	bd38      	pop	{r3, r4, r5, pc}
- 8001e44:	20000154 	.word	0x20000154
+ 8001e44:	20000170 	.word	0x20000170
 
 08001e48 <__sread>:
  8001e48:	b510      	push	{r4, lr}
@@ -4087,7 +4087,7 @@ void I2C_ManageAcking(I2C_RegDef_t *pI2CX, uint8_t EnOrDi){
  8001eea:	b103      	cbz	r3, 8001eee <_write_r+0x1e>
  8001eec:	602b      	str	r3, [r5, #0]
  8001eee:	bd38      	pop	{r3, r4, r5, pc}
- 8001ef0:	20000154 	.word	0x20000154
+ 8001ef0:	20000170 	.word	0x20000170
 
 08001ef4 <_close_r>:
  8001ef4:	b538      	push	{r3, r4, r5, lr}
@@ -4103,7 +4103,7 @@ void I2C_ManageAcking(I2C_RegDef_t *pI2CX, uint8_t EnOrDi){
  8001f0a:	b103      	cbz	r3, 8001f0e <_close_r+0x1a>
  8001f0c:	602b      	str	r3, [r5, #0]
  8001f0e:	bd38      	pop	{r3, r4, r5, pc}
- 8001f10:	20000154 	.word	0x20000154
+ 8001f10:	20000170 	.word	0x20000170
 
 08001f14 <_fstat_r>:
  8001f14:	b538      	push	{r3, r4, r5, lr}
@@ -4121,7 +4121,7 @@ void I2C_ManageAcking(I2C_RegDef_t *pI2CX, uint8_t EnOrDi){
  8001f2e:	602b      	str	r3, [r5, #0]
  8001f30:	bd38      	pop	{r3, r4, r5, pc}
  8001f32:	bf00      	nop
- 8001f34:	20000154 	.word	0x20000154
+ 8001f34:	20000170 	.word	0x20000170
 
 08001f38 <_isatty_r>:
  8001f38:	b538      	push	{r3, r4, r5, lr}
@@ -4137,7 +4137,7 @@ void I2C_ManageAcking(I2C_RegDef_t *pI2CX, uint8_t EnOrDi){
  8001f4e:	b103      	cbz	r3, 8001f52 <_isatty_r+0x1a>
  8001f50:	602b      	str	r3, [r5, #0]
  8001f52:	bd38      	pop	{r3, r4, r5, pc}
- 8001f54:	20000154 	.word	0x20000154
+ 8001f54:	20000170 	.word	0x20000170
 
 08001f58 <_lseek_r>:
  8001f58:	b538      	push	{r3, r4, r5, lr}
@@ -4155,7 +4155,7 @@ void I2C_ManageAcking(I2C_RegDef_t *pI2CX, uint8_t EnOrDi){
  8001f72:	b103      	cbz	r3, 8001f76 <_lseek_r+0x1e>
  8001f74:	602b      	str	r3, [r5, #0]
  8001f76:	bd38      	pop	{r3, r4, r5, pc}
- 8001f78:	20000154 	.word	0x20000154
+ 8001f78:	20000170 	.word	0x20000170
 
 08001f7c <__malloc_lock>:
  8001f7c:	4770      	bx	lr
@@ -4179,7 +4179,7 @@ void I2C_ManageAcking(I2C_RegDef_t *pI2CX, uint8_t EnOrDi){
  8001f9a:	b103      	cbz	r3, 8001f9e <_read_r+0x1e>
  8001f9c:	602b      	str	r3, [r5, #0]
  8001f9e:	bd38      	pop	{r3, r4, r5, pc}
- 8001fa0:	20000154 	.word	0x20000154
+ 8001fa0:	20000170 	.word	0x20000170
 
 08001fa4 <findslot>:
  8001fa4:	4b0a      	ldr	r3, [pc, #40]	; (8001fd0 <findslot+0x2c>)
