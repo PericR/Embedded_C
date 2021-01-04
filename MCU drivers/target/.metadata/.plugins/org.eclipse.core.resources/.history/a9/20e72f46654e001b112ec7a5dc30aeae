@@ -316,13 +316,12 @@ void I2C_DeInit(I2C_RegDef_t *pI2Cx){
  * @param[in]			- Pointer to transmission buffer which holds data to be sent
  * @param[in]			- Length of data
  * @param[in]			- 7 bit slave address
- * @param[in]			- Repeated start (I2C_NO_SR or I2C_SR)
  * @return				- none
  *
  * @note				- none
  *
  */
-void I2C_MasterSendData(I2C_Handle_t *pI2CHandle, uint8_t *pTxbuffer, uint32_t Len, uint8_t SlaveAddr, uint8_t Sr){
+void I2C_MasterSendData(I2C_Handle_t *pI2CHandle, uint8_t *pTxbuffer, uint32_t Len, uint8_t SlaveAddr){
 	//Initiate start condition
 	I2C_GenerateStartCondition(pI2CHandle->pI2Cx);
 
@@ -352,9 +351,7 @@ void I2C_MasterSendData(I2C_Handle_t *pI2CHandle, uint8_t *pTxbuffer, uint32_t L
 	while(!I2C_GetFlagStatus(pI2CHandle->pI2Cx, I2C_FLAG_BTF));
 
 	//After that generate STOP condition
-	if(Sr == I2C_NO_SR){
-		I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
-	}
+	I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
 }
 
 /*****************************************************************
@@ -366,13 +363,12 @@ void I2C_MasterSendData(I2C_Handle_t *pI2CHandle, uint8_t *pTxbuffer, uint32_t L
  * @param[in]			- Pointer to buffer which will receive data
  * @param[in]			- Length of data
  * @param[in]			- 7 bit slave address
- * @param[in]			- Repeated start (I2C_NO_SR or I2C_SR)
  * @return				- none
  *
  * @note				- none
  *
  */
-void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, uint32_t Len, uint8_t SlaveAddr, uint8_t Sr){
+void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, uint32_t Len, uint8_t SlaveAddr){
 	//Generate the start condition
 	I2C_GenerateStartCondition(pI2CHandle->pI2Cx);
 
@@ -398,9 +394,7 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, uint32_
 		while(!I2C_GetFlagStatus(pI2CHandle->pI2Cx, I2C_FLAG_RXNE));
 
 		//generate STOP condition
-		if(Sr == I2C_NO_SR){
-			I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
-		}
+		I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
 
 		//read data in to buffer
 		*pRxbuffer = pI2CHandle->pI2Cx->DR;
@@ -423,9 +417,7 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, uint32_
 				I2C_ManageAcking(pI2CHandle->pI2Cx, I2C_ACK_DISABLE);
 
 				//generate STOP condition
-				if(Sr == I2C_NO_SR){
-					I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
-				}
+				I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
 			}
 
 			//read the data from data register in to buffer
