@@ -75,17 +75,10 @@ typedef struct{
 #define I2C_FLAG_SMBALERT						(1 << I2C_SR1_SMBALERT)
 
 /*
- * I2C application states
- */
-#define I2C_READY								0
-#define I2C_BUSY_IN_RX							1
-#define I2C_BUSY_IN_TX							2
-
-/*
  * Some other macros
  */
-#define I2C_ENABLE_SR							SET
-#define I2C_DISABLE_SR							RESET
+#define I2C_ENABLE_SR									SET
+#define I2C_DISABLE_SR								RESET
 
 /**************************************************************************************************************
  * 										APIs supported by this driver
@@ -108,9 +101,6 @@ void I2C_DeInit(I2C_RegDef_t *pI2Cx);
  */
 void I2C_MasterSendData(I2C_Handle_t *pI2CHandle, uint8_t *pTxbuffer, uint32_t Len, uint8_t SlaveAddr, uint8_t Sr);
 void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, uint32_t Len, uint8_t SlaveAddr, uint8_t Sr);
-
-void I2C_MasterSendData_IT(I2C_Handle_t *pI2CHandle, uint8_t *pTxbuffer, uint32_t Len, uint8_t SlaveAddr, uint8_t Sr);
-void I2C_MasterReceiveData_IT(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, uint32_t Len, uint8_t SlaveAddr, uint8_t Sr);
 
 /*
  * 	IRQ Configuration and ISR handling
