@@ -1,18 +1,33 @@
-09:33:09 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+10:18:54 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
 make -j4 all 
+arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
 arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
+arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
 arm-none-eabi-gcc "../Src/011i2c_master_rx_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011i2c_master_rx_test.d" -MT"Src/011i2c_master_rx_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011i2c_master_rx_test.o"
-arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f446_drivers.elf
- 
-arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
-arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
-arm-none-eabi-size   stm32f446_drivers.elf 
-   text	   data	    bss	    dec	    hex	filename
-   9684	    116	   1772	  11572	   2d34	stm32f446_drivers.elf
-Finished building: default.size.stdout
-Finished building: stm32f446_drivers.bin
- 
- 
-Finished building: stm32f446_drivers.list
- 
+In file included from ../drivers/src/stm32f446_i2c_driver.c:9:0:
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446_i2c_driver.h:31:2: error: expected specifier-qualifier-list before 'uint'
+  uint
+  ^~~~
+In file included from /home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:560:0,
+                 from /home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446_gpio_driver.h:11,
+                 from ../drivers/src/stm32f446_gpio_driver .c:8:
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446_i2c_driver.h:31:2: error: expected specifier-qualifier-list before 'uint'
+  uint
+  ^~~~
+make: *** [drivers/src/subdir.mk:24: drivers/src/stm32f446_gpio_driver .o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [drivers/src/subdir.mk:26: drivers/src/stm32f446_i2c_driver.o] Error 1
+In file included from /home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:560:0,
+                 from /home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446_spi_driver.h:11,
+                 from ../drivers/src/stm32f446_spi_driver.c:8:
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446_i2c_driver.h:31:2: error: expected specifier-qualifier-list before 'uint'
+  uint
+  ^~~~
+make: *** [drivers/src/subdir.mk:28: drivers/src/stm32f446_spi_driver.o] Error 1
+In file included from /home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:560:0,
+                 from ../Src/011i2c_master_rx_test.c:19:
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446_i2c_driver.h:33:1: warning: declaration does not declare anything
+ }I2C_Handle_t;
+ ^
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446_i2c_driver.h:33:1: warning: no semicolon at end of struct or union
+"make -j4 all" terminated with exit code 2. Build might be incomplete.

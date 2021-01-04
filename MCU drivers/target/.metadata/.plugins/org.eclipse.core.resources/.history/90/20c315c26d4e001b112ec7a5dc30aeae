@@ -26,14 +26,6 @@ typedef struct {
 typedef struct{
 	I2C_RegDef_t *pI2Cx;						/*This holds the base address of the I2C port to which the pin belongs*/
 	I2C_Config_t I2C_Config;					/*This holds I2C configuration settings*/
-	uint8_t *pTxBuffer;							/*To store application Tx Buffer address*/
-	uint8_t *pRxBuffer;							/*To store application Rx Buffer address*/
-	uint32_t TxLen;								/*Length of Tx*/
-	uint32_t TxLen;								/*Length of Rx*/
-	uint8_t TxRxState;							/*To store communication state*/
-	uint8_t DevAddress;							/*To store slave/device address*/
-	uint32_t RxSize;							/*To store Rx size*/
-	uint32_t Sr;								/*Repeated start value*/
 }I2C_Handle_t;
 
 
