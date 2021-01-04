@@ -39,11 +39,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  17 .debug_line   0000190a  00000000  00000000  00025d73  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0000b2bd  00000000  00000000  0002767d  2**0
+ 18 .debug_str    0000b2c9  00000000  00000000  0002767d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0003293a  2**0
+ 19 .comment      0000007b  00000000  00000000  00032946  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001058  00000000  00000000  000329b8  2**2
+ 20 .debug_frame  00001058  00000000  00000000  000329c4  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -347,7 +347,7 @@ int main(void){
 		command_code = LEN_COMMAND;
  80003d4:	2351      	movs	r3, #81	; 0x51
  80003d6:	71bb      	strb	r3, [r7, #6]
-		I2C_MasterSendData(&I2C1_handle, &command_code, 1, SLAVE_ADDR, I2C_SR);
+		I2C_MasterSendData(&I2C1_handle, &command_code, 1, SLAVE_ADDR, I2C_ENABLE_SR);
  80003d8:	1db9      	adds	r1, r7, #6
  80003da:	2301      	movs	r3, #1
  80003dc:	9300      	str	r3, [sp, #0]
@@ -355,7 +355,7 @@ int main(void){
  80003e0:	2201      	movs	r2, #1
  80003e2:	4818      	ldr	r0, [pc, #96]	; (8000444 <main+0xa8>)
  80003e4:	f000 fd26 	bl	8000e34 <I2C_MasterSendData>
-		I2C_MasterReceiveData(&I2C1_handle, &len, 1, SLAVE_ADDR, I2C_SR);
+		I2C_MasterReceiveData(&I2C1_handle, &len, 1, SLAVE_ADDR, I2C_ENABLE_SR);
  80003e8:	1df9      	adds	r1, r7, #7
  80003ea:	2301      	movs	r3, #1
  80003ec:	9300      	str	r3, [sp, #0]
@@ -368,7 +368,7 @@ int main(void){
 		command_code = DATA_COMMAND;
  80003f8:	2352      	movs	r3, #82	; 0x52
  80003fa:	71bb      	strb	r3, [r7, #6]
-		I2C_MasterSendData(&I2C1_handle, &command_code, 1, SLAVE_ADDR, I2C_SR);
+		I2C_MasterSendData(&I2C1_handle, &command_code, 1, SLAVE_ADDR, I2C_ENABLE_SR);
  80003fc:	1db9      	adds	r1, r7, #6
  80003fe:	2301      	movs	r3, #1
  8000400:	9300      	str	r3, [sp, #0]
@@ -376,7 +376,7 @@ int main(void){
  8000404:	2201      	movs	r2, #1
  8000406:	480f      	ldr	r0, [pc, #60]	; (8000444 <main+0xa8>)
  8000408:	f000 fd14 	bl	8000e34 <I2C_MasterSendData>
-		I2C_MasterReceiveData(&I2C1_handle, rcv_buf, len, SLAVE_ADDR, I2C_NO_SR);
+		I2C_MasterReceiveData(&I2C1_handle, rcv_buf, len, SLAVE_ADDR, I2C_DISABLE_SR);
  800040c:	79fb      	ldrb	r3, [r7, #7]
  800040e:	461a      	mov	r2, r3
  8000410:	f107 0108 	add.w	r1, r7, #8
@@ -2147,7 +2147,7 @@ void I2C_MasterSendData(I2C_Handle_t *pI2CHandle, uint8_t *pTxbuffer, uint32_t L
  8000ee4:	d0f6      	beq.n	8000ed4 <I2C_MasterSendData+0xa0>
 
 	//After that generate STOP condition
-	if(Sr == I2C_NO_SR){
+	if(Sr == I2C_DISABLE_SR){
  8000ee6:	7e3b      	ldrb	r3, [r7, #24]
  8000ee8:	2b00      	cmp	r3, #0
  8000eea:	d104      	bne.n	8000ef6 <I2C_MasterSendData+0xc2>
@@ -2251,7 +2251,7 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, uint32_
  8000f7a:	d0f6      	beq.n	8000f6a <I2C_MasterReceiveData+0x6c>
 
 		//generate STOP condition
-		if(Sr == I2C_NO_SR){
+		if(Sr == I2C_DISABLE_SR){
  8000f7c:	f897 3020 	ldrb.w	r3, [r7, #32]
  8000f80:	2b00      	cmp	r3, #0
  8000f82:	d104      	bne.n	8000f8e <I2C_MasterReceiveData+0x90>
@@ -2316,7 +2316,7 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, uint32_
  8000fd2:	f000 f854 	bl	800107e <I2C_ManageAcking>
 
 				//generate STOP condition
-				if(Sr == I2C_NO_SR){
+				if(Sr == I2C_DISABLE_SR){
  8000fd6:	f897 3020 	ldrb.w	r3, [r7, #32]
  8000fda:	2b00      	cmp	r3, #0
  8000fdc:	d104      	bne.n	8000fe8 <I2C_MasterReceiveData+0xea>

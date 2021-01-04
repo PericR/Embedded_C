@@ -94,13 +94,13 @@ int main(void){
 
 		//Send Len command and receive Len
 		command_code = LEN_COMMAND;
-		I2C_MasterSendData(&I2C1_handle, &command_code, 1, SLAVE_ADDR, I2C_ENABLE_SR);
-		I2C_MasterReceiveData(&I2C1_handle, &len, 1, SLAVE_ADDR, I2C_ENABLE_SR);
+		I2C_MasterSendData(&I2C1_handle, &command_code, 1, SLAVE_ADDR, I2C_SR);
+		I2C_MasterReceiveData(&I2C1_handle, &len, 1, SLAVE_ADDR, I2C_SR);
 
 		//Send data command and receive data
 		command_code = DATA_COMMAND;
-		I2C_MasterSendData(&I2C1_handle, &command_code, 1, SLAVE_ADDR, I2C_ENABLE_SR);
-		I2C_MasterReceiveData(&I2C1_handle, rcv_buf, len, SLAVE_ADDR, I2C_DISABLE_SR);
+		I2C_MasterSendData(&I2C1_handle, &command_code, 1, SLAVE_ADDR, I2C_SR);
+		I2C_MasterReceiveData(&I2C1_handle, rcv_buf, len, SLAVE_ADDR, I2C_NO_SR);
 
 		rcv_buf[len] = '\0';
 

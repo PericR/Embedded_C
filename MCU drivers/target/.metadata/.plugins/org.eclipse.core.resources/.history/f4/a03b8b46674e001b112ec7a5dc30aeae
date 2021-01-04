@@ -69,8 +69,8 @@ typedef struct{
 /*
  * Some other macros
  */
-#define I2C_ENABLE_SR									SET
-#define I2C_DISABLE_SR								RESET
+#define I2C_SR									SET
+#define I2C_NO_SR								RESET
 
 /**************************************************************************************************************
  * 										APIs supported by this driver
