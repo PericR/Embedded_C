@@ -224,7 +224,6 @@ void I2C_PeriClockControl(I2C_RegDef_t *pI2Cx, uint8_t EnorDi){
  *
  */
 void I2C_Init(I2C_Handle_t *pI2CHandle){
-	uint32_t i2c_cr1 = 0;
 	uint32_t i2c_cr2 = 0;
 	uint32_t i2c_oar1 = 0;
 	uint32_t i2c_ccr = 0;
@@ -232,10 +231,10 @@ void I2C_Init(I2C_Handle_t *pI2CHandle){
 
 	//enable the clock for the i2cx peripheral
 	I2C_PeriClockControl(pI2CHandle->pI2Cx,ENABLE);
-
+	I2C_PeripheralControl(pI2CHandle->pI2Cx, ENABLE);
 	//ack bit configuration
-	i2c_cr1 |= (pI2CHandle->I2C_Config.I2C_ACKControl << I2C_CR1_ACK);
-	pI2CHandle->pI2Cx->CR1 = i2c_cr1;
+	pI2CHandle->pI2Cx->CR1 |= (pI2CHandle->I2C_Config.I2C_ACKControl << I2C_CR1_ACK);
+
 
 	//configure the FREQ bits of CR2
 	i2c_cr2 |= ((RCC_GetPCLK1Value() /1000000U ) << I2C_CR2_FREQ);
@@ -388,19 +387,18 @@ void I2C_MasterReceiveData(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, uint32_
 		//Disable Acking
 		I2C_ManageAcking(pI2CHandle->pI2Cx, I2C_ACK_DISABLE);
 
-		//generate STOP condition
-		I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
-
 		//Clear the ADDR flag
 		I2C_ClearADDRFlag(pI2CHandle->pI2Cx);
 
 		//Wait until RXNE is SET
 		while(!I2C_GetFlagStatus(pI2CHandle->pI2Cx, I2C_FLAG_RXNE));
 
+		//generate STOP condition
+		I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
+
 		//read data in to buffer
 		*pRxbuffer = pI2CHandle->pI2Cx->DR;
 
-		return;
 	}
 
 	//procedure to read data from slave when LEN > 1

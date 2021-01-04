@@ -1,6 +1,6 @@
-11:07:27 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+09:09:58 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
 make -j4 all 
-arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
+arm-none-eabi-gcc "../Src/011i2c_master_rx_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/011i2c_master_rx_test.d" -MT"Src/011i2c_master_rx_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/011i2c_master_rx_test.o"
 arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32f446_drivers.elf
  
@@ -8,13 +8,13 @@ arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
 arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
 arm-none-eabi-size   stm32f446_drivers.elf 
    text	   data	    bss	    dec	    hex	filename
-   3644	      8	   1584	   5236	   1474	stm32f446_drivers.elf
-Finished building: default.size.stdout
-Finished building: stm32f446_drivers.list
+   9648	    116	   1772	  11536	   2d10	stm32f446_drivers.elf
 Finished building: stm32f446_drivers.bin
+Finished building: default.size.stdout
  
  
+Finished building: stm32f446_drivers.list
  
 
-11:07:27 Build Finished. 0 errors, 0 warnings. (took 699ms)
+09:09:59 Build Finished. 0 errors, 0 warnings. (took 697ms)
 
