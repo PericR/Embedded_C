@@ -587,38 +587,6 @@ void I2C_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority){
 	*(NVIC_PR_BASE_ADDR + iprx) |= (IRQPriority << shift_value);
 }
 
-/*****************************************************************
- * @fn					- I2C_EV_IRQHandling
- *
- * @brief				- This function handles interrupt events
- *
- * @param[in]			- SPI handle with base address and initialization values
- *
- * @return				- none
- *
- * @note				- none
- *
- */
-void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle){
-
-}
-
-/*****************************************************************
- * @fn					- I2C_ER_IRQHandling
- *
- * @brief				- This function handles interrupt errors
- *
- * @param[in]			- SPI handle with base address and initialization values
- *
- * @return				- none
- *
- * @note				- none
- *
- */
-void I2C_ER_IRQHandling(I2C_Handle_t *pI2CHandle){
-
-}
-
 /*
  * 	Other Peripheral Control APIs
  */
