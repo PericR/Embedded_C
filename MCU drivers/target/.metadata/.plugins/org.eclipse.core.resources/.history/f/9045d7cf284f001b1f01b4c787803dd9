@@ -463,7 +463,7 @@ uint8_t I2C_MasterSendData_IT(I2C_Handle_t *pI2CHandle, uint8_t *pTxbuffer, uint
 	uint8_t busy_state = pI2CHandle->TxRxState;
 
 	if( (busy_state != I2C_BUSY_IN_TX) && (busy_state != I2C_BUSY_IN_RX) ){
-		pI2CHandle->pTxBuffer = pTxbuffer;
+		pI2CHandle->pTxBuffer = &pTxbuffer;
 		pI2CHandle->TxLen = Len;
 		pI2CHandle->TxRxState = I2C_BUSY_IN_TX;
 		pI2CHandle->DevAddress = SlaveAddr;
