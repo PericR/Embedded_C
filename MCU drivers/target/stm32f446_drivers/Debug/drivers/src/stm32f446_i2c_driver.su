@@ -13,6 +13,8 @@ stm32f446_i2c_driver.c:462:9:I2C_MasterSendData_IT	32	static
 stm32f446_i2c_driver.c:504:9:I2C_MasterReceiveData_IT	32	static
 stm32f446_i2c_driver.c:548:6:I2C_IRQInterruptConfig	16	static
 stm32f446_i2c_driver.c:581:6:I2C_IRQPriorityConfig	24	static
-stm32f446_i2c_driver.c:607:6:I2C_PeripheralControl	16	static
-stm32f446_i2c_driver.c:628:9:I2C_GetFlagStatus	16	static
-stm32f446_i2c_driver.c:649:6:I2C_ManageAcking	16	static
+stm32f446_i2c_driver.c:602:6:I2C_EV_IRQHandling	48	static
+stm32f446_i2c_driver.c:663:6:I2C_ER_IRQHandling	16	static
+stm32f446_i2c_driver.c:684:6:I2C_PeripheralControl	16	static
+stm32f446_i2c_driver.c:705:9:I2C_GetFlagStatus	16	static
+stm32f446_i2c_driver.c:726:6:I2C_ManageAcking	16	static
