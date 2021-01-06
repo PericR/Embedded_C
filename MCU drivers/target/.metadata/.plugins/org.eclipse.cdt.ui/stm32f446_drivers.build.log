@@ -1,20 +1,29 @@
-12:19:21 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+20:43:44 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
 make -j4 all 
 arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../drivers/src/stm32f446_i2c_driver.c: In function 'I2C_MasterHandleRXNEInterrupt':
+../drivers/src/stm32f446_i2c_driver.c:680:3: warning: implicit declaration of function 'I2C_CloseRx' [-Wimplicit-function-declaration]
+   I2C_CloseRx();
+   ^~~~~~~~~~~
 ../drivers/src/stm32f446_i2c_driver.c: In function 'I2C_EV_IRQHandling':
-../drivers/src/stm32f446_i2c_driver.c:646:6: warning: implicit declaration of function 'I2C_CloseTx'; did you mean 'I2C_CR1_STOP'? [-Wimplicit-function-declaration]
-      I2C_CloseTx(pI2CHandle->pI2Cx);
+../drivers/src/stm32f446_i2c_driver.c:743:6: warning: implicit declaration of function 'I2C_CloseTx'; did you mean 'I2C_CR1_STOP'? [-Wimplicit-function-declaration]
+      I2C_CloseTx();
       ^~~~~~~~~~~
       I2C_CR1_STOP
-../drivers/src/stm32f446_i2c_driver.c:649:47: error: 'I2C_EV_TX_CMPLT' undeclared (first use in this function); did you mean 'SPI_EVENT_TX_CMPLT'?
-      I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_TX_CMPLT);
-                                               ^~~~~~~~~~~~~~~
-                                               SPI_EVENT_TX_CMPLT
-../drivers/src/stm32f446_i2c_driver.c:649:47: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [drivers/src/subdir.mk:26: drivers/src/stm32f446_i2c_driver.o] Error 1
-make: *** Waiting for unfinished jobs....
-"make -j4 all" terminated with exit code 2. Build might be incomplete.
+arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f446_drivers.elf
+ 
+arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
+arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
+arm-none-eabi-size   stm32f446_drivers.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9756	    116	   1804	  11676	   2d9c	stm32f446_drivers.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f446_drivers.bin
+ 
+Finished building: stm32f446_drivers.list
+ 
 
-12:19:22 Build Failed. 3 errors, 1 warnings. (took 592ms)
+20:43:45 Build Finished. 0 errors, 2 warnings. (took 624ms)
 
