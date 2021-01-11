@@ -677,7 +677,7 @@ void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle){
 		}
 
 		//Close the I2C Rx
-		I2C_CloseRx(pI2CHandle);
+		I2C_CloseRx();
 
 		//Notify the application about transmission complete
 		I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_RX_CMPLT);
@@ -790,7 +790,7 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle){
 					}
 
 					//Reset all the members elements of handle structure
-					I2C_CloseTx(pI2CHandle);
+					I2C_CloseTx();
 
 					//Notify the application about transmission complete
 					I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_TX_CMPLT);
