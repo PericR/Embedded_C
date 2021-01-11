@@ -258,6 +258,12 @@ Discarded input sections
  .text          0x0000000000000000        0x0 drivers/src/stm32f446_i2c_driver.o
  .data          0x0000000000000000        0x0 drivers/src/stm32f446_i2c_driver.o
  .bss           0x0000000000000000        0x0 drivers/src/stm32f446_i2c_driver.o
+ .text.I2C_IRQPriorityConfig
+                0x0000000000000000       0x52 drivers/src/stm32f446_i2c_driver.o
+ .text.I2C_MasterHandleTXEInterrupt
+                0x0000000000000000       0x3a drivers/src/stm32f446_i2c_driver.o
+ .text.I2C_MasterHandleRXNEInterrupt
+                0x0000000000000000       0x96 drivers/src/stm32f446_i2c_driver.o
  .text.I2C_DeInit
                 0x0000000000000000       0x88 drivers/src/stm32f446_i2c_driver.o
  .text.I2C_MasterSendData_IT
@@ -266,12 +272,6 @@ Discarded input sections
                 0x0000000000000000       0x90 drivers/src/stm32f446_i2c_driver.o
  .text.I2C_IRQInterruptConfig
                 0x0000000000000000      0x108 drivers/src/stm32f446_i2c_driver.o
- .text.I2C_IRQPriorityConfig
-                0x0000000000000000       0x52 drivers/src/stm32f446_i2c_driver.o
- .text.I2C_MasterHandleTXEInterrupt
-                0x0000000000000000       0x3a drivers/src/stm32f446_i2c_driver.o
- .text.I2C_MasterHandleRXNEInterrupt
-                0x0000000000000000       0x96 drivers/src/stm32f446_i2c_driver.o
  .text.I2C_CloseRx
                 0x0000000000000000       0x5e drivers/src/stm32f446_i2c_driver.o
  .text.I2C_CloseTx
@@ -1200,19 +1200,19 @@ LOAD /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.g
                 0x0000000000000646       0x1e /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/crtn.o
 OUTPUT(stm32f446_drivers.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x2727
+.debug_info     0x0000000000000000     0x2726
  .debug_info    0x0000000000000000      0xc29 Src/011i2c_master_rx_test.o
  .debug_info    0x0000000000000c29      0x91c Src/sysmem.o
  .debug_info    0x0000000000001545       0x22 Startup/startup_stm32f446retx.o
  .debug_info    0x0000000000001567      0x795 drivers/src/stm32f446_gpio_driver .o
- .debug_info    0x0000000000001cfc      0xa2b drivers/src/stm32f446_i2c_driver.o
+ .debug_info    0x0000000000001cfc      0xa2a drivers/src/stm32f446_i2c_driver.o
 
-.debug_abbrev   0x0000000000000000      0x700
+.debug_abbrev   0x0000000000000000      0x6e6
  .debug_abbrev  0x0000000000000000      0x208 Src/011i2c_master_rx_test.o
  .debug_abbrev  0x0000000000000208      0x1bb Src/sysmem.o
  .debug_abbrev  0x00000000000003c3       0x12 Startup/startup_stm32f446retx.o
  .debug_abbrev  0x00000000000003d5      0x13f drivers/src/stm32f446_gpio_driver .o
- .debug_abbrev  0x0000000000000514      0x1ec drivers/src/stm32f446_i2c_driver.o
+ .debug_abbrev  0x0000000000000514      0x1d2 drivers/src/stm32f446_i2c_driver.o
 
 .debug_aranges  0x0000000000000000      0x1d0
  .debug_aranges

@@ -16,6 +16,8 @@ static void I2C_ExecuteAddressPhaseWrite(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr)
 static void I2C_ExecuteAddressPhaseRead(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr);
 static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle);
 static void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx);
+static void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle);
+static void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle);
 
 /*****************************************************************
  * @fn					- I2C_GenerateStartCondition
@@ -134,6 +136,100 @@ static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle){
  */
 static void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx){
 	pI2Cx->CR1 |= (1 << I2C_CR1_STOP);
+}
+
+/*****************************************************************
+ * @fn					- I2C_IRQPriorityConfig
+ *
+ * @brief				- This function configures priority registers
+ *
+ ** @param[in]			- IRQ  number
+ * @param[in]			- IRQ priority number
+ *
+ * @return				- none
+ *
+ * @note				- none
+ *
+ */
+void I2C_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority){
+	uint8_t iprx = IRQNumber / 4;
+	uint8_t iprx_section = IRQNumber % 4;
+
+	uint8_t shift_value = (8 * iprx_section) + (8 - NO_PR_BITS_IMPLEMENTED);
+
+	*(NVIC_PR_BASE_ADDR + iprx) |= (IRQPriority << shift_value);
+}
+
+/*****************************************************************
+ * @fn					- I2C_MasterHandleTXEInterrupt
+ *
+ * @brief				- This function handles TXE Interrupt
+ *
+ * @param[in]			- SPI handle with base address and initialization values
+ *
+ * @return				- none
+ *
+ * @note				- none
+ *
+ */
+void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle){
+	if(pI2CHandle->TxLen > 0){
+		//load data in DR
+		pI2CHandle->pI2Cx->DR = *(pI2CHandle->pTxBuffer);
+
+		//Decrement the LEN
+		pI2CHandle->TxLen--;
+
+		//Increment the buffer
+		pI2CHandle->pTxBuffer++;
+	}
+}
+
+/*****************************************************************
+ * @fn					- I2C_MasterHandleRXNEInterrupt
+ *
+ * @brief				- This function handles RXNE Interrupt
+ *
+ * @param[in]			- SPI handle with base address and initialization values
+ *
+ * @return				- none
+ *
+ * @note				- none
+ *
+ */
+void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle){
+	//We have to do the data reception
+	if(pI2CHandle->RxSize == 1){
+		*pI2CHandle->pRxBuffer = pI2CHandle->pI2Cx->DR;
+		pI2CHandle->RxLen--;
+	}
+
+	if(pI2CHandle->RxSize > 1){
+		if(pI2CHandle->RxLen == 2){
+			//Disable ACKing
+			I2C_ManageAcking(pI2CHandle->pI2Cx, ENABLE);
+		}
+
+		//Read DR
+		*pI2CHandle->pRxBuffer = pI2CHandle->pI2Cx->DR;
+		pI2CHandle->pRxBuffer++;
+		pI2CHandle->RxLen--;
+	}
+
+	if(pI2CHandle->RxLen == 0){
+		//Close the I2C data reception and notify the application
+
+		//Generate the STOP condition
+		if(pI2CHandle->Sr == I2C_DISABLE_SR){
+			I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
+		}
+
+		//Close the I2C Rx
+		I2C_CloseRx(pI2CHandle);
+
+		//Notify the application about transmission complete
+		I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_RX_CMPLT);
+	}
 }
 
 /*****************************************************************
@@ -587,100 +683,6 @@ void I2C_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi){
 		}else if(IRQNumber > 63 && IRQNumber < 96){
 			*NVIC_ICER2 |= (1 << IRQNumber % 32);
 		}
-	}
-}
-
-/*****************************************************************
- * @fn					- I2C_IRQPriorityConfig
- *
- * @brief				- This function configures priority registers
- *
- ** @param[in]			- IRQ  number
- * @param[in]			- IRQ priority number
- *
- * @return				- none
- *
- * @note				- none
- *
- */
-void I2C_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority){
-	uint8_t iprx = IRQNumber / 4;
-	uint8_t iprx_section = IRQNumber % 4;
-
-	uint8_t shift_value = (8 * iprx_section) + (8 - NO_PR_BITS_IMPLEMENTED);
-
-	*(NVIC_PR_BASE_ADDR + iprx) |= (IRQPriority << shift_value);
-}
-
-/*****************************************************************
- * @fn					- I2C_MasterHandleTXEInterrupt
- *
- * @brief				- This function handles TXE Interrupt
- *
- * @param[in]			- SPI handle with base address and initialization values
- *
- * @return				- none
- *
- * @note				- none
- *
- */
-void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle){
-	if(pI2CHandle->TxLen > 0){
-		//load data in DR
-		pI2CHandle->pI2Cx->DR = *(pI2CHandle->pTxBuffer);
-
-		//Decrement the LEN
-		pI2CHandle->TxLen--;
-
-		//Increment the buffer
-		pI2CHandle->pTxBuffer++;
-	}
-}
-
-/*****************************************************************
- * @fn					- I2C_MasterHandleRXNEInterrupt
- *
- * @brief				- This function handles RXNE Interrupt
- *
- * @param[in]			- SPI handle with base address and initialization values
- *
- * @return				- none
- *
- * @note				- none
- *
- */
-void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle){
-	//We have to do the data reception
-	if(pI2CHandle->RxSize == 1){
-		*pI2CHandle->pRxBuffer = pI2CHandle->pI2Cx->DR;
-		pI2CHandle->RxLen--;
-	}
-
-	if(pI2CHandle->RxSize > 1){
-		if(pI2CHandle->RxLen == 2){
-			//Disable ACKing
-			I2C_ManageAcking(pI2CHandle->pI2Cx, ENABLE);
-		}
-
-		//Read DR
-		*pI2CHandle->pRxBuffer = pI2CHandle->pI2Cx->DR;
-		pI2CHandle->pRxBuffer++;
-		pI2CHandle->RxLen--;
-	}
-
-	if(pI2CHandle->RxLen == 0){
-		//Close the I2C data reception and notify the application
-
-		//Generate the STOP condition
-		if(pI2CHandle->Sr == I2C_DISABLE_SR){
-			I2C_GenerateStopCondition(pI2CHandle->pI2Cx);
-		}
-
-		//Close the I2C Rx
-		I2C_CloseRx(pI2CHandle);
-
-		//Notify the application about transmission complete
-		I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_RX_CMPLT);
 	}
 }
 
