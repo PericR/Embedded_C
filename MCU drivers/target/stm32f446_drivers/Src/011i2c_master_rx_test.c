@@ -18,8 +18,6 @@
 #include <string.h>
 #include "stm32f446.h"
 
-extern void initialise_monitor_handles(void);
-
 #define MY_ADDR			0x61
 #define SLAVE_ADDR		0x68
 #define LEN_COMMAND		0x51
@@ -76,9 +74,6 @@ void I2C1_Inits(void){
 }
 
 int main(void){
-	initialise_monitor_handles();
-	printf("App is running\n");
-
 	GPIO_Button_Init();
 	I2C1_GPIOInits();
 	I2C1_Inits();
@@ -103,8 +98,6 @@ int main(void){
 		I2C_MasterReceiveData(&I2C1_handle, rcv_buf, len, SLAVE_ADDR, I2C_DISABLE_SR);
 
 		rcv_buf[len] = '\0';
-
-		printf("Received: %s", rcv_buf);
 
 	}
 }

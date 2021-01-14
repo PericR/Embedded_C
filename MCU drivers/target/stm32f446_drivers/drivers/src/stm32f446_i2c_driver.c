@@ -15,7 +15,6 @@ static void I2C_GenerateStartCondition(I2C_RegDef_t *pI2Cx);
 static void I2C_ExecuteAddressPhaseWrite(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr);
 static void I2C_ExecuteAddressPhaseRead(I2C_RegDef_t *pI2Cx, uint8_t SlaveAddr);
 static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle);
-static void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx);
 static void I2C_MasterHandleTXEInterrupt(I2C_Handle_t *pI2CHandle);
 static void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle);
 
@@ -120,22 +119,6 @@ static void I2C_ClearADDRFlag(I2C_Handle_t *pI2CHandle){
 		dummy_read = pI2CHandle->pI2Cx->SR2;
 		(void)dummy_read;
 	}
-}
-
-/*****************************************************************
- * @fn					- I2C_GenerateStopCondition
- *
- * @brief				- This function sends STOP condition to slave indicating end of transmission
- *
- * @param[in]			- Base address of the I2C peripheral
- *
- * @return				- none
- *
- * @note				- none
- *
- */
-static void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx){
-	pI2Cx->CR1 |= (1 << I2C_CR1_STOP);
 }
 
 /*****************************************************************
@@ -737,6 +720,22 @@ void I2C_CloseTx(I2C_Handle_t *pI2CHandle){
 }
 
 /*****************************************************************
+ * @fn					- I2C_GenerateStopCondition
+ *
+ * @brief				- This function sends STOP condition to slave indicating end of transmission
+ *
+ * @param[in]			- Base address of the I2C peripheral
+ *
+ * @return				- none
+ *
+ * @note				- none
+ *
+ */
+void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx){
+	pI2Cx->CR1 |= (1 << I2C_CR1_STOP);
+}
+
+/*****************************************************************
  * @fn					- I2C_EV_IRQHandling
  *
  * @brief				- This function handles interrupt events
@@ -819,7 +818,7 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle){
 	i2c_flag_txe = pI2CHandle->pI2Cx->SR1 & (1 << I2C_SR1_TxE);
 	if(i2c_cr2_itevten && i2c_cr2_itbufen && i2c_flag_txe){
 		//Check for device mode
-		if(pI2CHandle->pI2Cx->SR2 & I2C_SR2_MSL){
+		if(pI2CHandle->pI2Cx->SR2 & (1 << I2C_SR2_MSL)){
 			//We have to do the data Transmission
 			if(pI2CHandle->TxRxState == I2C_BUSY_IN_TX){
 				I2C_MasterHandleTXEInterrupt(pI2CHandle);

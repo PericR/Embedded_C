@@ -128,6 +128,8 @@ uint8_t I2C_MasterReceiveData_IT(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, u
 void I2C_CloseTx(I2C_Handle_t *pI2CHandle);
 void I2C_CloseRx(I2C_Handle_t *pI2CHandle);
 
+void I2C_GenerateStopCondition(I2C_RegDef_t *pI2Cx);
+
 /*
  * 	IRQ Configuration and ISR handling
  */
