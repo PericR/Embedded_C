@@ -632,6 +632,39 @@ uint8_t I2C_MasterReceiveData_IT(I2C_Handle_t *pI2CHandle, uint8_t *pRxbuffer, u
 	return busy_state;
 }
 
+/*****************************************************************
+ * @fn					- I2C_SlaveSendData
+ *
+ * @brief				- This function sends data to master I2C device
+ *
+ * @param[in]			- Base address of the I2C peripheral
+ * @param[in]			- Data to be sent
+ *
+ * @return				- Application state
+ *
+ * @note				- none
+ *
+ */
+void I2C_SlaveSendData(I2C_RegDef_t *pI2Cx, uint8_t data){
+	pI2Cx->DR = data;
+}
+
+/*****************************************************************
+ * @fn					- I2C_SlaveReceiveData
+ *
+ * @brief				- This function sends data to master I2C device
+ *
+ * @param[in]			- Base address of the I2C peripheral
+ *
+ * @return				- Application state
+ *
+ * @note				- received data from I2C master device
+ *
+ */
+uint8_t I2C_SlaveReceiveData(I2C_RegDef_t *pI2Cx){
+	return (uint8_t)pI2Cx->DR;
+}
+
 /*
  * 	IRQ Configuration and ISR handling
  */
