@@ -1030,3 +1030,30 @@ void I2C_ManageAcking(I2C_RegDef_t *pI2CX, uint8_t EnOrDi){
 		pI2CX->CR1 &= ~(1 << I2C_CR1_ACK);
 	}
 }
+
+/*****************************************************************
+ * @fn					- I2C_SlaveEnableDisableCallbackEvents
+ *
+ * @brief				- This function manages IT bits in CR2
+ *
+ * @param[in]			- Base address of the I2C peripheral
+ * @param[in]			- ENABLE or DISABLE macros
+ *
+ * @return				- none
+ *
+ * @note				- none
+ *
+ */
+void I2C_SlaveEnableDisableCallbackEvents(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi){
+	if(EnOrDi == ENABLE){
+		pI2Cx->CR2 |= (1 << I2C_CR2_ITEVTEN);
+		pI2Cx->CR2 |= (1 << I2C_CR2_ITBUFEN);
+		pI2Cx->CR2 |= (1 << I2C_CR2_ITERREN);
+	}else{
+		pI2Cx->CR2 &= ~(1 << I2C_CR2_ITEVTEN);
+		pI2Cx->CR2 &= ~(1 << I2C_CR2_ITBUFEN);
+		pI2Cx->CR2 &= ~(1 << I2C_CR2_ITERREN);
+	}
+}
+
+

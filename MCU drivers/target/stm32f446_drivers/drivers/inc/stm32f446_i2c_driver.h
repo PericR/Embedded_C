@@ -149,6 +149,7 @@ void I2C_PeripheralControl(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
 uint8_t I2C_GetFlagStatus(I2C_RegDef_t *pI2Cx, uint32_t FlagName);
 void I2C_ManageAcking(I2C_RegDef_t *pI2CX, uint8_t EnOrDi);
 
+void I2C_SlaveEnableDisableCallbackEvents(I2C_RegDef_t *pI2Cx, uint8_t EnOrDi);
 /*
  * Application callback
  */
