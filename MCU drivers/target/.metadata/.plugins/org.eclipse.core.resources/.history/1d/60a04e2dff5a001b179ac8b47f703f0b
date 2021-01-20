@@ -18,7 +18,7 @@
 #include <string.h>
 #include "stm32f446.h"
 
-#define MY_ADDR			0x69
+#define MY_ADDR			0x68
 #define LEN_COMMAND		0x51
 #define SEND_COMMAND	0x52
 
@@ -98,7 +98,7 @@ void I2C1_ER_IRQHandler(void){
 }
 
 void I2C_ApplicationEventCallback(I2C_Handle_t *pI2CHandle, uint8_t AppEv){
-	static uint8_t command_code = 0;
+	static command_code = 0;
 	static uint8_t cnt = 0;
 
 	if(AppEv == I2C_EV_DATA_REQ){

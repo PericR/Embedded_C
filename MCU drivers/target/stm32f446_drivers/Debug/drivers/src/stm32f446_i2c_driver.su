@@ -24,3 +24,4 @@ stm32f446_i2c_driver.c:899:6:I2C_ER_IRQHandling	24	static
 stm32f446_i2c_driver.c:984:6:I2C_PeripheralControl	16	static
 stm32f446_i2c_driver.c:1005:9:I2C_GetFlagStatus	16	static
 stm32f446_i2c_driver.c:1026:6:I2C_ManageAcking	16	static
+stm32f446_i2c_driver.c:1047:6:I2C_SlaveEnableDisableCallbackEvents	16	static
