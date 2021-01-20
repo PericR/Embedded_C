@@ -852,16 +852,9 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle){
 	if(i2c_cr2_itevten && i2c_cr2_itbufen && i2c_flag_txe){
 		//Check for device mode
 		if(pI2CHandle->pI2Cx->SR2 & (1 << I2C_SR2_MSL)){
-			//MASTER mode
 			//We have to do the data Transmission
 			if(pI2CHandle->TxRxState == I2C_BUSY_IN_TX){
 				I2C_MasterHandleTXEInterrupt(pI2CHandle);
-			}
-		} else{
-			//SLAVE mode
-			//Check if device is in Transmitter mode
-			if(pI2CHandle->pI2Cx->SR2 & (1 << I2C_SR2_TRA)){
-				I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_DATA_REQ);
 			}
 		}
 	}
@@ -873,12 +866,6 @@ void I2C_EV_IRQHandling(I2C_Handle_t *pI2CHandle){
 		if(pI2CHandle->pI2Cx->SR2 & (1 << I2C_SR2_MSL)){
 			if(pI2CHandle->TxRxState == I2C_BUSY_IN_RX){
 				I2C_MasterHandleRXNEInterrupt(pI2CHandle);
-			}
-		} else{
-			//SLAVE mode
-			//Check if device is in receiver mode
-			if(pI2CHandle->pI2Cx->SR2 & (1 << I2C_SR2_TRA)){
-				I2C_ApplicationEventCallback(pI2CHandle, I2C_EV_DATA_RCV);
 			}
 		}
 	}
