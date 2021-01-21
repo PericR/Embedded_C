@@ -104,27 +104,8 @@ void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnOrDi){
 	}
 }
 
-/*****************************************************************
- * @fn					- USART_GetFlagStatus
- *
- * @brief				- This function gets FLAG status
- *
- * @param[in]			- Base address of the USART/UART peripheral
- * @param[in]			- Flag name
- *
- * @return				- Flag status (1 or 0)
- *
- * @note				- none
- *
- */
-uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName){
-	if(pUSARTx->SR & FlagName){
-		return FLAG_SET;
-	}
 
-	return FLAG_RESET;
-}
-
+uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName);
 void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName);
 
 /*
