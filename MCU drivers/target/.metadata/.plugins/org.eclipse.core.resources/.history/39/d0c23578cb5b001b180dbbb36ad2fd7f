@@ -178,25 +178,7 @@ uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName){
 	return FLAG_RESET;
 }
 
-/*********************************************************************
- * @fn      		  - USART_ClearFlag
- *
- * @brief             -
- *
- * @param[in]         -
- * @param[in]         -
- * @param[in]         -
- *
- * @return            -
- *
- * @Note              - Applicable to only USART_CTS_FLAG , USART_LBD_FLAG
- * USART_TC_FLAG,USART_TC_FLAG flags
- *
-
- */
-void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t FlagName){
-	pUSARTx->SR &= (FlagName);
-}
+void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName);
 
 /*
  * Application callback
