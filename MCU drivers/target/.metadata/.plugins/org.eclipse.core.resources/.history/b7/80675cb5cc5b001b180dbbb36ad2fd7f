@@ -91,7 +91,7 @@ typedef struct{
 #define USART_HW_FLOW_CTRL_CTS_RTS			3
 
 /*
- * USART/UART related status flags definition
+ * I2C related status flags definition
  */
 #define USART_FLAG_PE						(1 << USART_SR_PE)
 #define USART_FLAG_FE						(1 << USART_SR_FE)
