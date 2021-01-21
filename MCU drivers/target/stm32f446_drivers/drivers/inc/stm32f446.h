@@ -216,9 +216,21 @@ typedef struct{
 	__vo uint32_t SR2;						/*address offset: 0x18 		I2C status register 2*/
 	__vo uint32_t CCR;						/*address offset: 0x1C 		I2C clock control register*/
 	__vo uint32_t TRISE;					/*address offset: 0x20 		I2C TRISE register*/
-	__vo uint32_t FLTR;						/*address offset: 0x20 		I2C FLTR register*/
+	__vo uint32_t FLTR;						/*address offset: 0x24 		I2C FLTR register*/
 }I2C_RegDef_t;
 
+/*
+ *	peripheral register definition structure for USART/UART
+ */
+typedef struct{
+	__vo uint32_t SR;						/*address offset: 0x00		USART status register*/
+	__vo uint32_t DR;						/*address offset: 0x04 		USART data register*/
+	__vo uint32_t BRR;						/*address offset: 0x08 		USART baud rate register*/
+	__vo uint32_t CR1;						/*address offset: 0x0C 		USART control register 1*/
+	__vo uint32_t CR2;						/*address offset: 0x10 		USART control register 2*/
+	__vo uint32_t CR3;						/*address offset: 0x14 		USART control register 3*/
+	__vo uint32_t GTPR;						/*address offset: 0x18 		USART guard time and prescaler register*/
+}USART_RegDef_t;
 
 /*
  *	peripheral definitions
@@ -244,6 +256,13 @@ typedef struct{
 #define I2C1								((I2C_RegDef_t*) I2C1_BASEADDR)
 #define I2C2								((I2C_RegDef_t*) I2C2_BASEADDR)
 #define I2C3								((I2C_RegDef_t*) I2C3_BASEADDR)
+
+#define USART1								((USART_RegDef_t*) USART1_BASEADDR)
+#define USART2								((USART_RegDef_t*) USART2_BASEADDR)
+#define USART3								((USART_RegDef_t*) USART3_BASEADDR)
+#define UART4								((USART_RegDef_t*) UART4_BASEADDR)
+#define UART5								((USART_RegDef_t*) UART5_BASEADDR)
+#define USART6								((USART_RegDef_t*) USART6_BASEADDR)
 
 /*
  *	clock enable macros for GPIO peripherals
@@ -568,5 +587,6 @@ typedef struct{
 #include "stm32f446_gpio_driver.h"
 #include "stm32f446_spi_driver.h"
 #include "stm32f446_i2c_driver.h"
+#include "stm32f446_usart_driver.h"
 
 #endif /* INC_STM32F446_H_ */
