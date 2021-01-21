@@ -387,7 +387,15 @@ typedef struct{
 #define I2C2_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 22); RCC->APB1RSTR &= ~(1 << 22);} while(0)
 #define I2C3_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 23); RCC->APB1RSTR &= ~(1 << 23);} while(0)
 
-
+/*
+ * USART/UART peripherals reset macros
+ */
+#define USART1_REG_RESET()								do{ RCC->APB2RSTR |= (1 << 4); RCC->APB2RSTR &= ~(1 << 4);} while(0)
+#define USART2_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 17); RCC->APB1RSTR &= ~(1 << 17);} while(0)
+#define USART3_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 18); RCC->APB1RSTR &= ~(1 << 18);} while(0)
+#define UART4_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 19); RCC->APB1RSTR &= ~(1 << 19);} while(0)
+#define UART5_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 20); RCC->APB1RSTR &= ~(1 << 20);} while(0)
+#define USART6_REG_RESET()								do{ RCC->APB2RSTR |= (1 << 5); RCC->APB2RSTR &= ~(1 << 5);} while(0)
 
 //EXTI IRQ numbers
 #define IRQ_NO_EXTI0 							6
