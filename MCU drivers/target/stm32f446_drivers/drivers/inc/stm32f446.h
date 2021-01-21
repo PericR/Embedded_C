@@ -591,6 +591,88 @@ typedef struct{
 #define I2C_FLTR_DNF							0
 #define I2C_FLTR_ANOFF							4
 
+/*****************************************************************************************************
+ * Bit position definition of USART/UART Peripheral
+ *****************************************************************************************************/
+
+/*
+ * USART/UART status register
+ */
+#define USART_SR_PE								0
+#define USART_SR_FE								1
+#define USART_SR_NF								2
+#define USART_SR_ORE							3
+#define USART_SR_IDLE							4
+#define USART_SR_RXNE							5
+#define USART_SR_TC								6
+#define USART_SR_TXE							7
+#define USART_SR_LBD							8
+#define USART_SR_CTS							9
+
+/*
+ * USART/UART data register
+ */
+#define USART_DR								0
+
+/*
+ * USART/UART baud rate register
+ */
+#define USART_BRR_FRACTION						0
+#define USART_BRR_MANTISSA						4
+
+/*
+ * USART/UART control register 1
+ */
+#define USART_CR1_SBK							0
+#define USART_CR1_RWU							1
+#define USART_CR1_RE							2
+#define USART_CR1_TE							3
+#define USART_CR1_IDLEIE						4
+#define USART_CR1_RXNEIE						5
+#define USART_CR1_TCIE							6
+#define USART_CR1_TXEIE							7
+#define USART_CR1_PEIE							8
+#define USART_CR1_PS							9
+#define USART_CR1_PCE							10
+#define USART_CR1_WAKE							11
+#define USART_CR1_M								12
+#define USART_CR1_UE							13
+#define USART_CR1_OVER8							15
+
+/*
+ * USART/UART control register 2
+ */
+#define USART_CR2_ADD							0
+#define USART_CR2_LBDL							5
+#define USART_CR2_LBDIE							6
+#define USART_CR2_LBCL							8
+#define USART_CR2_CPHA							9
+#define USART_CR2_CPOL							10
+#define USART_CR2_CLKEN							11
+#define USART_CR2_STOP							12
+#define USART_CR2_LINEN							14
+
+/*
+ * USART/UART control register 3
+ */
+#define USART_CR2_EIE							0
+#define USART_CR2_IREN							1
+#define USART_CR2_IRLP							2
+#define USART_CR2_HDSEL							3
+#define USART_CR2_NACK							4
+#define USART_CR2_SCEN							5
+#define USART_CR2_DMAR							6
+#define USART_CR2_DMAT							7
+#define USART_CR2_RTSE							8
+#define USART_CR2_CTSE							9
+#define USART_CR2_CTSIE							10
+#define USART_CR2_ONEBIT						11
+
+/*
+ * USART/UART guard time and prescaler register
+ */
+#define USART_GTPR_PSC							0
+#define USART_GTPR_GT							1
 
 #include "stm32f446_gpio_driver.h"
 #include "stm32f446_spi_driver.h"
