@@ -703,6 +703,28 @@ void I2C_IRQInterruptConfig(uint8_t IRQNumber, uint8_t EnorDi){
 }
 
 /*****************************************************************
+ * @fn					- I2C_IRQPriorityConfig
+ *
+ * @brief				- This function configures priority registers
+ *
+ ** @param[in]			- IRQ  number
+ * @param[in]			- IRQ priority number
+ *
+ * @return				- none
+ *
+ * @note				- none
+ *
+ */
+void I2C_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority){
+	uint8_t iprx = IRQNumber / 4;
+	uint8_t iprx_section = IRQNumber % 4;
+
+	uint8_t shift_value = (8 * iprx_section) + (8 - NO_PR_BITS_IMPLEMENTED);
+
+	*(NVIC_PR_BASE_ADDR + iprx) |= (IRQPriority << shift_value);
+}
+
+/*****************************************************************
  * @fn					- I2C_CloseRx
  *
  * @brief				- This function is used to close Receiver transmission
