@@ -15,9 +15,9 @@
 /*****************************************************************
  * @fn					- USART_PeriClockControl
  *
- * @brief				- This function enables or disables peripheral clock for the given USART/UART peripheral
+ * @brief				- This function enables or disables peripheral clock for the given I2C peripheral
  *
- * @param[in]			- Base address of the USART/UART peripheral
+ * @param[in]			- Base address of the USART peripheral
  * @param[in]			- ENABLE or DISABLE macros
  *
  * @return				- none
@@ -82,29 +82,7 @@ void USART_IRQHandling(USART_Handle_t *pHandle);
 /*
  * Other Peripheral Control APIs
  */
-
-/*****************************************************************
- * @fn					- USART_PeripheralControl
- *
- * @brief				- This function configures USART/UART Peripheral
- *
- * @param[in]			- Base address of the USART/UART peripheral
- * @param[in]			- Enable or disable
- *
- * @return				- none
- *
- * @note				- none
- *
- */
-void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnOrDi){
-	if(EnOrDi == ENABLE){
-		pUSARTx->CR1 |= (1 << USART_CR1_UE);
-	} else {
-
-	}
-}
-
-
+void USART_PeripheralControl(USART_RegDef_t *pUSARTx, uint8_t EnOrDi);
 uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSARTx , uint32_t FlagName);
 void USART_ClearFlag(USART_RegDef_t *pUSARTx, uint16_t StatusFlagName);
 
