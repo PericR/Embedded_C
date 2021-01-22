@@ -38,7 +38,7 @@ void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi){
 		} else if(pUSARTx == UART5){
 			UART5_PCLK_EN();
 		} else if(pUSARTx == USART6){
-			USART6_PCLK_EN();
+			USART5_PCLK_EN();
 		}
 	}else{
 		if(pUSARTx == USART1){
@@ -60,113 +60,7 @@ void USART_PeriClockControl(USART_RegDef_t *pUSARTx, uint8_t EnorDi){
 /*
  * Init and De-init
  */
-
-/*********************************************************************
- * @fn      		  - USART_Init
- *
- * @brief             -	This function initializes USART/UART by setting all control registers
- *
- * @param[in]         - Handle structure with peripheral address pointer and configuration settings
- *
- * @return            -
- *
- * @Note              - Resolve all the TODOs
-
- */
-void USART_Init(USART_Handle_t *pUSARTHandle){
-
-	//Temporary variable
-	uint32_t usart_cr1, usart_cr2, usart_cr3;
-
-	//Implement the code to enable the Clock for given USART peripheral
-	 USART_PeriClockControl(pUSARTHandle->pUSARTx, ENABLE);
-
-/******************************** Configuration of CR1******************************************/
-
-	usart_cr1 = 0;
-
-	//Enable USART Tx and Rx engines according to the USART_Mode configuration item
-	if ( pUSARTHandle->USART_Config.USART_Mode == USART_MODE_ONLY_RX)
-	{
-		//Implement the code to enable the Receiver bit field
-		usart_cr1 |= (1 << USART_CR1_RE);
-	}else if (pUSARTHandle->USART_Config.USART_Mode == USART_MODE_ONLY_TX)
-	{
-		//Implement the code to enable the Transmitter bit field
-		usart_cr1 |= (1 << USART_CR1_TE);
-	}else if (pUSARTHandle->USART_Config.USART_Mode == USART_MODE_TXRX)
-	{
-		//Implement the code to enable the both Transmitter and Receiver bit fields
-		usart_cr1 |= ( ( 1 << USART_CR1_TE) | ( 1 << USART_CR1_RE) );
-	}
-
-    //Implement the code to configure the Word length configuration item
-	usart_cr1 |= pUSARTHandle->USART_Config.USART_WordLength << USART_CR1_M;
-
-
-    //Configuration of parity control bit fields
-	if ( pUSARTHandle->USART_Config.USART_ParityControl == USART_PARITY_EN_EVEN)
-	{
-		//Implement the code to enable the parity control
-		usart_cr1 |= ( 1 << USART_CR1_PCE);
-
-		//Implement the code to enable EVEN parity
-		usart_cr1 &= ~( 1 << USART_CR1_PS);
-
-	}else if (pUSARTHandle->USART_Config.USART_ParityControl == USART_PARITY_EN_ODD )
-	{
-		//Implement the code to enable the parity control
-		usart_cr1 |= ( 1 << USART_CR1_PCE);
-
-	    //Implement the code to enable ODD parity
-		usart_cr1 |= ( 1 << USART_CR1_PS);
-
-	}
-
-   //Program the CR1 register
-	pUSARTHandle->pUSARTx->CR1 = usart_cr1;
-
-/******************************** Configuration of CR2******************************************/
-
-	usart_cr2 = 0;
-
-	//Implement the code to configure the number of stop bits inserted during USART frame transmission
-	usart_cr2 |= pUSARTHandle->USART_Config.USART_NoOfStopBits << USART_CR2_STOP;
-
-	//Program the CR2 register
-	pUSARTHandle->pUSARTx->CR2 = usart_cr2;
-
-/******************************** Configuration of CR3******************************************/
-
-	usart_cr3 = 0;
-
-	//Configuration of USART hardware flow control
-	if ( pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_CTS)
-	{
-		//Implement the code to enable CTS flow control
-		usart_cr3 |= (1 << USART_CR3_CTSE);
-
-
-	}else if (pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_RTS)
-	{
-		//Implement the code to enable RTS flow control
-		usart_cr3 |= (1 << USART_CR3_RTSE);
-
-	}else if (pUSARTHandle->USART_Config.USART_HWFlowControl == USART_HW_FLOW_CTRL_CTS_RTS)
-	{
-		//Implement the code to enable both CTS and RTS Flow control
-		usart_cr3 |= ((1 << USART_CR3_CTSE) | (1 << USART_CR3_RTSE));
-	}
-
-
-	pUSARTHandle->pUSARTx->CR3 = usart_cr3;
-
-/******************************** Configuration of BRR(Baudrate register)******************************************/
-
-	//Implement the code to configure the baud rate
-	//We will cover this in the lecture. No action required here
-
-}
+void USART_Init(USART_Handle_t *pUSARTHandle);
 
 /*****************************************************************
  * @fn					- USART_DeInit

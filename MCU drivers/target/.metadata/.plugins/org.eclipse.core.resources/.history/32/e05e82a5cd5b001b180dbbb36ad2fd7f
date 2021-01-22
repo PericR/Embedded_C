@@ -27,7 +27,7 @@ typedef struct{
  */
 typedef struct{
 	USART_RegDef_t *pUSARTx;								/*This holds the base address of the USART/UART port to which the pin belongs*/
-	USART_Config_t USART_Config;								/*This holds USART/UART configuration settings*/
+	USART_Config_t USART_Config								/*This holds USART/UART configuration settings*/
 }USART_Handle_t;
 
 
@@ -44,7 +44,7 @@ typedef struct{
  *Possible options for USART_Baud
  */
 #define USART_STD_BAUD_1200					1200
-#define USART_STD_BAUD_2400					2400
+#define USART_STD_BAUD_2400					400
 #define USART_STD_BAUD_9600					9600
 #define USART_STD_BAUD_19200 				19200
 #define USART_STD_BAUD_38400 				38400

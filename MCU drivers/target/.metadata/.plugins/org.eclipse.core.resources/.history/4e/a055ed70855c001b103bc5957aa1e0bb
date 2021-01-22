@@ -216,9 +216,21 @@ typedef struct{
 	__vo uint32_t SR2;						/*address offset: 0x18 		I2C status register 2*/
 	__vo uint32_t CCR;						/*address offset: 0x1C 		I2C clock control register*/
 	__vo uint32_t TRISE;					/*address offset: 0x20 		I2C TRISE register*/
-	__vo uint32_t FLTR;						/*address offset: 0x20 		I2C FLTR register*/
+	__vo uint32_t FLTR;						/*address offset: 0x24 		I2C FLTR register*/
 }I2C_RegDef_t;
 
+/*
+ *	peripheral register definition structure for USART/UART
+ */
+typedef struct{
+	__vo uint32_t SR;						/*address offset: 0x00		USART status register*/
+	__vo uint32_t DR;						/*address offset: 0x04 		USART data register*/
+	__vo uint32_t BRR;						/*address offset: 0x08 		USART baud rate register*/
+	__vo uint32_t CR1;						/*address offset: 0x0C 		USART control register 1*/
+	__vo uint32_t CR2;						/*address offset: 0x10 		USART control register 2*/
+	__vo uint32_t CR3;						/*address offset: 0x14 		USART control register 3*/
+	__vo uint32_t GTPR;						/*address offset: 0x18 		USART guard time and prescaler register*/
+}USART_RegDef_t;
 
 /*
  *	peripheral definitions
@@ -244,6 +256,13 @@ typedef struct{
 #define I2C1								((I2C_RegDef_t*) I2C1_BASEADDR)
 #define I2C2								((I2C_RegDef_t*) I2C2_BASEADDR)
 #define I2C3								((I2C_RegDef_t*) I2C3_BASEADDR)
+
+#define USART1								((USART_RegDef_t*) USART1_BASEADDR)
+#define USART2								((USART_RegDef_t*) USART2_BASEADDR)
+#define USART3								((USART_RegDef_t*) USART3_BASEADDR)
+#define UART4								((USART_RegDef_t*) UART4_BASEADDR)
+#define UART5								((USART_RegDef_t*) UART5_BASEADDR)
+#define USART6								((USART_RegDef_t*) USART6_BASEADDR)
 
 /*
  *	clock enable macros for GPIO peripherals
@@ -368,7 +387,15 @@ typedef struct{
 #define I2C2_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 22); RCC->APB1RSTR &= ~(1 << 22);} while(0)
 #define I2C3_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 23); RCC->APB1RSTR &= ~(1 << 23);} while(0)
 
-
+/*
+ * USART/UART peripherals reset macros
+ */
+#define USART1_REG_RESET()								do{ RCC->APB2RSTR |= (1 << 4); RCC->APB2RSTR &= ~(1 << 4);} while(0)
+#define USART2_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 17); RCC->APB1RSTR &= ~(1 << 17);} while(0)
+#define USART3_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 18); RCC->APB1RSTR &= ~(1 << 18);} while(0)
+#define UART4_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 19); RCC->APB1RSTR &= ~(1 << 19);} while(0)
+#define UART5_REG_RESET()								do{ RCC->APB1RSTR |= (1 << 20); RCC->APB1RSTR &= ~(1 << 20);} while(0)
+#define USART6_REG_RESET()								do{ RCC->APB2RSTR |= (1 << 5); RCC->APB2RSTR &= ~(1 << 5);} while(0)
 
 //EXTI IRQ numbers
 #define IRQ_NO_EXTI0 							6
@@ -564,9 +591,92 @@ typedef struct{
 #define I2C_FLTR_DNF							0
 #define I2C_FLTR_ANOFF							4
 
+/*****************************************************************************************************
+ * Bit position definition of USART/UART Peripheral
+ *****************************************************************************************************/
+
+/*
+ * USART/UART status register
+ */
+#define USART_SR_PE								0
+#define USART_SR_FE								1
+#define USART_SR_NF								2
+#define USART_SR_ORE							3
+#define USART_SR_IDLE							4
+#define USART_SR_RXNE							5
+#define USART_SR_TC								6
+#define USART_SR_TXE							7
+#define USART_SR_LBD							8
+#define USART_SR_CTS							9
+
+/*
+ * USART/UART data register
+ */
+#define USART_DR								0
+
+/*
+ * USART/UART baud rate register
+ */
+#define USART_BRR_FRACTION						0
+#define USART_BRR_MANTISSA						4
+
+/*
+ * USART/UART control register 1
+ */
+#define USART_CR1_SBK							0
+#define USART_CR1_RWU							1
+#define USART_CR1_RE							2
+#define USART_CR1_TE							3
+#define USART_CR1_IDLEIE						4
+#define USART_CR1_RXNEIE						5
+#define USART_CR1_TCIE							6
+#define USART_CR1_TXEIE							7
+#define USART_CR1_PEIE							8
+#define USART_CR1_PS							9
+#define USART_CR1_PCE							10
+#define USART_CR1_WAKE							11
+#define USART_CR1_M								12
+#define USART_CR1_UE							13
+#define USART_CR1_OVER8							15
+
+/*
+ * USART/UART control register 2
+ */
+#define USART_CR2_ADD							0
+#define USART_CR2_LBDL							5
+#define USART_CR2_LBDIE							6
+#define USART_CR2_LBCL							8
+#define USART_CR2_CPHA							9
+#define USART_CR2_CPOL							10
+#define USART_CR2_CLKEN							11
+#define USART_CR2_STOP							12
+#define USART_CR2_LINEN							14
+
+/*
+ * USART/UART control register 3
+ */
+#define USART_CR2_EIE							0
+#define USART_CR2_IREN							1
+#define USART_CR2_IRLP							2
+#define USART_CR2_HDSEL							3
+#define USART_CR2_NACK							4
+#define USART_CR2_SCEN							5
+#define USART_CR2_DMAR							6
+#define USART_CR2_DMAT							7
+#define USART_CR2_RTSE							8
+#define USART_CR2_CTSE							9
+#define USART_CR2_CTSIE							10
+#define USART_CR2_ONEBIT						11
+
+/*
+ * USART/UART guard time and prescaler register
+ */
+#define USART_GTPR_PSC							0
+#define USART_GTPR_GT							1
 
 #include "stm32f446_gpio_driver.h"
 #include "stm32f446_spi_driver.h"
 #include "stm32f446_i2c_driver.h"
+#include "stm32f446_usart_driver.h"
 
 #endif /* INC_STM32F446_H_ */

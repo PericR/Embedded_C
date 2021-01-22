@@ -134,7 +134,7 @@ void USART_Init(USART_Handle_t *pUSARTHandle){
 	usart_cr2 |= pUSARTHandle->USART_Config.USART_NoOfStopBits << USART_CR2_STOP;
 
 	//Program the CR2 register
-	pUSARTHandle->pUSARTx->CR2 = usart_cr2;
+	pUSARTHandle->pUSARTx->TODO = usart_cr2;
 
 /******************************** Configuration of CR3******************************************/
 
@@ -159,7 +159,7 @@ void USART_Init(USART_Handle_t *pUSARTHandle){
 	}
 
 
-	pUSARTHandle->pUSARTx->CR3 = usart_cr3;
+	pUSARTHandle->pUSARTx->TODO = usart_cr3;
 
 /******************************** Configuration of BRR(Baudrate register)******************************************/
 

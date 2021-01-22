@@ -655,18 +655,18 @@ typedef struct{
 /*
  * USART/UART control register 3
  */
-#define USART_CR3_EIE							0
-#define USART_CR3_IREN							1
-#define USART_CR3_IRLP							2
-#define USART_CR3_HDSEL							3
-#define USART_CR3_NACK							4
-#define USART_CR3_SCEN							5
-#define USART_CR3_DMAR							6
-#define USART_CR3_DMAT							7
-#define USART_CR3_RTSE							8
-#define USART_CR3_CTSE							9
-#define USART_CR3_CTSIE							10
-#define USART_CR3_ONEBIT						11
+#define USART_CR2_EIE							0
+#define USART_CR2_IREN							1
+#define USART_CR2_IRLP							2
+#define USART_CR2_HDSEL							3
+#define USART_CR2_NACK							4
+#define USART_CR2_SCEN							5
+#define USART_CR2_DMAR							6
+#define USART_CR2_DMAT							7
+#define USART_CR2_RTSE							8
+#define USART_CR2_CTSE							9
+#define USART_CR2_CTSIE							10
+#define USART_CR2_ONEBIT						11
 
 /*
  * USART/UART guard time and prescaler register
