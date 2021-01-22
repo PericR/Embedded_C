@@ -307,7 +307,8 @@ void USART_ReceiveData(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_
 				//Parity is used, so , 7 bits will be of user data and 1 bit is parity
 
 				//read only 7 bits , hence mask the DR with 0X7F
-				 *pRxBuffer = (uint8_t) (pUSARTHandle->pUSARTx->DR & (uint8_t)0x7F);
+				 *pRxBuffer = (uint8_t) (pUSARTHandle->pUSARTx->DR & (uint8_t)0x7F):
+
 			}
 
 			//increment the pRxBuffer
