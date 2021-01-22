@@ -202,20 +202,20 @@ void USART_DeInit(USART_RegDef_t *pUSARTx){
  */
 
 /*********************************************************************
- * @fn				  - USART_SendData
+ * @fn					- USART_SendData
  *
- * @brief             - This function sends data in blocking way
+ * @brief           	- This function sends data in blocking way
  *
- * @param[in]         - Handle structure with peripheral address pointer and configuration settings
- * @param[in]         - Pointer to buffer which contains data
- * @param[in]         - Length of data
+ * @param[in]			- Base address of the USART/UART peripheral
+ * @param[in]         	- Pointer to buffer which contains data
+ * @param[in]         	- Length of data
  *
- * @return	          -
+ * @return	            -
  *
- * @Note    	      -
+ * @Note    	        -
 
  */
-void USART_SendData(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Len){
+void USART_SendData(USART_RegDef_t *pUSARTx,uint8_t *pTxBuffer, uint32_t Len){
 	uint16_t *pdata;
 
    //Loop over until "Len" number of bytes are transferred
@@ -225,11 +225,11 @@ void USART_SendData(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Le
 		while(! USART_GetFlagStatus(pUSARTHandle->pUSARTx, USART_FLAG_TXE));
 
          //Check the USART_WordLength item for 9BIT or 8BIT in a frame
-		if(pUSARTHandle->USART_Config.USART_WordLength == USART_WORDLEN_9BITS)
+		if(pUSARTHandle->USART_Config.TODO == USART_WORDLEN_9BITS)
 		{
 			//if 9BIT, load the DR with 2bytes masking the bits other than first 9 bits
 			pdata = (uint16_t*) pTxBuffer;
-			pUSARTHandle->pUSARTx->DR = (*pdata & (uint16_t)0x01FF);
+			pUSARTx->DR = (*pdata & (uint16_t)0x01FF);
 
 			//check for USART_ParityControl
 			if(pUSARTHandle->USART_Config.USART_ParityControl == USART_PARITY_DISABLE)
