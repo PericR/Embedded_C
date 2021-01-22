@@ -331,21 +331,29 @@ void USART_ReceiveData(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_
 
  */
 uint8_t USART_SendDataIT(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Len){
-	uint8_t txstate = pUSARTHandle->TxBusyState;
+	uint8_t USART_SendDataIT(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Len)
+	{
+		uint8_t txstate = pUSARTHandle->TODO;
 
-	if(txstate != USART_BUSY_IN_TX){
-		pUSARTHandle->TxLen = Len;
-		pUSARTHandle->pTxBuffer = pTxBuffer;
-		pUSARTHandle->TxBusyState = USART_BUSY_IN_TX;
+		if(txstate != USART_BUSY_IN_TX)
+		{
+			pUSARTHandle->TODO = Len;
+			pUSARTHandle->pTxBuffer = TODO;
+			pUSARTHandle->TxBusyState = TODO;
 
-		//Implement the code to enable interrupt for TXE
-		pUSARTHandle->pUSARTx->CR1 |= (1 << USART_CR1_TXEIE);
+			//Implement the code to enable interrupt for TXE
+			TODO
 
-		//Implement the code to enable interrupt for TC
-		pUSARTHandle->pUSARTx->CR1 |= (1 << USART_CR1_TCIE);
+
+			//Implement the code to enable interrupt for TC
+			TODO
+
+
+		}
+
+		return txstate;
+
 	}
-
-	return txstate;
 }
 
 /*********************************************************************

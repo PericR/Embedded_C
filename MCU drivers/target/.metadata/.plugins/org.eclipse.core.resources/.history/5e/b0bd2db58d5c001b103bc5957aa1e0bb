@@ -204,7 +204,7 @@ void USART_DeInit(USART_RegDef_t *pUSARTx){
 /*********************************************************************
  * @fn				  - USART_SendData
  *
- * @brief             - This function sends data in blocking mode
+ * @brief             - This function sends data in blocking way
  *
  * @param[in]         - Handle structure with peripheral address pointer and configuration settings
  * @param[in]         - Pointer to buffer which contains data
@@ -257,7 +257,7 @@ void USART_SendData(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Le
 /*********************************************************************
  * @fn				  - USART_ReceiveData
  *
- * @brief             - This function receive data in blocking mode
+ * @brief             - This function receive data in blocking way
  *
  * @param[in]         - Handle structure with peripheral address pointer and configuration settings
  * @param[in]         - Pointer to buffer which will receive data
@@ -316,52 +316,8 @@ void USART_ReceiveData(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_
 	}
 }
 
-/*********************************************************************
- * @fn				  - USART_SendDataIT
- *
- * @brief             - This function send data in IT mode
- *
- * @param[in]         - Handle structure with peripheral address pointer and configuration settings
- * @param[in]         - Pointer to buffer which will receive data
- * @param[in]         - Length of data
- *
- * @return	          -	Application event callback
- *
- * @Note    	      -
 
- */
-uint8_t USART_SendDataIT(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Len){
-	uint8_t txstate = pUSARTHandle->TxBusyState;
-
-	if(txstate != USART_BUSY_IN_TX){
-		pUSARTHandle->TxLen = Len;
-		pUSARTHandle->pTxBuffer = pTxBuffer;
-		pUSARTHandle->TxBusyState = USART_BUSY_IN_TX;
-
-		//Implement the code to enable interrupt for TXE
-		pUSARTHandle->pUSARTx->CR1 |= (1 << USART_CR1_TXEIE);
-
-		//Implement the code to enable interrupt for TC
-		pUSARTHandle->pUSARTx->CR1 |= (1 << USART_CR1_TCIE);
-	}
-
-	return txstate;
-}
-
-/*********************************************************************
- * @fn				  - USART_ReceiveDataIT
- *
- * @brief             - This function receives data in IT mode
- *
- * @param[in]         - Handle structure with peripheral address pointer and configuration settings
- * @param[in]         - Pointer to buffer which will receive data
- * @param[in]         - Length of data
- *
- * @return	          - Application event callback
- *
- * @Note    	      -
-
- */
+uint8_t USART_SendDataIT(USART_Handle_t *pUSARTHandle,uint8_t *pTxBuffer, uint32_t Len);
 uint8_t USART_ReceiveDataIT(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_t Len);
 
 /*

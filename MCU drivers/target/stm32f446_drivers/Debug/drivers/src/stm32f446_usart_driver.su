@@ -3,8 +3,9 @@ stm32f446_usart_driver.c:76:6:USART_Init	32	static
 stm32f446_usart_driver.c:183:6:USART_DeInit	16	static
 stm32f446_usart_driver.c:218:6:USART_SendData	32	static
 stm32f446_usart_driver.c:271:6:USART_ReceiveData	32	static
-stm32f446_usart_driver.c:340:6:USART_IRQInterruptConfig	16	static
-stm32f446_usart_driver.c:373:6:USART_IRQPriorityConfig	24	static
-stm32f446_usart_driver.c:400:6:USART_PeripheralControl	16	static
-stm32f446_usart_driver.c:421:9:USART_GetFlagStatus	16	static
-stm32f446_usart_driver.c:445:6:USART_ClearFlag	16	static
+stm32f446_usart_driver.c:333:9:USART_SendDataIT	32	static
+stm32f446_usart_driver.c:384:6:USART_IRQInterruptConfig	16	static
+stm32f446_usart_driver.c:417:6:USART_IRQPriorityConfig	24	static
+stm32f446_usart_driver.c:444:6:USART_PeripheralControl	16	static
+stm32f446_usart_driver.c:465:9:USART_GetFlagStatus	16	static
+stm32f446_usart_driver.c:489:6:USART_ClearFlag	16	static
