@@ -560,7 +560,7 @@ void USART_SetBaudRate(USART_RegDef_t *pUSARTx, uint32_t BaudRate)
   usart_brr |= M_part << 4;
 
   //Extract the fraction part
-  F_part = (usartdiv - (M_part * 100));
+  F_part = (usartdiv - ((usartdiv/100) * 100));
 
   //Calculate the final fractional
   if(pUSARTx->CR1 & ( 1 << USART_CR1_OVER8))

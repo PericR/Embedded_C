@@ -1,4 +1,4 @@
-Src/013i2c_slave_tx_string.o: ../Src/013i2c_slave_tx_string.c \
+Src/015uart_tx_test.o: ../Src/015uart_tx_test.c \
  /home/robert/Projects/Embedded-C/MCU\ drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h \
  /home/robert/Projects/Embedded-C/MCU\ drivers/target/stm32f446_drivers/drivers/inc/stm32f446_gpio_driver.h \
  /home/robert/Projects/Embedded-C/MCU\ drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h \
