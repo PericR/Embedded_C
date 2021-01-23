@@ -193,6 +193,8 @@ void I2C_MasterHandleRXNEInterrupt(I2C_Handle_t *pI2CHandle){
 	}
 }
 
+
+
 /*
  *	 Peripheral clock setup
  */
@@ -229,6 +231,7 @@ void I2C_PeriClockControl(I2C_RegDef_t *pI2Cx, uint8_t EnorDi){
 		}
 	}
 }
+
 /*
  * init and de-init
  */

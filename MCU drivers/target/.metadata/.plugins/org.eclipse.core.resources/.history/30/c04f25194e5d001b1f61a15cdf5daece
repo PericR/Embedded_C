@@ -678,6 +678,5 @@ typedef struct{
 #include "stm32f446_spi_driver.h"
 #include "stm32f446_i2c_driver.h"
 #include "stm32f446_usart_driver.h"
-#include "stm32f446_rcc_driver.h"
 
 #endif /* INC_STM32F446_H_ */
