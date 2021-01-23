@@ -11,7 +11,7 @@
 /*****************************************************************
  * @fn					- RCC_GetPCLK1Value
  *
- * @brief				- This function calculate peripheral clock speed for APB1
+ * @brief				- This function calculate peripheral clock speed for all 3 I2C peripherals
  *
  * @return				- peripheral clock speed for I2C peripherals
  *
@@ -69,7 +69,7 @@ uint32_t RCC_GetPCLK1Value(void){
 /*****************************************************************
  * @fn					- RCC_GetPCLK2Value
  *
- * @brief				- This function calculate peripheral clock speed for APB2
+ * @brief				- This function calculate peripheral clock speed for all 3 I2C peripherals
  *
  * @return				- peripheral clock speed for I2C peripherals
  *
@@ -78,7 +78,7 @@ uint32_t RCC_GetPCLK1Value(void){
  */
 uint32_t RCC_GetPCLK2Value(void){
 	uint32_t pclk1;
-	uint8_t clksrc, ahbprescaler, apb2prescaler;
+	uint8_t clksrc, ahbprescaler, apb1prescaler;
 
 	clksrc = (RCC->CFGR >> 2) & 0x3;
 	if(clksrc == 0){
@@ -108,16 +108,16 @@ uint32_t RCC_GetPCLK2Value(void){
 		pclk1 /= 512;
 	}
 
-	apb2prescaler = (RCC->CFGR >> 13) & 0x7;
-	if(apb2prescaler < 4){
+	apb1prescaler = (RCC->CFGR >> 10) & 0x7;
+	if(apb1prescaler < 4){
 		//clk not divided
-	} else if(apb2prescaler == 4){
+	} else if(apb1prescaler == 4){
 		pclk1 /= 2;
-	} else if(apb2prescaler == 5){
+	} else if(apb1prescaler == 5){
 		pclk1 /= 4;
-	} else if(apb2prescaler == 6){
+	} else if(apb1prescaler == 6){
 		pclk1 /= 8;
-	} else if(apb2prescaler == 7){
+	} else if(apb1prescaler == 7){
 		pclk1 /= 16;
 	}
 
