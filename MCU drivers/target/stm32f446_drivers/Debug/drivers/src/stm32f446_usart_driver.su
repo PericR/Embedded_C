@@ -10,3 +10,4 @@ stm32f446_usart_driver.c:432:6:USART_IRQPriorityConfig	24	static
 stm32f446_usart_driver.c:459:6:USART_PeripheralControl	16	static
 stm32f446_usart_driver.c:480:9:USART_GetFlagStatus	16	static
 stm32f446_usart_driver.c:504:6:USART_ClearFlag	16	static
+stm32f446_usart_driver.c:522:6:USART_SetBaudRate	40	static

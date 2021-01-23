@@ -550,7 +550,7 @@ void USART_SetBaudRate(USART_RegDef_t *pUSARTx, uint32_t BaudRate)
   }else
   {
 	   //over sampling by 16
-	   usartdiv = ((25 * PCLKx) / (BaudRate));
+	   usartdiv = ((25 * PCLKx) / (*BaudRate));
   }
 
   //Calculate the Mantissa part

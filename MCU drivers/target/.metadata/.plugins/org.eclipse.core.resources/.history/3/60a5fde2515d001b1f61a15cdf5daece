@@ -550,7 +550,7 @@ void USART_SetBaudRate(USART_RegDef_t *pUSARTx, uint32_t BaudRate)
   }else
   {
 	   //over sampling by 16
-	   usartdiv = ((25 * PCLKx) / (BaudRate));
+	   usartdiv = ((25 * PCLKx) / (*BaudRate));
   }
 
   //Calculate the Mantissa part
@@ -579,7 +579,7 @@ void USART_SetBaudRate(USART_RegDef_t *pUSARTx, uint32_t BaudRate)
   usart_brr |= F_part << 0;
 
   //copy the value of tempreg in to BRR register
-  pUSARTx->BRR = usart_brr;
+  pUSARTx->TODO = usart_brr;
 }
 
 /*

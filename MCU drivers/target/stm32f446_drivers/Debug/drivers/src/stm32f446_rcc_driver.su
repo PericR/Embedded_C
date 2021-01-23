@@ -1,1 +1,2 @@
 stm32f446_rcc_driver.c:21:10:RCC_GetPCLK1Value	16	static
+stm32f446_rcc_driver.c:79:10:RCC_GetPCLK2Value	16	static

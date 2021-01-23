@@ -266,6 +266,8 @@ Discarded input sections
  .text          0x0000000000000000        0x0 drivers/src/stm32f446_rcc_driver.o
  .data          0x0000000000000000        0x0 drivers/src/stm32f446_rcc_driver.o
  .bss           0x0000000000000000        0x0 drivers/src/stm32f446_rcc_driver.o
+ .text.RCC_GetPCLK2Value
+                0x0000000000000000      0x104 drivers/src/stm32f446_rcc_driver.o
  .debug_macro   0x0000000000000000      0xa66 drivers/src/stm32f446_rcc_driver.o
  .debug_macro   0x0000000000000000      0x174 drivers/src/stm32f446_rcc_driver.o
  .debug_macro   0x0000000000000000       0x22 drivers/src/stm32f446_rcc_driver.o
@@ -402,11 +404,13 @@ Discarded input sections
                 0x0000000000000000       0x26 drivers/src/stm32f446_usart_driver.o
  .text.USART_ClearFlag
                 0x0000000000000000       0x22 drivers/src/stm32f446_usart_driver.o
- .debug_info    0x0000000000000000      0x70e drivers/src/stm32f446_usart_driver.o
+ .text.USART_SetBaudRate
+                0x0000000000000000       0xe0 drivers/src/stm32f446_usart_driver.o
+ .debug_info    0x0000000000000000      0x78e drivers/src/stm32f446_usart_driver.o
  .debug_abbrev  0x0000000000000000      0x1a4 drivers/src/stm32f446_usart_driver.o
  .debug_aranges
-                0x0000000000000000       0x78 drivers/src/stm32f446_usart_driver.o
- .debug_ranges  0x0000000000000000       0x68 drivers/src/stm32f446_usart_driver.o
+                0x0000000000000000       0x80 drivers/src/stm32f446_usart_driver.o
+ .debug_ranges  0x0000000000000000       0x70 drivers/src/stm32f446_usart_driver.o
  .debug_macro   0x0000000000000000       0xc2 drivers/src/stm32f446_usart_driver.o
  .debug_macro   0x0000000000000000      0xa66 drivers/src/stm32f446_usart_driver.o
  .debug_macro   0x0000000000000000      0x174 drivers/src/stm32f446_usart_driver.o
@@ -421,10 +425,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xe2 drivers/src/stm32f446_usart_driver.o
  .debug_macro   0x0000000000000000       0xe2 drivers/src/stm32f446_usart_driver.o
  .debug_macro   0x0000000000000000      0x12d drivers/src/stm32f446_usart_driver.o
- .debug_line    0x0000000000000000      0x637 drivers/src/stm32f446_usart_driver.o
- .debug_str     0x0000000000000000     0x77e7 drivers/src/stm32f446_usart_driver.o
+ .debug_line    0x0000000000000000      0x660 drivers/src/stm32f446_usart_driver.o
+ .debug_str     0x0000000000000000     0x7829 drivers/src/stm32f446_usart_driver.o
  .comment       0x0000000000000000       0x7c drivers/src/stm32f446_usart_driver.o
- .debug_frame   0x0000000000000000      0x1e4 drivers/src/stm32f446_usart_driver.o
+ .debug_frame   0x0000000000000000      0x208 drivers/src/stm32f446_usart_driver.o
  .ARM.attributes
                 0x0000000000000000       0x33 drivers/src/stm32f446_usart_driver.o
  .text          0x0000000000000000        0x0 /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libc_nano.a(lib_a-errno.o)
@@ -813,9 +817,9 @@ LOAD /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.g
  *(.bss)
  .bss           0x0000000020000020       0x1c /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/crtbegin.o
  *(.bss*)
- .bss.command_code.5749
+ .bss.command_code.5752
                 0x000000002000003c        0x1 Src/013i2c_slave_tx_string.o
- .bss.cnt.5750  0x000000002000003d        0x1 Src/013i2c_slave_tx_string.o
+ .bss.cnt.5753  0x000000002000003d        0x1 Src/013i2c_slave_tx_string.o
  *(COMMON)
  *fill*         0x000000002000003e        0x2 
  COMMON         0x0000000020000040       0x30 Src/013i2c_slave_tx_string.o
@@ -865,21 +869,21 @@ LOAD /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.g
                 0x000000000000017e       0x1e /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/crtn.o
 OUTPUT(stm32f446_drivers.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x2178
+.debug_info     0x0000000000000000     0x21ca
  .debug_info    0x0000000000000000      0xc87 Src/013i2c_slave_tx_string.o
  .debug_info    0x0000000000000c87       0x22 Startup/startup_stm32f446retx.o
  .debug_info    0x0000000000000ca9      0x795 drivers/src/stm32f446_gpio_driver .o
  .debug_info    0x000000000000143e      0xa89 drivers/src/stm32f446_i2c_driver.o
- .debug_info    0x0000000000001ec7      0x2b1 drivers/src/stm32f446_rcc_driver.o
+ .debug_info    0x0000000000001ec7      0x303 drivers/src/stm32f446_rcc_driver.o
 
-.debug_abbrev   0x0000000000000000      0x5dd
+.debug_abbrev   0x0000000000000000      0x5f9
  .debug_abbrev  0x0000000000000000      0x215 Src/013i2c_slave_tx_string.o
  .debug_abbrev  0x0000000000000215       0x12 Startup/startup_stm32f446retx.o
  .debug_abbrev  0x0000000000000227      0x13f drivers/src/stm32f446_gpio_driver .o
  .debug_abbrev  0x0000000000000366      0x1d0 drivers/src/stm32f446_i2c_driver.o
- .debug_abbrev  0x0000000000000536       0xa7 drivers/src/stm32f446_rcc_driver.o
+ .debug_abbrev  0x0000000000000536       0xc3 drivers/src/stm32f446_rcc_driver.o
 
-.debug_aranges  0x0000000000000000      0x1f8
+.debug_aranges  0x0000000000000000      0x200
  .debug_aranges
                 0x0000000000000000       0x58 Src/013i2c_slave_tx_string.o
  .debug_aranges
@@ -889,14 +893,14 @@ OUTPUT(stm32f446_drivers.elf elf32-littlearm)
  .debug_aranges
                 0x00000000000000f0       0xe8 drivers/src/stm32f446_i2c_driver.o
  .debug_aranges
-                0x00000000000001d8       0x20 drivers/src/stm32f446_rcc_driver.o
+                0x00000000000001d8       0x28 drivers/src/stm32f446_rcc_driver.o
 
-.debug_ranges   0x0000000000000000      0x1b0
+.debug_ranges   0x0000000000000000      0x1b8
  .debug_ranges  0x0000000000000000       0x48 Src/013i2c_slave_tx_string.o
  .debug_ranges  0x0000000000000048       0x20 Startup/startup_stm32f446retx.o
  .debug_ranges  0x0000000000000068       0x60 drivers/src/stm32f446_gpio_driver .o
  .debug_ranges  0x00000000000000c8       0xd8 drivers/src/stm32f446_i2c_driver.o
- .debug_ranges  0x00000000000001a0       0x10 drivers/src/stm32f446_rcc_driver.o
+ .debug_ranges  0x00000000000001a0       0x18 drivers/src/stm32f446_rcc_driver.o
 
 .debug_macro    0x0000000000000000     0x2e55
  .debug_macro   0x0000000000000000      0x24a Src/013i2c_slave_tx_string.o
@@ -948,14 +952,14 @@ OUTPUT(stm32f446_drivers.elf elf32-littlearm)
  .debug_macro   0x0000000000002cbd       0xdc drivers/src/stm32f446_i2c_driver.o
  .debug_macro   0x0000000000002d99       0xbc drivers/src/stm32f446_rcc_driver.o
 
-.debug_line     0x0000000000000000     0x1ac4
+.debug_line     0x0000000000000000     0x1af6
  .debug_line    0x0000000000000000      0x719 Src/013i2c_slave_tx_string.o
  .debug_line    0x0000000000000719       0x84 Startup/startup_stm32f446retx.o
  .debug_line    0x000000000000079d      0x68c drivers/src/stm32f446_gpio_driver .o
  .debug_line    0x0000000000000e29      0x817 drivers/src/stm32f446_i2c_driver.o
- .debug_line    0x0000000000001640      0x484 drivers/src/stm32f446_rcc_driver.o
+ .debug_line    0x0000000000001640      0x4b6 drivers/src/stm32f446_rcc_driver.o
 
-.debug_str      0x0000000000000000     0xbceb
+.debug_str      0x0000000000000000     0xbd0b
  .debug_str     0x0000000000000000     0xb5eb Src/013i2c_slave_tx_string.o
                                        0xb851 (size before relaxing)
  .debug_str     0x000000000000b5eb       0x31 Startup/startup_stm32f446retx.o
@@ -964,8 +968,8 @@ OUTPUT(stm32f446_drivers.elf elf32-littlearm)
                                        0x783e (size before relaxing)
  .debug_str     0x000000000000b933      0x358 drivers/src/stm32f446_i2c_driver.o
                                        0x79da (size before relaxing)
- .debug_str     0x000000000000bc8b       0x60 drivers/src/stm32f446_rcc_driver.o
-                                       0x75bc (size before relaxing)
+ .debug_str     0x000000000000bc8b       0x80 drivers/src/stm32f446_rcc_driver.o
+                                       0x75dc (size before relaxing)
 
 .comment        0x0000000000000000       0x7b
  .comment       0x0000000000000000       0x7b Src/013i2c_slave_tx_string.o
@@ -974,9 +978,9 @@ OUTPUT(stm32f446_drivers.elf elf32-littlearm)
  .comment       0x000000000000007b       0x7c drivers/src/stm32f446_i2c_driver.o
  .comment       0x000000000000007b       0x7c drivers/src/stm32f446_rcc_driver.o
 
-.debug_frame    0x0000000000000000      0x73c
+.debug_frame    0x0000000000000000      0x764
  .debug_frame   0x0000000000000000      0x118 Src/013i2c_slave_tx_string.o
  .debug_frame   0x0000000000000118      0x1c8 drivers/src/stm32f446_gpio_driver .o
  .debug_frame   0x00000000000002e0      0x3f8 drivers/src/stm32f446_i2c_driver.o
- .debug_frame   0x00000000000006d8       0x38 drivers/src/stm32f446_rcc_driver.o
- .debug_frame   0x0000000000000710       0x2c /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libc_nano.a(lib_a-init.o)
+ .debug_frame   0x00000000000006d8       0x60 drivers/src/stm32f446_rcc_driver.o
+ .debug_frame   0x0000000000000738       0x2c /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.linux64_1.0.0.201904181610/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/libc_nano.a(lib_a-init.o)
