@@ -161,10 +161,10 @@ void USART_Init(USART_Handle_t *pUSARTHandle){
 
 	pUSARTHandle->pUSARTx->CR3 = usart_cr3;
 
-/******************************** Configuration of BRR(Baud rate register)******************************************/
+/******************************** Configuration of BRR(Baudrate register)******************************************/
 
 	//Implement the code to configure the baud rate
-	USART_SetBaudRate(pUSARTHandle->pUSARTx, pUSARTHandle->USART_Config.USART_Baud);
+	//We will cover this in the lecture. No action required here
 
 }
 
@@ -550,7 +550,7 @@ void USART_SetBaudRate(USART_RegDef_t *pUSARTx, uint32_t BaudRate)
   }else
   {
 	   //over sampling by 16
-	   usartdiv = ((25 * PCLKx) / (4 * BaudRate));
+	   usartdiv = ((25 * PCLKx) / (BaudRate));
   }
 
   //Calculate the Mantissa part
