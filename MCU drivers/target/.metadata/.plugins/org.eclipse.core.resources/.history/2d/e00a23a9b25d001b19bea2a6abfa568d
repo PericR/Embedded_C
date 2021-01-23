@@ -422,14 +422,6 @@ typedef struct{
 #define IRQ_NO_I2C3_EV	 						72
 #define IRQ_NO_I2C3_ER	 						73
 
-//USART IRQ numbers
-#define USART1									37
-#define USART2									38
-#define USART3									39
-#define UART4									52
-#define UART5									53
-#define USART6									71
-
 //macros for the all possible EXTI IRQ priority levels
 #define NVIC_IRQ_PRI0 							0
 #define NVIC_IRQ_PRI1 							1

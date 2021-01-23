@@ -156,7 +156,7 @@ void USART2_GPIOInits(void){
  800026e:	b084      	sub	sp, #16
  8000270:	af00      	add	r7, sp, #0
 	GPIO_Handle_t USART2_pins;
-	USART2_pins.pGPIOx = GPIOC;
+	USART2_pins.pGPIOx = GPIOA;
  8000272:	4b10      	ldr	r3, [pc, #64]	; (80002b4 <USART2_GPIOInits+0x48>)
  8000274:	607b      	str	r3, [r7, #4]
 
@@ -184,8 +184,8 @@ void USART2_GPIOInits(void){
  8000290:	f000 f88a 	bl	80003a8 <GPIO_PeriClockControl>
 
 	//Configure USART_TX
-	USART2_pins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_6;
- 8000294:	2306      	movs	r3, #6
+	USART2_pins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_2;
+ 8000294:	2302      	movs	r3, #2
  8000296:	723b      	strb	r3, [r7, #8]
 	GPIO_Init(&USART2_pins);
  8000298:	1d3b      	adds	r3, r7, #4
@@ -193,8 +193,8 @@ void USART2_GPIOInits(void){
  800029c:	f000 f956 	bl	800054c <GPIO_Init>
 
 	//Configure USART_RX
-	USART2_pins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_7;
- 80002a0:	2307      	movs	r3, #7
+	USART2_pins.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_3;
+ 80002a0:	2303      	movs	r3, #3
  80002a2:	723b      	strb	r3, [r7, #8]
 	GPIO_Init(&USART2_pins);
  80002a4:	1d3b      	adds	r3, r7, #4
@@ -205,7 +205,7 @@ void USART2_GPIOInits(void){
  80002ae:	3710      	adds	r7, #16
  80002b0:	46bd      	mov	sp, r7
  80002b2:	bd80      	pop	{r7, pc}
- 80002b4:	40020800 	.word	0x40020800
+ 80002b4:	40020000 	.word	0x40020000
 
 080002b8 <USART2_Init>:
 
