@@ -1,11 +1,15 @@
-21:33:24 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+21:47:17 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
 make -j4 all 
-arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
-arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
-arm-none-eabi-gcc "../drivers/src/stm32f446_rcc_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_rcc_driver.d" -MT"drivers/src/stm32f446_rcc_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_rcc_driver.o"
-arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
-arm-none-eabi-gcc "../drivers/src/stm32f446_usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_usart_driver.d" -MT"drivers/src/stm32f446_usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_usart_driver.o"
-arm-none-eabi-gcc "../Src/015uart_tx_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/015uart_tx_test.d" -MT"Src/015uart_tx_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/015uart_tx_test.o"
+arm-none-eabi-gcc "../Src/016uart_case_test2.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/016uart_case_test2.d" -MT"Src/016uart_case_test2.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/016uart_case_test2.o"
+../Src/016uart_case_test2.c: In function 'main':
+../Src/016uart_case_test2.c:129:47: warning: passing argument 2 of 'USART_ReceiveDataIT' from incompatible pointer type [-Wincompatible-pointer-types]
+   while ( USART_ReceiveDataIT(&usart6_handle, &rx_buf,strlen(msg[cnt])) != USART_READY );
+                                               ^
+In file included from /home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:688:0,
+                 from ../Src/016uart_case_test2.c:19:
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446_usart_driver.h:155:9: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char (*)[1024]'
+ uint8_t USART_ReceiveDataIT(USART_Handle_t *pUSARTHandle, uint8_t *pRxBuffer, uint32_t Len);
+         ^~~~~~~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32f446_drivers.elf
  
@@ -13,9 +17,9 @@ arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
 arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
 arm-none-eabi-size   stm32f446_drivers.elf 
    text	   data	    bss	    dec	    hex	filename
-   3976	   1032	   1600	   6608	   19d0	stm32f446_drivers.elf
-Finished building: stm32f446_drivers.bin
+   9320	    120	   2648	  12088	   2f38	stm32f446_drivers.elf
 Finished building: default.size.stdout
+Finished building: stm32f446_drivers.bin
  
  
 Finished building: stm32f446_drivers.list
