@@ -1,13 +1,107 @@
-11:32:09 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
+21:30:53 **** Incremental Build of configuration Debug for project stm32f446_drivers ****
 make -j4 all 
-arm-none-eabi-gcc "../drivers/src/stm32f446_gpio_driver .c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_gpio_driver .d" -MT"drivers/src/stm32f446_gpio_driver .o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_gpio_driver .o"
-arm-none-eabi-gcc "../drivers/src/stm32f446_i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_i2c_driver.d" -MT"drivers/src/stm32f446_i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_i2c_driver.o"
-arm-none-eabi-gcc "../drivers/src/stm32f446_rcc_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_rcc_driver.d" -MT"drivers/src/stm32f446_rcc_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_rcc_driver.o"
-arm-none-eabi-gcc "../drivers/src/stm32f446_spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_spi_driver.d" -MT"drivers/src/stm32f446_spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_spi_driver.o"
 arm-none-eabi-gcc "../drivers/src/stm32f446_usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"drivers/src/stm32f446_usart_driver.d" -MT"drivers/src/stm32f446_usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "drivers/src/stm32f446_usart_driver.o"
-arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
-arm-none-eabi-gcc "../Src/015uart_tx_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/015uart_tx_test.d" -MT"Src/015uart_tx_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/015uart_tx_test.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DDEBUG -DNUCLEO_F446RE -c -I../Inc -I"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+In file included from /home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446_usart_driver.h:11:0,
+                 from ../drivers/src/stm32f446_usart_driver.c:8:
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:426:0: warning: "USART1" redefined
+ #define USART1         37
+ 
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:260:0: note: this is the location of the previous definition
+ #define USART1        ((USART_RegDef_t*) USART1_BASEADDR)
+ 
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:427:0: warning: "USART2" redefined
+ #define USART2         38
+ 
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:261:0: note: this is the location of the previous definition
+ #define USART2        ((USART_RegDef_t*) USART2_BASEADDR)
+ 
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:428:0: warning: "USART3" redefined
+ #define USART3         39
+ 
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:262:0: note: this is the location of the previous definition
+ #define USART3        ((USART_RegDef_t*) USART3_BASEADDR)
+ 
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:429:0: warning: "UART4" redefined
+ #define UART4         52
+ 
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:263:0: note: this is the location of the previous definition
+ #define UART4        ((USART_RegDef_t*) UART4_BASEADDR)
+ 
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:430:0: warning: "UART5" redefined
+ #define UART5         53
+ 
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:264:0: note: this is the location of the previous definition
+ #define UART5        ((USART_RegDef_t*) UART5_BASEADDR)
+ 
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:431:0: warning: "USART6" redefined
+ #define USART6         71
+ 
+/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/drivers/inc/stm32f446.h:265:0: note: this is the location of the previous definition
+ #define USART6        ((USART_RegDef_t*) USART6_BASEADDR)
+ 
+../drivers/src/stm32f446_usart_driver.c: In function 'USART_PeriClockControl':
+../drivers/src/stm32f446_usart_driver.c:54:14: warning: comparison between pointer and integer
+   if(pUSARTx == USART1){
+              ^~
+../drivers/src/stm32f446_usart_driver.c:56:21: warning: comparison between pointer and integer
+   } else if(pUSARTx == USART2){
+                     ^~
+../drivers/src/stm32f446_usart_driver.c:58:21: warning: comparison between pointer and integer
+   } else if(pUSARTx == USART3){
+                     ^~
+../drivers/src/stm32f446_usart_driver.c:60:21: warning: comparison between pointer and integer
+   } else if(pUSARTx == UART4){
+                     ^~
+../drivers/src/stm32f446_usart_driver.c:62:21: warning: comparison between pointer and integer
+   } else if(pUSARTx == UART5){
+                     ^~
+../drivers/src/stm32f446_usart_driver.c:64:21: warning: comparison between pointer and integer
+   } else if(pUSARTx == USART6){
+                     ^~
+../drivers/src/stm32f446_usart_driver.c:68:14: warning: comparison between pointer and integer
+   if(pUSARTx == USART1){
+              ^~
+../drivers/src/stm32f446_usart_driver.c:70:21: warning: comparison between pointer and integer
+   } else if(pUSARTx == USART2){
+                     ^~
+../drivers/src/stm32f446_usart_driver.c:72:21: warning: comparison between pointer and integer
+   } else if(pUSARTx == USART3){
+                     ^~
+../drivers/src/stm32f446_usart_driver.c:74:21: warning: comparison between pointer and integer
+   } else if(pUSARTx == UART4){
+                     ^~
+../drivers/src/stm32f446_usart_driver.c:76:21: warning: comparison between pointer and integer
+   } else if(pUSARTx == UART5){
+                     ^~
+../drivers/src/stm32f446_usart_driver.c:78:21: warning: comparison between pointer and integer
+   } else if(pUSARTx == USART6){
+                     ^~
+../drivers/src/stm32f446_usart_driver.c: In function 'USART_DeInit':
+../drivers/src/stm32f446_usart_driver.c:208:13: warning: comparison between pointer and integer
+  if(pUSARTx == USART1){
+             ^~
+../drivers/src/stm32f446_usart_driver.c:210:20: warning: comparison between pointer and integer
+  } else if(pUSARTx == USART2){
+                    ^~
+../drivers/src/stm32f446_usart_driver.c:212:20: warning: comparison between pointer and integer
+  } else if(pUSARTx == USART3){
+                    ^~
+../drivers/src/stm32f446_usart_driver.c:214:20: warning: comparison between pointer and integer
+  } else if(pUSARTx == UART4){
+                    ^~
+../drivers/src/stm32f446_usart_driver.c:216:20: warning: comparison between pointer and integer
+  } else if(pUSARTx == UART5){
+                    ^~
+../drivers/src/stm32f446_usart_driver.c:218:20: warning: comparison between pointer and integer
+  } else if(pUSARTx == USART6){
+                    ^~
+../drivers/src/stm32f446_usart_driver.c: In function 'USART_SetBaudRate':
+../drivers/src/stm32f446_usart_driver.c:873:14: warning: comparison between pointer and integer
+   if(pUSARTx == USART1 || pUSARTx == USART6)
+              ^~
+../drivers/src/stm32f446_usart_driver.c:873:35: warning: comparison between pointer and integer
+   if(pUSARTx == USART1 || pUSARTx == USART6)
+                                   ^~
 arm-none-eabi-gcc -o "stm32f446_drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU drivers/target/stm32f446_drivers/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f446_drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: stm32f446_drivers.elf
  
@@ -15,13 +109,13 @@ arm-none-eabi-size   stm32f446_drivers.elf
 arm-none-eabi-objdump -h -S  stm32f446_drivers.elf  > "stm32f446_drivers.list"
 arm-none-eabi-objcopy  -O binary  stm32f446_drivers.elf  "stm32f446_drivers.bin"
    text	   data	    bss	    dec	    hex	filename
-   3976	   1032	   1600	   6608	   19d0	stm32f446_drivers.elf
+   3908	   1032	   1600	   6540	   198c	stm32f446_drivers.elf
 Finished building: default.size.stdout
-Finished building: stm32f446_drivers.bin
  
+Finished building: stm32f446_drivers.bin
  
 Finished building: stm32f446_drivers.list
  
 
-11:32:10 Build Finished. 0 errors, 0 warnings. (took 886ms)
+21:30:54 Build Finished. 0 errors, 26 warnings. (took 1s.136ms)
 

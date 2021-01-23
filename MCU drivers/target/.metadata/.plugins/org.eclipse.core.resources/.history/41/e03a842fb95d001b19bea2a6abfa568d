@@ -552,8 +552,8 @@ void USART_IRQHandling(USART_Handle_t *pUSARTHandle){
 					{
 						//No parity is used in this transfer , so, 9bits of user data will be sent
 						//Implement the code to increment pTxBuffer twice
-						pUSARTHandle->pTxBuffer++;
-						pUSARTHandle->pTxBuffer++;
+						pTxBuffer++;
+						pTxBuffer++;
 
 						//Implement the code to decrement the length
 						pUSARTHandle->TxLen -= 2;
@@ -562,7 +562,7 @@ void USART_IRQHandling(USART_Handle_t *pUSARTHandle){
 					{
 						//Parity bit is used in this transfer . so , 8bits of user data will be sent
 						//The 9th bit will be replaced by parity bit by the hardware
-						pUSARTHandle->pTxBuffer++;
+						pTxBuffer++;
 
 						//Implement the code to decrement the length
 						pUSARTHandle->TxLen--;
@@ -571,10 +571,10 @@ void USART_IRQHandling(USART_Handle_t *pUSARTHandle){
 				else
 				{
 					//This is 8bit data transfer
-					pUSARTHandle->pUSARTx->DR = (*pUSARTHandle->pTxBuffer  & (uint8_t)0xFF);
+					pUSARTHandle->pUSARTx->DR = (*pTxBuffer  & (uint8_t)0xFF);
 
 					//Implement the code to increment the buffer address
-					pUSARTHandle->pTxBuffer++;
+					pTxBuffer++;
 
 					//Implement the code to decrement the length
 					pUSARTHandle->TxLen--;
@@ -618,8 +618,8 @@ void USART_IRQHandling(USART_Handle_t *pUSARTHandle){
 						*((uint16_t*) pUSARTHandle->pRxBuffer) = (pUSARTHandle->pUSARTx->DR  & (uint16_t)0x01FF);
 
 						//Now increment the pRxBuffer two times
-						pUSARTHandle->pRxBuffer++;
-						pUSARTHandle->pRxBuffer++;
+						pRxBuffer++;
+						pRxBuffer++;
 
 						//Implement the code to decrement the length
 						pUSARTHandle->RxLen -= 2;
@@ -627,10 +627,10 @@ void USART_IRQHandling(USART_Handle_t *pUSARTHandle){
 					else
 					{
 						//Parity is used. so, 8bits will be of user data and 1 bit is parity
-						 *pUSARTHandle->pRxBuffer = (pUSARTHandle->pUSARTx->DR  & (uint8_t)0xFF);
+						 *pRxBuffer = (pUSARTHandle->pUSARTx->DR  & (uint8_t)0xFF);
 
 						 //Now increment the pRxBuffer
-						 pUSARTHandle->pRxBuffer++;
+						 pRxBuffer++;
 
 						 //Implement the code to decrement the length
 						 pUSARTHandle->RxLen--;
@@ -646,7 +646,7 @@ void USART_IRQHandling(USART_Handle_t *pUSARTHandle){
 						//No parity is used , so all 8bits will be of user data
 
 						//read 8 bits from DR
-						 *pUSARTHandle->pRxBuffer = (uint8_t) (pUSARTHandle->pUSARTx->DR  & (uint8_t)0xFF);
+						 *pRxBuffer = (uint8_t) (pUSARTHandle->pUSARTx->DR  & (uint8_t)0xFF);
 					}
 
 					else
@@ -654,12 +654,12 @@ void USART_IRQHandling(USART_Handle_t *pUSARTHandle){
 						//Parity is used, so , 7 bits will be of user data and 1 bit is parity
 
 						//read only 7 bits , hence mask the DR with 0X7F
-						 *pUSARTHandle->pRxBuffer = (uint8_t) (pUSARTHandle->pUSARTx->DR  & (uint8_t)0x7F);
+						 *pRxBuffer = (uint8_t) (pUSARTHandle->pUSARTx->DR  & (uint8_t)0x7F);
 
 					}
 
 					//Now , increment the pRxBuffer
-					pUSARTHandle->pRxBuffer++;
+					pRxBuffer++;
 
 					//Implement the code to decrement the length
 					pUSARTHandle->RxLen--;
@@ -732,7 +732,7 @@ void USART_IRQHandling(USART_Handle_t *pUSARTHandle){
 		//Need not to clear the ORE flag here, instead give an api for the application to clear the ORE flag .
 		USART_ClearOREFlag(pUSARTHandle->pUSARTx);
 		//this interrupt is because of Overrun error
-		USART_ApplicationEventCallback(pUSARTHandle,USART_ERR_ORE);
+		USART_ApplicationEventCallback(pUSARTHandle,USART_EVENT_ORE);
 	}
 
 
@@ -755,22 +755,22 @@ void USART_IRQHandling(USART_Handle_t *pUSARTHandle){
 				is detected. It is cleared by a software sequence (an read to the USART_SR register
 				followed by a read to the USART_DR register).
 			*/
-			USART_ApplicationEventCallback(pUSARTHandle, USART_ERR_FE);
+			USART_ApplicationEventCallback(pUSARTHandle, USART_ERREVENT_FE);
 		}
 
-		if(usart_sr & ( 1 << USART_SR_NF) )
+		if(usart_sr & ( 1 << USART_SR_NE) )
 		{
 			/*
 				This bit is set by hardware when noise is detected on a received frame. It is cleared by a
 				software sequence (an read to the USART_SR register followed by a read to the
 				USART_DR register).
 			*/
-			USART_ApplicationEventCallback(pUSARTHandle, USART_ERR_NE);
+			USART_ApplicationEventCallback(pUSARTHandle, USART_ERREVENT_NE);
 		}
 
 		if(usart_sr & ( 1 << USART_SR_ORE) )
 		{
-			USART_ApplicationEventCallback(pUSARTHandle, USART_ERR_ORE);
+			USART_ApplicationEventCallback(pUSARTHandle, USART_ERREVENT_ORE);
 		}
 	}
 

@@ -758,7 +758,7 @@ void USART_IRQHandling(USART_Handle_t *pUSARTHandle){
 			USART_ApplicationEventCallback(pUSARTHandle, USART_ERR_FE);
 		}
 
-		if(usart_sr & ( 1 << USART_SR_NF) )
+		if(usart_sr & ( 1 << USART_SR_NE) )
 		{
 			/*
 				This bit is set by hardware when noise is detected on a received frame. It is cleared by a
