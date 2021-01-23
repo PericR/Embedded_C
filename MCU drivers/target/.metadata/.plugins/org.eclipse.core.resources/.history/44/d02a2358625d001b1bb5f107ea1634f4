@@ -42,7 +42,7 @@ void USART2_GPIOInits(void){
 	USART2_pins.pGPIOx = GPIOC;
 
 	USART2_pins.GPIO_PinConfig.GPIO_PinMode = GPIO_PIN_MODE_ALTFN;
-	USART2_pins.GPIO_PinConfig.GPIO_PinAltFunMode = GPIO_PIN_ALT_FUN_8;
+	USART2_pins.GPIO_PinConfig.GPIO_PinAltFunMode = GPIO_PIN_ALT_FUN_7;
 	USART2_pins.GPIO_PinConfig.GPIO_PinOPType = GPIO_PIN_OP_TYPE_PP;
 	USART2_pins.GPIO_PinConfig.GPIO_PinPuPdControl = GPIO_PIN_PU;
 	USART2_pins.GPIO_PinConfig.GPIO_PinSpeed = GPIO_PIN_OP_SPEED_FAST;
