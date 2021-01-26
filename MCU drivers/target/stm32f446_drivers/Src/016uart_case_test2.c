@@ -25,7 +25,7 @@
 char *msg[3] = {"hihihihihihi123", "Hello How are you ?" , "Today is Monday !"};
 
 //reply from arduino will be stored here
-char rx_buf[1024] ;
+uint8_t rx_buf[1024] ;
 
 USART_Handle_t usart6_handle;
 
@@ -126,7 +126,7 @@ int main(void)
 
 		//First lets enable the reception in interrupt mode
 		//this code enables the receive interrupt
-		while ( USART_ReceiveDataIT(&usart6_handle, &rx_buf,strlen(msg[cnt])) != USART_READY );
+		while ( USART_ReceiveDataIT(&usart6_handle, rx_buf,strlen(msg[cnt])) != USART_READY );
 
 		//Send the msg indexed by cnt in blocking mode
     	USART_SendData(&usart6_handle,(uint8_t*)msg[cnt],strlen(msg[cnt]));

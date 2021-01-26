@@ -1,0 +1,19 @@
+2021-01-26 09:53:38,228 [INFO] Activator:176 - 
+
+
+2021-01-26 09:53:38,234 [INFO] Activator:177 - !SESSION log4j initialized
+2021-01-26 09:54:06,883 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.prefix.1906879779 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:06,890 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.mcu.32655245 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:06,895 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.board.2030993515 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:06,900 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.core.1083960614 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:06,905 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.instructionSet.893013061 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:06,911 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.fpu.1345199323 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:06,917 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.floatabi.1149411771 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:07,304 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.prefix.1906879779 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:07,306 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.mcu.32655245 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:07,308 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.board.2030993515 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:07,311 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.core.1083960614 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:07,314 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.instructionSet.893013061 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:07,316 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.fpu.1345199323 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 09:54:07,319 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option fr.ac6.managedbuild.option.gnu.cross.floatabi.1149411771 uses a null category that is invalid in its context. The option was ignored.
+2021-01-26 10:02:24,311 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] swt-tree-arrow-mode and swt-tree-arrow-color are not supported on this platform
