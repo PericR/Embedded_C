@@ -1,4 +1,5 @@
 STM32CubeMX.AskDoCodeGenerationOnIocSave=false
-STM32CubeMX.AskSwitchToCubeMxPerspective=false
+STM32CubeMX.AskSwitchToCubeMxPerspective=true
 STM32CubeMX.FirmwareRepositoryPath=/home/robert/STM32Cube/Repository/
+STM32CubeMX.SwitchToCubeMxPerspective=true
 eclipse.preferences.version=1
