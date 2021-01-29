@@ -1,7 +1,7 @@
-10:02:01 **** Clean-only build of configuration Debug for project MCU2 drivers ****
+17:41:11 **** Clean-only build of configuration Debug for project MCU2 drivers ****
 make clean 
 rm -rf *
  
 
-10:02:02 Build Finished. 0 errors, 0 warnings. (took 479ms)
+17:41:12 Build Finished. 0 errors, 0 warnings. (took 527ms)
 

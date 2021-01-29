@@ -1,4 +1,7 @@
-10:02:01 **** Clean-only build of configuration Debug for project MCU2 drivers ****
-make clean 
-rm -rf *
+09:42:06 **** Incremental Build of configuration Debug for project 001_UART_all_caps ****
+make -j4 all 
+arm-none-eabi-size   001_UART_all_caps.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1464	     20	   1564	   3048	    be8	001_UART_all_caps.elf
+Finished building: default.size.stdout
  
