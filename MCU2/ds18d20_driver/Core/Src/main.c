@@ -53,6 +53,7 @@ static void MX_GPIO_Init(void);
 static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 void delay_us (uint32_t u_second);
+void sd18b20_gpio_init(void);
 
 /* USER CODE END PFP */
 
@@ -94,6 +95,7 @@ int main(void)
 
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim1);
+  sd18b20_gpio_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -234,6 +236,9 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+/*********************************************************************************************************/
+//My functions will be kept here
+
 
 /*********************************************************************
  * @fn      		  - delay_us
@@ -253,7 +258,23 @@ void delay_us (uint32_t u_seconds)
 	__HAL_TIM_SET_COUNTER(&htim1, 0);
 	while(__HAL_TIM_GET_COUNTER(&htim1) < u_seconds);
 }
+
+void sd18b20_gpio_init(void)
+{
+	GPIO_InitTypeDef ds_gpio;
+
+	ds_gpio.Pin = DS18B20_PIN;
+	ds_gpio.Mode = GPIO_MODE_OUTPUT_OD;
+	ds_gpio.Pull = GPIO_PULLUP;
+	ds_gpio.Speed = GPIO_SPEED_FREQ_LOW;
+
+	HAL_GPIO_Init(DS18B20_PORT, &ds_gpio);
+
+}
 /* USER CODE END 4 */
+/*********************************************************************************************************/
+
+
 
 /**
   * @brief  This function is executed in case of error occurrence.
