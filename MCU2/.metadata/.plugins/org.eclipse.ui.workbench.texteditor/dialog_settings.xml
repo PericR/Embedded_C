@@ -6,8 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="UART_Parity"/>
+		<item key="selection" value="GPIO_Alternate_function_s"/>
 		<list key="findhistory">
+			<item value="GPIO_Alternate_function_s"/>
+			<item value="GPIO_Alternate_function_selection"/>
+			<item value="GPIO_mode_define"/>
 			<item value="UART_Parity"/>
 			<item value="UART_Word_Length"/>
 		</list>
