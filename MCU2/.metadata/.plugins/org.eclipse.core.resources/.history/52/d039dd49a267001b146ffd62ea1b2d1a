@@ -1,0 +1,13 @@
+/*
+ * ds18b20_driver.h
+ *
+ *  Created on: Feb 5, 2021
+ *      Author: robert
+ */
+
+#ifndef INC_DS18B20_DRIVER_H_
+#define INC_DS18B20_DRIVER_H_
+
+void MX_TIM1_Init(void);
+
+#endif /* INC_DS18B20_DRIVER_H_ */

@@ -1,0 +1,15 @@
+/*
+ * ds18b20_driver.h
+ *
+ *  Created on: Feb 5, 2021
+ *      Author: robert
+ */
+
+#ifndef INC_DS18B20_DRIVER_H_
+#define INC_DS18B20_DRIVER_H_
+
+//macros for DS18B20 Temperature sensor
+#define DS18B20_PIN			GPIO_PIN_10
+#define DS18B20_PORT		GPIOA
+
+#endif /* INC_DS18B20_DRIVER_H_ */
