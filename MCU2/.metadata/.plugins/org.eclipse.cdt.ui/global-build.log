@@ -1,4 +1,4 @@
-08:13:35 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+09:23:37 **** Incremental Build of configuration Debug for project ds18d20_driver ****
 make -j4 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -8,24 +8,41 @@ arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
 arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
 arm-none-eabi-size   ds18d20_driver.elf 
    text	   data	    bss	    dec	    hex	filename
-   8308	     20	   1636	   9964	   26ec	ds18d20_driver.elf
+   8352	     20	   1644	  10016	   2720	ds18d20_driver.elf
 Finished building: default.size.stdout
 Finished building: ds18d20_driver.bin
  
  
 Finished building: ds18d20_driver.list
  
-08:13:39 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+09:23:47 **** Incremental Build of configuration Debug for project ds18d20_driver ****
 make -j4 all 
 arm-none-eabi-size   ds18d20_driver.elf 
    text	   data	    bss	    dec	    hex	filename
-   8308	     20	   1636	   9964	   26ec	ds18d20_driver.elf
+   8352	     20	   1644	  10016	   2720	ds18d20_driver.elf
 Finished building: default.size.stdout
  
-08:13:41 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+09:25:15 **** Incremental Build of configuration Debug for project ds18d20_driver ****
 make -j4 all 
 arm-none-eabi-size   ds18d20_driver.elf 
    text	   data	    bss	    dec	    hex	filename
-   8308	     20	   1636	   9964	   26ec	ds18d20_driver.elf
+   8352	     20	   1644	  10016	   2720	ds18d20_driver.elf
 Finished building: default.size.stdout
+ 
+09:26:11 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8396	     20	   1644	  10060	   274c	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
  

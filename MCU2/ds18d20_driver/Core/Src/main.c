@@ -42,7 +42,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 TIM_HandleTypeDef htim1;
-
+DS18B20_Handle_t hds18b20;
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -53,7 +53,8 @@ static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
 
 //Initialization functions
-void sd18b20_gpio_init(void);
+void Ds18b20_handle_init(DS18B20_Handle_t *pDs18b20);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -98,13 +99,14 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim1);
 
-  sd18b20_gpio_init();
+  Ds18b20_handle_init(&hds18b20);
+  sd18b20_gpio_init(&hds18b20);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  ds18b20_init_phase();
+  Ds18b20_init_phase(&hds18b20);
 
   while (1)
   {
@@ -197,29 +199,10 @@ static void MX_GPIO_Init(void)
 /*********************************************************************************************************/
 //My functions will be kept here
 
-/*********************************************************************
- * @fn      		  - sd18b20_gpio_init
- *
- * @brief             - This function sets gpio pin used for OneWire communication with ds18b20
- *
- * @param[in]         - none
- *
- * @return            -  none
- *
- * @Note              -  none
-
- */
-void sd18b20_gpio_init(void)
+void Ds18b20_handle_init(DS18B20_Handle_t *pDs18b20)
 {
-	GPIO_InitTypeDef ds_gpio;
-
-	ds_gpio.Pin = DS18B20_PIN;
-	ds_gpio.Mode = GPIO_MODE_OUTPUT_OD;
-	ds_gpio.Pull = GPIO_NOPULL;
-	ds_gpio.Speed = GPIO_SPEED_FREQ_LOW;
-
-	HAL_GPIO_Init(DS18B20_PORT, &ds_gpio);
-
+	pDs18b20->GPIO_pin = DS18B20_PIN;
+	pDs18b20->pGPIOx = DS18B20_PORT;
 }
 
 /* USER CODE END 4 */

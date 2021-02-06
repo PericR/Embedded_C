@@ -21,7 +21,7 @@
  * @Note              -  this is generated with MX cube and modified to meet requirements
 
  */
-uint8_t MX_TIM1_Init(TIM_HandleTypeDef *htim1)
+uint8_t MX_TIM1_Init(TIM_HandleTypeDef *pHtim1)
 {
 
   /* USER CODE BEGIN TIM1_Init 0 */
@@ -34,25 +34,25 @@ uint8_t MX_TIM1_Init(TIM_HandleTypeDef *htim1)
   /* USER CODE BEGIN TIM1_Init 1 */
 
   /* USER CODE END TIM1_Init 1 */
-  htim1->Instance = TIM1;
-  htim1->Init.Prescaler = 84-1;
-  htim1->Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1->Init.Period = 0xffff-1;
-  htim1->Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim1->Init.RepetitionCounter = 0;
-  htim1->Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(htim1) != HAL_OK)
+  pHtim1->Instance = TIM1;
+  pHtim1->Init.Prescaler = 84-1;
+  pHtim1->Init.CounterMode = TIM_COUNTERMODE_UP;
+  pHtim1->Init.Period = 0xffff-1;
+  pHtim1->Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  pHtim1->Init.RepetitionCounter = 0;
+  pHtim1->Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(pHtim1) != HAL_OK)
   {
     return 0;
   }
   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(htim1, &sClockSourceConfig) != HAL_OK)
+  if (HAL_TIM_ConfigClockSource(pHtim1, &sClockSourceConfig) != HAL_OK)
   {
 	  return 0;
   }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(htim1, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigSynchronization(pHtim1, &sMasterConfig) != HAL_OK)
   {
 	  return 0;
   }
@@ -75,7 +75,7 @@ uint8_t MX_TIM1_Init(TIM_HandleTypeDef *htim1)
  * @Note              -  tested with salea logic analyzer, works good enough (1-3 microseconds variability)
 
  */
-void delay_us (uint32_t u_seconds)
+void Delay_us (uint32_t u_seconds)
 {
 	TIM_HandleTypeDef htim1;
 	htim1.Instance = TIM1;

@@ -67,7 +67,8 @@ void Error_Handler(void);
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
-
+#define DS18B20_PORT		GPIOC
+#define DS18B20_PIN			3
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

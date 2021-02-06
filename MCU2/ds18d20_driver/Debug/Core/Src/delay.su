@@ -1,2 +1,2 @@
 delay.c:24:9:MX_TIM1_Init	40	static
-delay.c:78:6:delay_us	80	static
+delay.c:78:6:Delay_us	80	static

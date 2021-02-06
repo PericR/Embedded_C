@@ -10,7 +10,7 @@
 #ifndef INC_DELAY_H_
 #define INC_DELAY_H_
 
-uint8_t MX_TIM1_Init(TIM_HandleTypeDef *htim1);
-void delay_us (uint32_t u_second);
+uint8_t MX_TIM1_Init(TIM_HandleTypeDef *pHtim1);
+void Delay_us (uint32_t u_second);
 
 #endif /* INC_DELAY_H_ */
