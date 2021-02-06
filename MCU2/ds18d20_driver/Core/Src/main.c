@@ -206,6 +206,19 @@ static void MX_GPIO_Init(void)
 /*********************************************************************************************************/
 //My functions will be kept here
 
+/*********************************************************************
+ * @fn      		  - Ds18b20_handle_init
+ *
+ * @brief             - This function sets handle to use our defined pins
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ * @return            -  none
+ *
+ * @Note              -  none
+
+ */
 void Ds18b20_handle_init(DS18B20_Handle_t *pDs18b20)
 {
 	pDs18b20->GPIO_pin = DS18B20_PIN;
