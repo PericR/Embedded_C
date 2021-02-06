@@ -1,2 +1,5 @@
-ds18b20_driver.c:31:6:delay_us	16	static
-ds18b20_driver.c:38:6:MX_TIM1_Init	4	static
+ds18b20_driver.c:25:9:ds18b20_init_phase	16	static
+ds18b20_driver.c:59:6:set_pin_as_out	16	static
+ds18b20_driver.c:79:6:set_pin_as_in	16	static
+ds18b20_driver.c:99:6:write_pin	16	static
+ds18b20_driver.c:124:9:read_pin	24	static
