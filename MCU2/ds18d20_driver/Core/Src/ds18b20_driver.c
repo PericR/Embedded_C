@@ -47,6 +47,31 @@ uint8_t Ds18b20_init_phase(DS18B20_Handle_t *hds18b20)
 	return response;
 }
 
+/*
+ * ROM Functions
+ */
+void Ds18b20_rom_command(DS18B20_Handle_t *pDs18b20, uint8_t command)
+{
+	Ds18b20_write_byte(pDs18b20, command);
+	Delay_us(50);
+}
+
+uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20)
+{
+	Ds18b20_rom_command(pDs18b20, DS18B20_ROM_READ);
+	uint64_t rom = 0;
+
+	rom |= (((uint64_t)Ds18b20_read_byte(pDs18b20) & 0xFF) << 7*8);
+
+	for(int i = 1; i < 7; i++)
+	{
+		rom |= (((uint64_t)Ds18b20_read_byte(pDs18b20) & 0xFF) << i*8);
+	}
+
+	rom |= (((uint64_t)Ds18b20_read_byte(pDs18b20) & 0xFF) << 0);
+
+	return rom;
+}
 
 /*
  * Transanction/Data functions
@@ -65,28 +90,57 @@ uint8_t Ds18b20_init_phase(DS18B20_Handle_t *hds18b20)
  * @Note              -  none
 
  */
-void Ds18b20_write_byte(uint8_t write_data)
+void Ds18b20_write_byte(DS18B20_Handle_t *pDs18b20, uint8_t write_data)
 {
 	for(int i = 0; i < 8; i++)
 	{
 		if((write_data & (1 << i)) == 0)
 		{
 			//bit is LOW so we keep LOW for 60 us
-			Set_pin_as_out(DS18B20_PORT, DS18B20_PIN);
-			Write_pin(DS18B20_PORT, DS18B20_PIN, LOW);
+			Set_pin_as_out(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+			Write_pin(pDs18b20->pGPIOx, pDs18b20->GPIO_pin, LOW);
 			Delay_us(60);
-			Set_pin_as_in(DS18B20_PORT, DS18B20_PIN);
+			Set_pin_as_in(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
 		}
 		else
 		{
-			Set_pin_as_out(DS18B20_PORT, DS18B20_PIN);
-			Write_pin(DS18B20_PORT, DS18B20_PIN, LOW);
+			//Bit is HIGH so we pull low for 1us, then release line so its pulled HIGH for 60us
+			Set_pin_as_out(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+			Write_pin(pDs18b20->pGPIOx, pDs18b20->GPIO_pin, LOW);
+			Delay_us(1);
+			Set_pin_as_in(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+			Delay_us(60);
 		}
 	}
 }
 
 
-uint8_t Ds18b20_read_byte(void);
+uint8_t Ds18b20_read_byte(DS18B20_Handle_t *pDs18b20)
+{
+	uint8_t read_data = 0;
+	Set_pin_as_in(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+
+	for(int i = 0; i < 8; i++)
+	{
+		//First we pull line to LOW for 1us
+		Set_pin_as_out(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+		Write_pin(pDs18b20->pGPIOx, pDs18b20->GPIO_pin, LOW);
+		Delay_us(2);
+
+		Set_pin_as_in(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+		Delay_us(5);
+		//Read bit and wait 60us
+
+		if(Read_pin(pDs18b20->pGPIOx, pDs18b20->GPIO_pin))
+		{
+			read_data |= (1 << i);
+		}
+
+		Delay_us(55);
+	}
+
+	return read_data;
+}
 
 
 /*
@@ -114,7 +168,7 @@ void sd18b20_gpio_init(DS18B20_Handle_t *pDs18b20)
 	ds_gpio.Pull = GPIO_NOPULL;
 	ds_gpio.Speed = GPIO_SPEED_FREQ_LOW;
 
-	HAL_GPIO_Init(DS18B20_PORT, &ds_gpio);
+	HAL_GPIO_Init(pDs18b20->pGPIOx, &ds_gpio);
 }
 
 /*********************************************************************

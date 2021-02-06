@@ -1,7 +1,10 @@
 ds18b20_driver.c:29:9:Ds18b20_init_phase	24	static
-ds18b20_driver.c:68:6:Ds18b20_write_byte	24	static
-ds18b20_driver.c:108:6:sd18b20_gpio_init	40	static
-ds18b20_driver.c:133:6:Set_pin_as_out	16	static
-ds18b20_driver.c:153:6:Set_pin_as_in	16	static
-ds18b20_driver.c:173:6:Write_pin	16	static
-ds18b20_driver.c:198:9:Read_pin	24	static
+ds18b20_driver.c:53:6:Ds18b20_rom_command	16	static
+ds18b20_driver.c:59:10:Ds18b20_read_rom	48	static
+ds18b20_driver.c:93:6:Ds18b20_write_byte	24	static
+ds18b20_driver.c:118:9:Ds18b20_read_byte	24	static
+ds18b20_driver.c:162:6:sd18b20_gpio_init	40	static
+ds18b20_driver.c:187:6:Set_pin_as_out	16	static
+ds18b20_driver.c:207:6:Set_pin_as_in	16	static
+ds18b20_driver.c:227:6:Write_pin	16	static
+ds18b20_driver.c:252:9:Read_pin	24	static
