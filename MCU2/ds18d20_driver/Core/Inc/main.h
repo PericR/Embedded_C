@@ -31,7 +31,7 @@ extern "C" {
 #include "stm32f4xx_hal.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "delay.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
