@@ -135,7 +135,23 @@ void Ds18b20_rom_match(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence)
 	}
 }
 
-void Ds18b20_rom_skip(DS18B20_Handle_t *pDs18b20);
+/*********************************************************************
+ * @fn      		  - Ds18b20_rom_skip
+ *
+ * @brief             - This function skips match ROM and allows access to memory function if only one DS18B20 device is present
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ * @return            - none
+ *
+ * @Note              - If more than one device is present, data collision will ocur
+ */
+void Ds18b20_rom_skip(DS18B20_Handle_t *pDs18b20)
+{
+	Ds18b20_command(pDs18b20, DS18B20_ROM_SKIP);
+}
+
 void Ds18b20_rom_search(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_rom_alarm(DS18B20_Handle_t *pDs18b20);
 

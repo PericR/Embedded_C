@@ -111,10 +111,10 @@ int main(void)
   Ds18b20_init_phase(&hds18b20);
   rom = Ds18b20_rom_read(&hds18b20);
 
-  //match rom code
+  //match rom code and pow read
   Ds18b20_init_phase(&hds18b20);
   Ds18b20_rom_match(&hds18b20, matched_rom);
-  Ds18b20_read_pw_supply(&hds18b20);
+  uint8_t pow = Ds18b20_read_pw_supply(&hds18b20);
 
   while (1)
   {
