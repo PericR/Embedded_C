@@ -69,7 +69,7 @@ void Ds18b20_command(DS18B20_Handle_t *pDs18b20, uint8_t command)
 }
 
 /*
- * ROM Functions
+ * ROM Function Commands
  */
 
 /*********************************************************************
@@ -104,7 +104,35 @@ uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20)
 	return rom;
 }
 
-void Ds18b20_match_rom(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence);
+/*********************************************************************
+ * @fn      		  - Ds18b20_match_rom
+ *
+ * @brief             - This function matches ROM unique 64 bit code to one of DS18B20 devices on data line
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ *						uint64_t rom_sequence
+ *						unique device code
+ *
+ * @return            - none
+ *
+ * @Note              - If match is found device will accept next command, else it will wait for reset signal
+ */
+void Ds18b20_match_rom(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence)
+{
+	uint8_t next_byte;
+
+	//Send command to match rom
+	Ds18b20_command(pDs18b20, DS18B20_ROM_MATCH);
+
+	//Send unique ROM code to Data line
+	for(int i = 0; i < 8; i++)
+	{
+		next_byte = 0;
+		next_byte |= (rom_sequence >> i) & 0x00000000000000FF;
+	}
+}
 void Ds18b20_skip_rom(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_search_rom(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_alarm_rom(DS18B20_Handle_t *pDs18b20);

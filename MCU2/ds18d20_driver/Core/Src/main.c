@@ -70,7 +70,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	uint64_t rom;
-	uint8_t family = 0;
+	uint64_t matched_rom= 0x283c01b55633b9c4;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -107,11 +107,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  Ds18b20_init_phase(&hds18b20);
-  //read unique code
-  Ds18b20_command(&hds18b20, DS18B20_ROM_READ);
-  family = Ds18b20_read_byte(&hds18b20);
-
+  //read unique ROM code
   Ds18b20_init_phase(&hds18b20);
   rom = Ds18b20_read_rom(&hds18b20);
 

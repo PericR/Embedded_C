@@ -54,7 +54,7 @@ uint8_t Ds18b20_init_phase(DS18B20_Handle_t *hds18b20);
 void Ds18b20_command(DS18B20_Handle_t *pDs18b20, uint8_t command);
 
 /*
- * ROM Functions
+ * ROM Function Commands
  */
 uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_match_rom(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence);
