@@ -199,7 +199,36 @@ void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20, uint8_t temp_resolution, uint
 	Ds18b20_command(pDs18b20, DS18B20_MEMORY_PAD_WRITE);
 	Ds18b20_write_byte(pDs18b20, th);
 	Ds18b20_write_byte(pDs18b20, tl);
-	Ds18b20_write_byte(pDs18b20, temp_resolution);
+
+	uint8_t temp_resolution_reg = 0;
+	temp_resolution_reg |= (temp_resolution << 5);
+	Ds18b20_write_byte(pDs18b20, temp_resolution_reg);
+}
+
+/*********************************************************************
+ * @fn      		  - Ds18b20_pad_read
+ *
+ * @brief             - This function returns scratchpad content
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ *
+ * @return            - uint64_t scratcpad
+ *
+ * @Note              - Must be followed by Ds18b20_conv_t function
+ */
+uint64_t Ds18b20_pad_read(DS18B20_Handle_t *pDs18b20)
+{
+	uint64_t pad = 0;
+	Ds18b20_command(pDs18b20, DS18B20_MEMORY_PAD_READ);
+
+	for(int i = 0; i < 8; i++)
+	{
+		pad |= (Ds18b20_read_byte(pDs18b20) << i * 8);
+	}
+
+	return pad;
 }
 
 /*********************************************************************
@@ -243,13 +272,13 @@ float Ds18b20_read_temp(DS18B20_Handle_t *pDs18b20)
 	switch (config)
 	{
 	case 0:
-		celsius = (temp & ~(0xFF00)) * 0.5f;
+		celsius = ((temp & ~(0xF800)) >> 3) * 0.5f;
 		break;
 	case 1:
-		celsius = (temp & ~(0xFE00)) * 0.25f;
+		celsius = ((temp & ~(0xF800)) >> 2)* 0.25f;
 		break;
 	case 2:
-		celsius = (temp & ~(0xFC00)) * 0.125f;
+		celsius = ((temp & ~(0xF800)) >> 1) * 0.125f;
 		break;
 	case 3:
 		celsius = (temp & ~(0xF800)) * 0.0625f;

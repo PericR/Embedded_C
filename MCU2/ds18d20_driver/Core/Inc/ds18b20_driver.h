@@ -71,6 +71,7 @@ void Ds18b20_rom_alarm(DS18B20_Handle_t *pDs18b20);
 /*
  * Memory Functions
  */
+uint64_t Ds18b20_pad_read(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20, uint8_t temp_resolution, uint8_t th, uint8_t tl);
 float Ds18b20_read_temp(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20);

@@ -70,6 +70,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	uint64_t rom;
+	uint64_t pad;
 
 	uint64_t matched_rom= 0x283c01b55633b9c4;
   /* USER CODE END 1 */
@@ -112,26 +113,25 @@ int main(void)
   Ds18b20_init_phase(&hds18b20);
   rom = Ds18b20_rom_read(&hds18b20);
 
-  //skip rom and pw read;
+  //Change resoluiton
   Ds18b20_init_phase(&hds18b20);
   Ds18b20_rom_skip(&hds18b20);
-  uint8_t pow1 = Ds18b20_read_pw_supply(&hds18b20);
+  Ds18b20_pad_write(&hds18b20, DS18B20_TEMP_RES_12BIT, 1, 1);
 
-  //match rom code and pow read
   Ds18b20_init_phase(&hds18b20);
-  Ds18b20_rom_match(&hds18b20, matched_rom);
-  uint8_t pow2 = Ds18b20_read_pw_supply(&hds18b20);
+  Ds18b20_rom_skip(&hds18b20);
+  pad = Ds18b20_pad_read(&hds18b20);
+
+  //copy data
+  Ds18b20_init_phase(&hds18b20);
+  Ds18b20_rom_skip(&hds18b20);
+  Ds18b20_pad_copy(&hds18b20);
 
   //skip rom and convert T
   Ds18b20_init_phase(&hds18b20);
   Ds18b20_rom_skip(&hds18b20);
   Ds18b20_conv_t(&hds18b20);
   while(!Ds18b20_read_bit(&hds18b20)); //Wait until conversion is complete
-
-  //skip rom and temp read;
-  Ds18b20_init_phase(&hds18b20);
-  Ds18b20_rom_skip(&hds18b20);
-  float temp1 = Ds18b20_read_temp(&hds18b20);
 
   //match rom code and temp read
   Ds18b20_init_phase(&hds18b20);

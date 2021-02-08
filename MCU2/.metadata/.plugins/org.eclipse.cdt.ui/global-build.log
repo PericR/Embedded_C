@@ -1,4 +1,4 @@
-12:04:37 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+12:28:49 **** Incremental Build of configuration Debug for project ds18d20_driver ****
 make -j4 all 
 arm-none-eabi-gcc "../Core/Src/ds18b20_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/ds18b20_driver.d" -MT"Core/Src/ds18b20_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ds18b20_driver.o"
 arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -8,7 +8,407 @@ arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
 arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
 arm-none-eabi-size   ds18d20_driver.elf 
    text	   data	    bss	    dec	    hex	filename
-   9788	     20	   1644	  11452	   2cbc	ds18d20_driver.elf
+   9860	     20	   1644	  11524	   2d04	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:29:41 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:134:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9972	     20	   1644	  11636	   2d74	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:30:27 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:136:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9972	     20	   1644	  11636	   2d74	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:33:14 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9988	     20	   1644	  11652	   2d84	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:35:34 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/ds18b20_driver.d" -MT"Core/Src/ds18b20_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ds18b20_driver.o"
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9988	     20	   1644	  11652	   2d84	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:36:56 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9988	     20	   1644	  11652	   2d84	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:37:27 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9988	     20	   1644	  11652	   2d84	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:40:38 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9988	     20	   1644	  11652	   2d84	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:43:00 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/ds18b20_driver.d" -MT"Core/Src/ds18b20_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ds18b20_driver.o"
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9996	     20	   1644	  11660	   2d8c	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:43:50 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9996	     20	   1644	  11660	   2d8c	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:45:02 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/ds18b20_driver.d" -MT"Core/Src/ds18b20_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ds18b20_driver.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9996	     20	   1644	  11660	   2d8c	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:46:35 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9996	     20	   1644	  11660	   2d8c	ds18d20_driver.elf
+Finished building: default.size.stdout
+Finished building: ds18d20_driver.bin
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:47:13 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9996	     20	   1644	  11660	   2d8c	ds18d20_driver.elf
+Finished building: default.size.stdout
+ 
+Finished building: ds18d20_driver.bin
+ 
+Finished building: ds18d20_driver.list
+ 
+12:50:28 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/ds18b20_driver.d" -MT"Core/Src/ds18b20_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ds18b20_driver.o"
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9996	     20	   1644	  11660	   2d8c	ds18d20_driver.elf
+Finished building: ds18d20_driver.bin
+Finished building: default.size.stdout
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:51:14 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+Finished building: ds18d20_driver.bin
+   text	   data	    bss	    dec	    hex	filename
+   9996	     20	   1644	  11660	   2d8c	ds18d20_driver.elf
+Finished building: default.size.stdout
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:51:42 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9996	     20	   1644	  11660	   2d8c	ds18d20_driver.elf
+Finished building: ds18d20_driver.bin
+Finished building: default.size.stdout
+ 
+ 
+Finished building: ds18d20_driver.list
+ 
+12:52:00 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
+  uint64_t pad;
+           ^~~
+../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
+  uint64_t rom;
+           ^~~
+arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ds18d20_driver.elf
+ 
+arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
+arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9996	     20	   1644	  11660	   2d8c	ds18d20_driver.elf
 Finished building: default.size.stdout
 Finished building: ds18d20_driver.bin
  
