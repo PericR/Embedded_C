@@ -32,6 +32,12 @@
 #define DS18B20_MEMORY_RECALL_EE	0XB8
 #define DS18B20_MEMORY_PW_READ		0XB4
 
+//Temperature resolution macros
+#define DS18B20_TEMP_RES_9BIT		0
+#define DS18B20_TEMP_RES_10BIT		1
+#define DS18B20_TEMP_RES_11BIT		2
+#define DS18B20_TEMP_RES_12BIT		3
+
 typedef struct{
 	uint8_t GPIO_pin;
 	GPIO_TypeDef *pGPIOx;
@@ -65,7 +71,7 @@ void Ds18b20_rom_alarm(DS18B20_Handle_t *pDs18b20);
 /*
  * Memory Functions
  */
-void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20, uint8_t temp_resolution, uint8_t th, uint8_t tl);
 float Ds18b20_read_temp(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_conv_t(DS18B20_Handle_t *pDs18b20);

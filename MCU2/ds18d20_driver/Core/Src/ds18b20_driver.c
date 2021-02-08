@@ -171,7 +171,36 @@ void Ds18b20_rom_alarm(DS18B20_Handle_t *pDs18b20);
 /*
  * Memory Functions
  */
-void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20);
+
+/*********************************************************************
+ * @fn      		  - Ds18b20_pad_write
+ *
+ * @brief             - This function writes bits 2, 3, 4 of the device scratchpad
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ *						uint8_t temp_resolution
+ *						register that holds conf for temperature resolution
+ *						use provided macros DS18B20_TEMP_RES_
+ *
+ *						uint8_t th
+ *						Temperature HIGH alarm config
+ *
+ *						uint8_t tl
+ *						Temperature LOW alarm config
+ *
+ * @return            - none
+ *
+ * @Note              - scratchpad registers 2, 3, 4 must all be writen beffore reset is issued
+ */
+void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20, uint8_t temp_resolution, uint8_t th, uint8_t tl)
+{
+	Ds18b20_command(pDs18b20, DS18B20_MEMORY_PAD_WRITE);
+	Ds18b20_write_byte(pDs18b20, th);
+	Ds18b20_write_byte(pDs18b20, tl);
+	Ds18b20_write_byte(pDs18b20, temp_resolution);
+}
 
 /*********************************************************************
  * @fn      		  - Ds18b20_read_temp
