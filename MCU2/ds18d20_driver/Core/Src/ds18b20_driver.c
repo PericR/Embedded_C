@@ -65,7 +65,6 @@ uint8_t Ds18b20_init_phase(DS18B20_Handle_t *hds18b20)
 void Ds18b20_command(DS18B20_Handle_t *pDs18b20, uint8_t command)
 {
 	Ds18b20_write_byte(pDs18b20, command);
-	Delay_us(50);
 }
 
 /*
@@ -121,18 +120,25 @@ uint64_t Ds18b20_rom_read(DS18B20_Handle_t *pDs18b20)
  */
 void Ds18b20_rom_match(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence)
 {
-	uint8_t next_byte;
+	uint8_t next_byte = 0;
 
 	//Send command to match rom
 	Ds18b20_command(pDs18b20, DS18B20_ROM_MATCH);
 
+	next_byte |= ((rom_sequence >> (7*8)) & 0xFF);
+	Ds18b20_write_byte(pDs18b20, next_byte);
+
 	//Send unique ROM code to Data line
-	for(int i = 0; i < 8; i++)
+	for(int i = 1; i < 7; i++)
 	{
 		next_byte = 0;
-		next_byte |= (rom_sequence >> i * 8) & 0x00000000000000FF;
+		next_byte |= (rom_sequence >> i * 8) & 0xFF;
 		Ds18b20_write_byte(pDs18b20, next_byte);
 	}
+
+	next_byte = 0;
+	next_byte |= ((rom_sequence >> 0) & 0xFF);
+	Ds18b20_write_byte(pDs18b20, next_byte);
 }
 
 /*********************************************************************
@@ -159,7 +165,34 @@ void Ds18b20_rom_alarm(DS18B20_Handle_t *pDs18b20);
  * Memory Functions
  */
 void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20);
-void Ds18b20_pad_read(DS18B20_Handle_t *pDs18b20);
+
+/*********************************************************************
+ * @fn      		  - Ds18b20_pad_read
+ *
+ * @brief             - This function returns power supply source
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ *
+ * @return            - uint8_t power source
+ * 						LOW if parasite power, HIGH if external power
+ *
+ * @Note              - none
+ */
+
+uint16_t Ds18b20_read_temp(DS18B20_Handle_t *pDs18b20)
+{
+	Ds18b20_command(pDs18b20, DS18B20_MEMORY_PAD_READ);
+	uint16_t temp = 0;
+
+	for(int i = 0; i < 2; i++)
+	{
+		temp |= (Ds18b20_read_byte(pDs18b20) << i * 8);
+	}
+
+	return temp;
+}
 void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_conv_t(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_recal_ee(DS18B20_Handle_t *pDs18b20);
