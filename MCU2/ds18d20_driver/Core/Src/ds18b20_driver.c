@@ -265,7 +265,25 @@ float Ds18b20_read_temp(DS18B20_Handle_t *pDs18b20)
 	return celsius;
 
 }
-void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20);
+
+/*********************************************************************
+ * @fn      		  - Ds18b20_pad_copy
+ *
+ * @brief             - This function will copy data from scratchpad memory to EE
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ *
+ * @return            - float celsius
+ *
+ * @Note              - none
+ */
+void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20)
+{
+	Ds18b20_command(pDs18b20, DS18B20_MEMORY_PAD_COPY);
+	while(!Ds18b20_read_bit(pDs18b20));				//Wait till copy is complete
+}
 
 /*********************************************************************
  * @fn      		  - Ds18b20_conv_t
@@ -285,7 +303,23 @@ void Ds18b20_conv_t(DS18B20_Handle_t *pDs18b20)
 	Ds18b20_command(pDs18b20, DS18B20_MEMORY_CONVERT_T);
 }
 
-void Ds18b20_recal_ee(DS18B20_Handle_t *pDs18b20);
+/*********************************************************************
+ * @fn      		  - Ds18b20_recal_ee
+ *
+ * @brief             - This function will copy data from EE memory to scratchpad
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ *
+ * @return            - none
+ *
+ * @Note              - none
+ */
+void Ds18b20_recal_ee(DS18B20_Handle_t *pDs18b20)
+{
+	Ds18b20_command(pDs18b20, DS18B20_MEMORY_RECALL_EE);
+}
 
 /*********************************************************************
  * @fn      		  - Ds18b20_read_pw_supply
