@@ -125,12 +125,12 @@ int main(void)
   //skip rom and temp read;
   Ds18b20_init_phase(&hds18b20);
   Ds18b20_rom_skip(&hds18b20);
-  uint16_t temp1 = Ds18b20_read_temp(&hds18b20);
+  float temp1 = Ds18b20_read_temp(&hds18b20);
 
   //match rom code and temp read
   Ds18b20_init_phase(&hds18b20);
   Ds18b20_rom_match(&hds18b20, matched_rom);
-  uint16_t temp2 = Ds18b20_read_temp(&hds18b20);
+  float temp2 = Ds18b20_read_temp(&hds18b20);
 
 
   while (1)

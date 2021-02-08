@@ -1,13 +1,23 @@
-10:36:54 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+11:15:19 **** Incremental Build of configuration Debug for project ds18d20_driver ****
 make -j4 all 
+arm-none-eabi-gcc "../Core/Src/ds18b20_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/ds18b20_driver.d" -MT"Core/Src/ds18b20_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ds18b20_driver.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/ds18b20_driver.c: In function 'Ds18b20_read_temp':
+../Core/Src/ds18b20_driver.c:209:2: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  (void*)dummy;
+  ^
+../Core/Src/ds18b20_driver.c:209:2: warning: statement with no effect [-Wunused-value]
+  (void*)dummy;
+  ^~~~~~~~~~~~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:133:12: warning: unused variable 'temp2' [-Wunused-variable]
-   uint16_t temp2 = Ds18b20_read_temp(&hds18b20);
-            ^~~~~
-../Core/Src/main.c:128:12: warning: unused variable 'temp1' [-Wunused-variable]
-   uint16_t temp1 = Ds18b20_read_temp(&hds18b20);
-            ^~~~~
+../Core/Src/main.c:133:9: warning: unused variable 'temp2' [-Wunused-variable]
+   float temp2 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
+../Core/Src/main.c:128:9: warning: unused variable 'temp1' [-Wunused-variable]
+   float temp1 = Ds18b20_read_temp(&hds18b20);
+         ^~~~~
 ../Core/Src/main.c:123:11: warning: unused variable 'pow2' [-Wunused-variable]
    uint8_t pow2 = Ds18b20_read_pw_supply(&hds18b20);
            ^~~~
@@ -24,10 +34,17 @@ arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
 arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
 arm-none-eabi-size   ds18d20_driver.elf 
    text	   data	    bss	    dec	    hex	filename
-   9516	     20	   1644	  11180	   2bac	ds18d20_driver.elf
+   9732	     20	   1644	  11396	   2c84	ds18d20_driver.elf
 Finished building: default.size.stdout
 Finished building: ds18d20_driver.bin
  
  
 Finished building: ds18d20_driver.list
+ 
+11:15:41 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+make -j4 all 
+arm-none-eabi-size   ds18d20_driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9732	     20	   1644	  11396	   2c84	ds18d20_driver.elf
+Finished building: default.size.stdout
  

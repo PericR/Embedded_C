@@ -174,31 +174,68 @@ void Ds18b20_rom_alarm(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20);
 
 /*********************************************************************
- * @fn      		  - Ds18b20_pad_read
+ * @fn      		  - Ds18b20_read_temp
  *
- * @brief             - This function returns power supply source
+ * @brief             - This function returns temperature in degree celsius
  *
  * @param[in]         - DS18B20_Handle_t *hds18b20
  * 						Handle structure with GPIO port and pin
  *
  *
- * @return            - uint8_t power source
- * 						LOW if parasite power, HIGH if external power
+ * @return            - float celsius
  *
  * @Note              - none
  */
 
-uint16_t Ds18b20_read_temp(DS18B20_Handle_t *pDs18b20)
+float Ds18b20_read_temp(DS18B20_Handle_t *pDs18b20)
 {
-	Ds18b20_command(pDs18b20, DS18B20_MEMORY_PAD_READ);
+	float celsius = 0;
 	uint16_t temp = 0;
+	uint8_t dummy;
+	uint8_t config = 0;
 
+	Ds18b20_command(pDs18b20, DS18B20_MEMORY_PAD_READ);
+
+	//Read Temp
 	for(int i = 0; i < 2; i++)
 	{
 		temp |= (Ds18b20_read_byte(pDs18b20) << i * 8);
 	}
 
-	return temp;
+	//Two dummy reads
+	dummy = Ds18b20_read_byte(pDs18b20);
+	dummy = Ds18b20_read_byte(pDs18b20);
+	(void*)dummy;
+
+	//Configuration register read
+	config = Ds18b20_read_byte(pDs18b20);
+	config = config >> 5;
+
+	//select right resolution
+	switch (config)
+	{
+	case 0:
+		celsius = (temp & ~(0xFF00)) * 0.5f;
+		break;
+	case 1:
+		celsius = (temp & ~(0xFE00)) * 0.25f;
+		break;
+	case 2:
+		celsius = (temp & ~(0xFC00)) * 0.125f;
+		break;
+	case 3:
+		celsius = (temp & ~(0xF800)) * 0.0625f;
+		break;
+	}
+
+	//select right sign
+	if(temp & (1 << 15))
+	{
+		celsius *= -1;
+	}
+
+	return celsius;
+
 }
 void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_conv_t(DS18B20_Handle_t *pDs18b20);
