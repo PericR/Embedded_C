@@ -73,7 +73,7 @@ void Ds18b20_command(DS18B20_Handle_t *pDs18b20, uint8_t command)
  */
 
 /*********************************************************************
- * @fn      		  - Ds18b20_read_rom
+ * @fn      		  - Ds18b20_rom_read
  *
  * @brief             - This function reads 64 bit lasered ROM code
  *
@@ -84,7 +84,7 @@ void Ds18b20_command(DS18B20_Handle_t *pDs18b20, uint8_t command)
  *
  * @Note              -  This is used after presence signal is received
  */
-uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20)
+uint64_t Ds18b20_rom_read(DS18B20_Handle_t *pDs18b20)
 {
 	Ds18b20_command(pDs18b20, DS18B20_ROM_READ);
 	uint64_t rom = 0;
@@ -105,7 +105,7 @@ uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20)
 }
 
 /*********************************************************************
- * @fn      		  - Ds18b20_match_rom
+ * @fn      		  - Ds18b20_rom_match
  *
  * @brief             - This function matches ROM unique 64 bit code to one of DS18B20 devices on data line
  *
@@ -119,7 +119,7 @@ uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20)
  *
  * @Note              - If match is found device will accept next command, else it will wait for reset signal
  */
-void Ds18b20_match_rom(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence)
+void Ds18b20_rom_match(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence)
 {
 	uint8_t next_byte;
 
@@ -133,9 +133,20 @@ void Ds18b20_match_rom(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence)
 		next_byte |= (rom_sequence >> i) & 0x00000000000000FF;
 	}
 }
-void Ds18b20_skip_rom(DS18B20_Handle_t *pDs18b20);
-void Ds18b20_search_rom(DS18B20_Handle_t *pDs18b20);
-void Ds18b20_alarm_rom(DS18B20_Handle_t *pDs18b20);
+
+void Ds18b20_rom_skip(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_rom_search(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_rom_alarm(DS18B20_Handle_t *pDs18b20);
+
+/*
+ * Memory Functions
+ */
+void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_pad_read(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_conv_t(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_recal_ee(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_read_pw_supply(DS18B20_Handle_t *pDs18b20);
 
 /*
  * Transanction/Data functions

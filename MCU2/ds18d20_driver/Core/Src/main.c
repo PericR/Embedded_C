@@ -109,7 +109,7 @@ int main(void)
 
   //read unique ROM code
   Ds18b20_init_phase(&hds18b20);
-  rom = Ds18b20_read_rom(&hds18b20);
+  rom = Ds18b20_rom_read(&hds18b20);
 
   while (1)
   {

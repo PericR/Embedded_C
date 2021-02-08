@@ -56,14 +56,21 @@ void Ds18b20_command(DS18B20_Handle_t *pDs18b20, uint8_t command);
 /*
  * ROM Function Commands
  */
-uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20);
-void Ds18b20_match_rom(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence);
-void Ds18b20_skip_rom(DS18B20_Handle_t *pDs18b20);
-void Ds18b20_search_rom(DS18B20_Handle_t *pDs18b20);
-void Ds18b20_alarm_rom(DS18B20_Handle_t *pDs18b20);
+uint64_t Ds18b20_rom_read(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_rom_match(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence);
+void Ds18b20_rom_skip(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_rom_search(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_rom_alarm(DS18B20_Handle_t *pDs18b20);
+
 /*
  * Memory Functions
  */
+void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_pad_read(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_conv_t(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_recal_ee(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_read_pw_supply(DS18B20_Handle_t *pDs18b20);
 
 /*
  * Transanction/Data functions

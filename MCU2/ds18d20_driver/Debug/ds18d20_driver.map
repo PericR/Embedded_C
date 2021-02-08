@@ -121,7 +121,7 @@ Discarded input sections
  .text          0x0000000000000000        0x0 Core/Src/ds18b20_driver.o
  .data          0x0000000000000000        0x0 Core/Src/ds18b20_driver.o
  .bss           0x0000000000000000        0x0 Core/Src/ds18b20_driver.o
- .text.Ds18b20_match_rom
+ .text.Ds18b20_rom_match
                 0x0000000000000000       0x5c Core/Src/ds18b20_driver.o
  .debug_macro   0x0000000000000000      0xa5a Core/Src/ds18b20_driver.o
  .debug_macro   0x0000000000000000      0x184 Core/Src/ds18b20_driver.o
@@ -2753,9 +2753,9 @@ LOAD /opt/st/stm32cubeide_1.3.0/plugins/com.st.stm32cube.ide.mcu.externaltools.g
  .text.Ds18b20_command
                 0x0000000008000650       0x24 Core/Src/ds18b20_driver.o
                 0x0000000008000650                Ds18b20_command
- .text.Ds18b20_read_rom
+ .text.Ds18b20_rom_read
                 0x0000000008000674       0xca Core/Src/ds18b20_driver.o
-                0x0000000008000674                Ds18b20_read_rom
+                0x0000000008000674                Ds18b20_rom_read
  .text.Ds18b20_write_byte
                 0x000000000800073e       0xaa Core/Src/ds18b20_driver.o
                 0x000000000800073e                Ds18b20_write_byte
