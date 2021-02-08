@@ -70,15 +70,15 @@ void Ds18b20_pad_read(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_conv_t(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_recal_ee(DS18B20_Handle_t *pDs18b20);
-void Ds18b20_read_pw_supply(DS18B20_Handle_t *pDs18b20);
+uint8_t Ds18b20_read_pw_supply(DS18B20_Handle_t *pDs18b20);
 
 /*
  * Transanction/Data functions
  */
+uint8_t Ds18b20_read_bit(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_write_bit(DS18B20_Handle_t *pDs18b20, uint8_t write_data);
 void Ds18b20_write_byte(DS18B20_Handle_t *pDs18b20, uint8_t write_data);
 uint8_t Ds18b20_read_byte(DS18B20_Handle_t *pDs18b20);
-
-
 
 /*
  *helper functions for GPIO I/O

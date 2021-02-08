@@ -130,7 +130,8 @@ void Ds18b20_rom_match(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence)
 	for(int i = 0; i < 8; i++)
 	{
 		next_byte = 0;
-		next_byte |= (rom_sequence >> i) & 0x00000000000000FF;
+		next_byte |= (rom_sequence >> i * 8) & 0x00000000000000FF;
+		Ds18b20_write_byte(pDs18b20, next_byte);
 	}
 }
 
@@ -146,11 +147,105 @@ void Ds18b20_pad_read(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_conv_t(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_recal_ee(DS18B20_Handle_t *pDs18b20);
-void Ds18b20_read_pw_supply(DS18B20_Handle_t *pDs18b20);
+
+/*********************************************************************
+ * @fn      		  - Ds18b20_read_pw_supply
+ *
+ * @brief             - This function returns power supply source
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ *
+ * @return            - uint8_t power source
+ * 						LOW if parasite power, HIGH if external power
+ *
+ * @Note              - none
+ */
+uint8_t Ds18b20_read_pw_supply(DS18B20_Handle_t *pDs18b20)
+{
+	Ds18b20_command(pDs18b20, DS18B20_MEMORY_PW_READ);
+	return Ds18b20_read_bit(pDs18b20);
+}
 
 /*
  * Transanction/Data functions
  */
+
+/*********************************************************************
+ * @fn      		  - Ds18b20_read_bit
+ *
+ * @brief             - This function reads one bit from OneWire communication
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ * @return            - uint8_t data received from device (HIGH or LOW)
+ *
+ * @Note              -
+ */
+uint8_t Ds18b20_read_bit(DS18B20_Handle_t *pDs18b20)
+{
+	uint8_t read_data = 0;
+	Set_pin_as_in(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+
+	//First we pull line to LOW for 2us to signal device that we are ready for reception
+	Set_pin_as_out(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+	Write_pin(pDs18b20->pGPIOx, pDs18b20->GPIO_pin, LOW);
+	Delay_us(2);
+
+	//Then release and wait 5 us to give device time to react
+	Set_pin_as_in(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+	Delay_us(5);
+
+	//Read bit and wait 55us before signaling again
+	if(Read_pin(pDs18b20->pGPIOx, pDs18b20->GPIO_pin))
+	{
+		read_data = 1;
+	}
+
+	Delay_us(55);
+
+	return read_data;
+}
+
+/*********************************************************************
+ * @fn      		  - Ds18b20_write_bit
+ *
+ * @brief             - This function sends one bit to OneWire communication
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ * 						uint8_t write_data
+ * 						Data to be sent to device
+ *
+ * @return            - none
+ *
+ * @Note              - none
+ */
+void Ds18b20_write_bit(DS18B20_Handle_t *pDs18b20, uint8_t write_data)
+{
+	if(write_data == 0)
+	{
+		//bit is LOW so we keep line LOW for 60 us
+		Set_pin_as_out(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+		Write_pin(pDs18b20->pGPIOx, pDs18b20->GPIO_pin, LOW);
+		Delay_us(60);
+		Set_pin_as_in(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+	}
+	else
+	{
+		//Bit is HIGH so we pull low for 1us, then release line so its pulled HIGH for 60us
+		Set_pin_as_out(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+		Write_pin(pDs18b20->pGPIOx, pDs18b20->GPIO_pin, LOW);
+		Delay_us(1);
+		Set_pin_as_in(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
+		Delay_us(60);
+	}
+}
+
+
 
 /*********************************************************************
  * @fn      		  - Ds18b20_write_byte
@@ -344,5 +439,4 @@ uint8_t Read_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
 	uint8_t value = (uint8_t)((pGpio_port->IDR >> gpio_pin) & 0x00000001);
 	return value;
 }
-
 
