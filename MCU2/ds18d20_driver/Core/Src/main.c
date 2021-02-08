@@ -109,7 +109,7 @@ int main(void)
 
   Ds18b20_init_phase(&hds18b20);
   //read unique code
-  Ds18b20_rom_command(&hds18b20, DS18B20_ROM_READ);
+  Ds18b20_command(&hds18b20, DS18B20_ROM_READ);
   family = Ds18b20_read_byte(&hds18b20);
 
   Ds18b20_init_phase(&hds18b20);

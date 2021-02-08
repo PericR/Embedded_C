@@ -24,6 +24,14 @@
 #define DS18B20_ROM_SEARCH			0XF0
 #define DS18B20_ROM_ALARM_SEARCH	0XEC
 
+//MEMORY commands
+#define DS18B20_MEMORY_PAD_WRITE	0X4E
+#define DS18B20_MEMORY_PAD_READ		0XBE
+#define DS18B20_MEMORY_PAD_COPY		0X48
+#define DS18B20_MEMORY_CONVERT_T	0X44
+#define DS18B20_MEMORY_RECALL_EE	0XB8
+#define DS18B20_MEMORY_PW_READ		0XB4
+
 typedef struct{
 	uint8_t GPIO_pin;
 	GPIO_TypeDef *pGPIOx;
@@ -32,6 +40,10 @@ typedef struct{
 /******************************************************DS18B20 API************************************************/
 /*
  * DS18B20 has protocol of 4 sequences so this file will reflect that organization
+ * Initialization phase
+ * ROM function command
+ * Memory function command
+ * Transaction/Data phase
  */
 
 
@@ -39,12 +51,16 @@ typedef struct{
  * Initialization Phase
  */
 uint8_t Ds18b20_init_phase(DS18B20_Handle_t *hds18b20);
+void Ds18b20_command(DS18B20_Handle_t *pDs18b20, uint8_t command);
 
 /*
  * ROM Functions
  */
-void Ds18b20_rom_command(DS18B20_Handle_t *pDs18b20, uint8_t command);
 uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_match_rom(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence);
+void Ds18b20_skip_rom(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_search_rom(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_alarm_rom(DS18B20_Handle_t *pDs18b20);
 /*
  * Memory Functions
  */

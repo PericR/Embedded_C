@@ -48,14 +48,10 @@ uint8_t Ds18b20_init_phase(DS18B20_Handle_t *hds18b20)
 	return response;
 }
 
-/*
- * ROM Functions
- */
-
 /*********************************************************************
- * @fn      		  - Ds18b20_rom_command
+ * @fn      		  - Ds18b20_command
  *
- * @brief             - This function sends ROM command to DS18B20 sensor
+ * @brief             - This function sends ROM or MEMORY command to DS18B20 sensor
  *
  * @param[in]         - DS18B20_Handle_t *hds18b20
  * 						Handle structure with GPIO port and pin
@@ -66,11 +62,15 @@ uint8_t Ds18b20_init_phase(DS18B20_Handle_t *hds18b20)
  *
  * @Note              -  This is used after presence signal is received
  */
-void Ds18b20_rom_command(DS18B20_Handle_t *pDs18b20, uint8_t command)
+void Ds18b20_command(DS18B20_Handle_t *pDs18b20, uint8_t command)
 {
 	Ds18b20_write_byte(pDs18b20, command);
 	Delay_us(50);
 }
+
+/*
+ * ROM Functions
+ */
 
 /*********************************************************************
  * @fn      		  - Ds18b20_read_rom
@@ -86,7 +86,7 @@ void Ds18b20_rom_command(DS18B20_Handle_t *pDs18b20, uint8_t command)
  */
 uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20)
 {
-	Ds18b20_rom_command(pDs18b20, DS18B20_ROM_READ);
+	Ds18b20_command(pDs18b20, DS18B20_ROM_READ);
 	uint64_t rom = 0;
 
 	//the first 8 bits are 1-Wire family code
@@ -103,6 +103,11 @@ uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20)
 
 	return rom;
 }
+
+void Ds18b20_match_rom(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence);
+void Ds18b20_skip_rom(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_search_rom(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_alarm_rom(DS18B20_Handle_t *pDs18b20);
 
 /*
  * Transanction/Data functions

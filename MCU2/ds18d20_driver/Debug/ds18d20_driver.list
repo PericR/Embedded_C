@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  0002000c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000923f  00000000  00000000  0002003c  2**0
+ 12 .debug_info   0000924a  00000000  00000000  0002003c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 000017af  00000000  00000000  0002927b  2**0
+ 13 .debug_abbrev 000017e7  00000000  00000000  00029286  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000a08  00000000  00000000  0002aa30  2**3
+ 14 .debug_aranges 00000a08  00000000  00000000  0002aa70  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000930  00000000  00000000  0002b438  2**3
+ 15 .debug_ranges 00000930  00000000  00000000  0002b478  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00020bbe  00000000  00000000  0002bd68  2**0
+ 16 .debug_macro  00020be2  00000000  00000000  0002bda8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00007e16  00000000  00000000  0004c926  2**0
+ 17 .debug_line   00007e18  00000000  00000000  0004c98a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    000c8b2a  00000000  00000000  0005473c  2**0
+ 18 .debug_str    000c8bd6  00000000  00000000  000547a2  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0011d266  2**0
+ 19 .comment      0000007b  00000000  00000000  0011d378  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002910  00000000  00000000  0011d2e4  2**2
+ 20 .debug_frame  00002910  00000000  00000000  0011d3f4  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -583,12 +583,12 @@ uint8_t Ds18b20_init_phase(DS18B20_Handle_t *hds18b20)
  8000648:	46bd      	mov	sp, r7
  800064a:	bd80      	pop	{r7, pc}
 
-0800064c <Ds18b20_rom_command>:
-
-/*
- * ROM Functions
+0800064c <Ds18b20_command>:
+ * @return            -  none
+ *
+ * @Note              -  This is used after presence signal is received
  */
-void Ds18b20_rom_command(DS18B20_Handle_t *pDs18b20, uint8_t command)
+void Ds18b20_command(DS18B20_Handle_t *pDs18b20, uint8_t command)
 {
  800064c:	b580      	push	{r7, lr}
  800064e:	b082      	sub	sp, #8
@@ -611,22 +611,26 @@ void Ds18b20_rom_command(DS18B20_Handle_t *pDs18b20, uint8_t command)
  800066e:	bd80      	pop	{r7, pc}
 
 08000670 <Ds18b20_read_rom>:
-
+ * @return            - uint64_t unique device code
+ *
+ * @Note              -  This is used after presence signal is received
+ */
 uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20)
 {
  8000670:	e92d 48f0 	stmdb	sp!, {r4, r5, r6, r7, fp, lr}
  8000674:	b086      	sub	sp, #24
  8000676:	af00      	add	r7, sp, #0
  8000678:	6078      	str	r0, [r7, #4]
-	Ds18b20_rom_command(pDs18b20, DS18B20_ROM_READ);
+	Ds18b20_command(pDs18b20, DS18B20_ROM_READ);
  800067a:	2133      	movs	r1, #51	; 0x33
  800067c:	6878      	ldr	r0, [r7, #4]
- 800067e:	f7ff ffe5 	bl	800064c <Ds18b20_rom_command>
+ 800067e:	f7ff ffe5 	bl	800064c <Ds18b20_command>
 	uint64_t rom = 0;
  8000682:	f04f 0200 	mov.w	r2, #0
  8000686:	f04f 0300 	mov.w	r3, #0
  800068a:	e9c7 2304 	strd	r2, r3, [r7, #16]
 
+	//the first 8 bits are 1-Wire family code
 	rom |= (((uint64_t)Ds18b20_read_byte(pDs18b20) & 0xFF) << 7*8);
  800068e:	6878      	ldr	r0, [r7, #4]
  8000690:	f000 f8a8 	bl	80007e4 <Ds18b20_read_byte>
@@ -642,6 +646,7 @@ uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20)
  80006b4:	ea4c 0301 	orr.w	r3, ip, r1
  80006b8:	e9c7 2304 	strd	r2, r3, [r7, #16]
 
+	//the next 48 bits are unique serial number
 	for(int i = 1; i < 7; i++)
  80006bc:	2301      	movs	r3, #1
  80006be:	60fb      	str	r3, [r7, #12]
@@ -676,6 +681,7 @@ uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20)
  800070a:	ddda      	ble.n	80006c2 <Ds18b20_read_rom+0x52>
 	}
 
+	//last 8 bits are CRC of the firs 56 bits
 	rom |= (((uint64_t)Ds18b20_read_byte(pDs18b20) & 0xFF) << 0);
  800070c:	6878      	ldr	r0, [r7, #4]
  800070e:	f000 f869 	bl	80007e4 <Ds18b20_read_byte>
@@ -697,9 +703,9 @@ uint64_t Ds18b20_read_rom(DS18B20_Handle_t *pDs18b20)
  8000736:	e8bd 88f0 	ldmia.w	sp!, {r4, r5, r6, r7, fp, pc}
 
 0800073a <Ds18b20_write_byte>:
+ * @return            - none
  *
- * @Note              -  none
-
+ * @Note              - none
  */
 void Ds18b20_write_byte(DS18B20_Handle_t *pDs18b20, uint8_t write_data)
 {
@@ -722,7 +728,7 @@ void Ds18b20_write_byte(DS18B20_Handle_t *pDs18b20, uint8_t write_data)
  8000758:	2b00      	cmp	r3, #0
  800075a:	d11b      	bne.n	8000794 <Ds18b20_write_byte+0x5a>
 		{
-			//bit is LOW so we keep LOW for 60 us
+			//bit is LOW so we keep line LOW for 60 us
 			Set_pin_as_out(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
  800075c:	687b      	ldr	r3, [r7, #4]
  800075e:	685a      	ldr	r2, [r3, #4]
@@ -801,8 +807,10 @@ void Ds18b20_write_byte(DS18B20_Handle_t *pDs18b20, uint8_t write_data)
  80007e2:	bd80      	pop	{r7, pc}
 
 080007e4 <Ds18b20_read_byte>:
-
-
+ * @return            - uint8_t data received from device
+ *
+ * @Note              -
+ */
 uint8_t Ds18b20_read_byte(DS18B20_Handle_t *pDs18b20)
 {
  80007e4:	b580      	push	{r7, lr}
@@ -826,7 +834,7 @@ uint8_t Ds18b20_read_byte(DS18B20_Handle_t *pDs18b20)
  8000802:	60bb      	str	r3, [r7, #8]
  8000804:	e038      	b.n	8000878 <Ds18b20_read_byte+0x94>
 	{
-		//First we pull line to LOW for 1us
+		//First we pull line to LOW for 2us to signal device that we are ready for reception
 		Set_pin_as_out(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
  8000806:	687b      	ldr	r3, [r7, #4]
  8000808:	685a      	ldr	r2, [r3, #4]
@@ -847,6 +855,7 @@ uint8_t Ds18b20_read_byte(DS18B20_Handle_t *pDs18b20)
  8000826:	2002      	movs	r0, #2
  8000828:	f7ff febe 	bl	80005a8 <Delay_us>
 
+		//Then release and wait 5 us to give device time to react
 		Set_pin_as_in(pDs18b20->pGPIOx, pDs18b20->GPIO_pin);
  800082c:	687b      	ldr	r3, [r7, #4]
  800082e:	685a      	ldr	r2, [r3, #4]
@@ -858,8 +867,8 @@ uint8_t Ds18b20_read_byte(DS18B20_Handle_t *pDs18b20)
 		Delay_us(5);
  800083c:	2005      	movs	r0, #5
  800083e:	f7ff feb3 	bl	80005a8 <Delay_us>
-		//Read bit and wait 60us
 
+		//Read bit and wait 55us before signaling again
 		if(Read_pin(pDs18b20->pGPIOx, pDs18b20->GPIO_pin))
  8000842:	687b      	ldr	r3, [r7, #4]
  8000844:	685a      	ldr	r2, [r3, #4]
@@ -1168,10 +1177,10 @@ int main(void)
  80009d8:	480b      	ldr	r0, [pc, #44]	; (8000a08 <main+0x68>)
  80009da:	f7ff fdfd 	bl	80005d8 <Ds18b20_init_phase>
   //read unique code
-  Ds18b20_rom_command(&hds18b20, DS18B20_ROM_READ);
+  Ds18b20_command(&hds18b20, DS18B20_ROM_READ);
  80009de:	2133      	movs	r1, #51	; 0x33
  80009e0:	4809      	ldr	r0, [pc, #36]	; (8000a08 <main+0x68>)
- 80009e2:	f7ff fe33 	bl	800064c <Ds18b20_rom_command>
+ 80009e2:	f7ff fe33 	bl	800064c <Ds18b20_command>
   family = Ds18b20_read_byte(&hds18b20);
  80009e6:	4808      	ldr	r0, [pc, #32]	; (8000a08 <main+0x68>)
  80009e8:	f7ff fefc 	bl	80007e4 <Ds18b20_read_byte>
@@ -1456,10 +1465,10 @@ static void MX_GPIO_Init(void)
  8000bc4:	40020800 	.word	0x40020800
 
 08000bc8 <Ds18b20_handle_init>:
-/* USER CODE BEGIN 4 */
-/*********************************************************************************************************/
-//My functions will be kept here
+ *
+ * @Note              -  none
 
+ */
 void Ds18b20_handle_init(DS18B20_Handle_t *pDs18b20)
 {
  8000bc8:	b480      	push	{r7}
