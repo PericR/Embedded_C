@@ -29,7 +29,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  12 .debug_info   000093ff  00000000  00000000  0002003c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00001812  00000000  00000000  0002943b  2**0
+ 13 .debug_abbrev 0000180e  00000000  00000000  0002943b  2**0
                   CONTENTS, READONLY, DEBUGGING
  14 .debug_aranges 00000a38  00000000  00000000  0002ac50  2**3
                   CONTENTS, READONLY, DEBUGGING
@@ -1237,7 +1237,7 @@ void sd18b20_gpio_init(DS18B20_Handle_t *pDs18b20)
  * @Note              -  none
 
  */
-void Set_pin_as_out(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
+static void Set_pin_as_out(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
 {
  8000a64:	b480      	push	{r7}
  8000a66:	b083      	sub	sp, #12
@@ -1279,7 +1279,7 @@ void Set_pin_as_out(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
  * @Note              -  none
 
  */
-void Set_pin_as_in(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
+static void Set_pin_as_in(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
 {
  8000aa6:	b480      	push	{r7}
  8000aa8:	b083      	sub	sp, #12
@@ -1311,7 +1311,7 @@ void Set_pin_as_in(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
  * @Note              -  none
 
  */
-void Write_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin, uint8_t value)
+static void Write_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin, uint8_t value)
 {
  8000ad4:	b480      	push	{r7}
  8000ad6:	b083      	sub	sp, #12
@@ -1364,7 +1364,7 @@ void Write_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin, uint8_t value)
  * @Note              -  none
 
  */
-uint8_t Read_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
+static uint8_t Read_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
 {
  8000b1e:	b480      	push	{r7}
  8000b20:	b085      	sub	sp, #20
@@ -1404,6 +1404,7 @@ int main(void)
  8000b54:	af00      	add	r7, sp, #0
   /* USER CODE BEGIN 1 */
 	uint64_t rom;
+
 	uint64_t matched_rom= 0x283c01b55633b9c4;
  8000b56:	a42c      	add	r4, pc, #176	; (adr r4, 8000c08 <main+0xb8>)
  8000b58:	e9d4 3400 	ldrd	r3, r4, [r4]
@@ -1492,7 +1493,7 @@ int main(void)
  8000bca:	4603      	mov	r3, r0
  8000bcc:	71bb      	strb	r3, [r7, #6]
 
-  //skip rom and pw read;
+  //skip rom and temp read;
   Ds18b20_init_phase(&hds18b20);
  8000bce:	480d      	ldr	r0, [pc, #52]	; (8000c04 <main+0xb4>)
  8000bd0:	f7ff fd04 	bl	80005dc <Ds18b20_init_phase>
@@ -1505,7 +1506,7 @@ int main(void)
  8000be0:	4603      	mov	r3, r0
  8000be2:	80bb      	strh	r3, [r7, #4]
 
-  //match rom code and pow read
+  //match rom code and temp read
   Ds18b20_init_phase(&hds18b20);
  8000be4:	4807      	ldr	r0, [pc, #28]	; (8000c04 <main+0xb4>)
  8000be6:	f7ff fcf9 	bl	80005dc <Ds18b20_init_phase>

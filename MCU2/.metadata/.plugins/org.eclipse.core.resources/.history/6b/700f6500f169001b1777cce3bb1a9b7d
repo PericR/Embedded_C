@@ -85,5 +85,11 @@ uint8_t Ds18b20_read_byte(DS18B20_Handle_t *pDs18b20);
  */
 
 void sd18b20_gpio_init(DS18B20_Handle_t *pDs18b20);
+void Set_pin_as_out(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin);
+void Set_pin_as_in(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin);
+void Write_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin, uint8_t value);
+uint8_t Read_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin);
+
+
 
 #endif /* INC_DS18B20_DRIVER_H_ */

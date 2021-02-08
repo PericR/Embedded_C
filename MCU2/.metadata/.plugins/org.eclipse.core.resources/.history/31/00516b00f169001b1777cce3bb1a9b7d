@@ -7,13 +7,6 @@
 
 #include "ds18b20_driver.h"
 
-/*
- * Private helpers
- */
-static void Set_pin_as_out(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin);
-static void Set_pin_as_in(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin);
-static void Write_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin, uint8_t value);
-static uint8_t Read_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin);
 
 
 /*
@@ -412,8 +405,6 @@ void sd18b20_gpio_init(DS18B20_Handle_t *pDs18b20)
 	HAL_GPIO_Init(pDs18b20->pGPIOx, &ds_gpio);
 }
 
-
-
 /*********************************************************************
  * @fn      		  - set_pin_as_out
  *
@@ -427,7 +418,7 @@ void sd18b20_gpio_init(DS18B20_Handle_t *pDs18b20)
  * @Note              -  none
 
  */
-static void Set_pin_as_out(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
+void Set_pin_as_out(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
 {
 	//reset then set mode as output
 	pGpio_port->MODER &= ~(0x3 << (2 * gpio_pin));
@@ -447,7 +438,7 @@ static void Set_pin_as_out(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
  * @Note              -  none
 
  */
-static void Set_pin_as_in(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
+void Set_pin_as_in(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
 {
 	//set pin as in
 	pGpio_port->MODER &= ~(0x3 << (2 * gpio_pin));
@@ -467,7 +458,7 @@ static void Set_pin_as_in(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
  * @Note              -  none
 
  */
-static void Write_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin, uint8_t value)
+void Write_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin, uint8_t value)
 {
 	if(value == 1)
 	{
@@ -492,7 +483,7 @@ static void Write_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin, uint8_t value)
  * @Note              -  none
 
  */
-static uint8_t Read_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
+uint8_t Read_pin(GPIO_TypeDef *pGpio_port, uint8_t gpio_pin)
 {
 	uint8_t value = (uint8_t)((pGpio_port->IDR >> gpio_pin) & 0x00000001);
 	return value;

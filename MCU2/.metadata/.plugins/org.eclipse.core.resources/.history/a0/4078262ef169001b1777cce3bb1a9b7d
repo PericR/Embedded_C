@@ -70,7 +70,6 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	uint64_t rom;
-
 	uint64_t matched_rom= 0x283c01b55633b9c4;
   /* USER CODE END 1 */
 
@@ -122,12 +121,12 @@ int main(void)
   Ds18b20_rom_match(&hds18b20, matched_rom);
   uint8_t pow2 = Ds18b20_read_pw_supply(&hds18b20);
 
-  //skip rom and temp read;
+  //skip rom and pw read;
   Ds18b20_init_phase(&hds18b20);
   Ds18b20_rom_skip(&hds18b20);
   uint16_t temp1 = Ds18b20_read_temp(&hds18b20);
 
-  //match rom code and temp read
+  //match rom code and pow read
   Ds18b20_init_phase(&hds18b20);
   Ds18b20_rom_match(&hds18b20, matched_rom);
   uint16_t temp2 = Ds18b20_read_temp(&hds18b20);
