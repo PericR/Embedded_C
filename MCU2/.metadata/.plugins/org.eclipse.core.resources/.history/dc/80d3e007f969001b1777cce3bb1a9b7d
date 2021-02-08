@@ -184,8 +184,9 @@ void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20);
  *
  * @return            - float celsius
  *
- * @Note              - Must be followed by Ds18b20_conv_t function
+ * @Note              - none
  */
+
 float Ds18b20_read_temp(DS18B20_Handle_t *pDs18b20)
 {
 	float celsius = 0;
@@ -237,25 +238,7 @@ float Ds18b20_read_temp(DS18B20_Handle_t *pDs18b20)
 
 }
 void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20);
-
-/*********************************************************************
- * @fn      		  - Ds18b20_conv_t
- *
- * @brief             - This function starts temperature conversion
- *
- * @param[in]         - DS18B20_Handle_t *hds18b20
- * 						Handle structure with GPIO port and pin
- *
- *
- * @return            - float celsius
- *
- * @Note              - none
- */
-void Ds18b20_conv_t(DS18B20_Handle_t *pDs18b20)
-{
-	Ds18b20_command(pDs18b20, DS18B20_MEMORY_CONVERT_T);
-}
-
+void Ds18b20_conv_t(DS18B20_Handle_t *pDs18b20);
 void Ds18b20_recal_ee(DS18B20_Handle_t *pDs18b20);
 
 /*********************************************************************

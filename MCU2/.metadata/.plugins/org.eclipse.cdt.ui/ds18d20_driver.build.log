@@ -1,10 +1,10 @@
-11:15:41 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+11:43:25 **** Incremental Build of configuration Debug for project ds18d20_driver ****
 make -j4 all 
 arm-none-eabi-size   ds18d20_driver.elf 
    text	   data	    bss	    dec	    hex	filename
-   9732	     20	   1644	  11396	   2c84	ds18d20_driver.elf
+   9788	     20	   1644	  11452	   2cbc	ds18d20_driver.elf
 Finished building: default.size.stdout
  
 
-11:15:42 Build Finished. 0 errors, 0 warnings. (took 498ms)
+11:43:26 Build Finished. 0 errors, 0 warnings. (took 1s.16ms)
 
