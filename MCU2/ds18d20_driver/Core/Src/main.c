@@ -116,7 +116,7 @@ int main(void)
   //Change resoluiton
   Ds18b20_init_phase(&hds18b20);
   Ds18b20_rom_skip(&hds18b20);
-  Ds18b20_pad_write(&hds18b20, DS18B20_TEMP_RES_12BIT, 1, 1);
+  Ds18b20_pad_write(&hds18b20, DS18B20_TEMP_RES_12BIT, 30, 0);
 
   Ds18b20_init_phase(&hds18b20);
   Ds18b20_rom_skip(&hds18b20);
@@ -138,6 +138,15 @@ int main(void)
   Ds18b20_rom_match(&hds18b20, matched_rom);
   float temp2 = Ds18b20_read_temp(&hds18b20);
 
+  Ds18b20_init_phase(&hds18b20);
+  Ds18b20_rom_skip(&hds18b20);
+  Ds18b20_conv_t(&hds18b20);
+  while(!Ds18b20_read_bit(&hds18b20)); //Wait until conversion is complete
+
+  //Alarm search
+  Ds18b20_init_phase(&hds18b20);
+  Ds18b20_rom_skip(&hds18b20);
+  uint8_t alarm = Ds18b20_rom_alarm_single(&hds18b20);
 
   while (1)
   {

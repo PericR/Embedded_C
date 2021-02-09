@@ -158,7 +158,7 @@ void Ds18b20_rom_match(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence)
  *
  * @return            - none
  *
- * @Note              - If more than one device is present, data collision will ocur
+ * @Note              - If more than one device is present, data collision will occur
  */
 void Ds18b20_rom_skip(DS18B20_Handle_t *pDs18b20)
 {
@@ -166,7 +166,37 @@ void Ds18b20_rom_skip(DS18B20_Handle_t *pDs18b20)
 }
 
 void Ds18b20_rom_search(DS18B20_Handle_t *pDs18b20);
-void Ds18b20_rom_alarm(DS18B20_Handle_t *pDs18b20);
+
+/*********************************************************************
+ * @fn      		  - Ds18b20_rom_alarm_single
+ *
+ * @brief             - This function skips match ROM and allows access to memory function if only one DS18B20 device is present
+ *
+ * @param[in]         - DS18B20_Handle_t *hds18b20
+ * 						Handle structure with GPIO port and pin
+ *
+ * @return            - none
+ *
+ * @Note              - Alarm search for when only one device is present
+ */
+
+uint8_t Ds18b20_rom_alarm_single(DS18B20_Handle_t *pDs18b20)
+{
+	uint8_t alarm_state = 0;
+	Ds18b20_command(pDs18b20, DS18B20_ROM_ALARM_SEARCH);
+
+	//Read first bit sent, then its complement, if result is 3, no alarm is detected
+	alarm_state |= (Ds18b20_read_bit(pDs18b20) << 0);
+	alarm_state |= (Ds18b20_read_bit(pDs18b20) << 1);
+
+	if(alarm_state == 0x3)
+	{
+		//No alarm is detected
+		return 0;
+	}
+
+	return 1;
+}
 
 /*
  * Memory Functions
@@ -192,9 +222,9 @@ void Ds18b20_rom_alarm(DS18B20_Handle_t *pDs18b20);
  *
  * @return            - none
  *
- * @Note              - scratchpad registers 2, 3, 4 must all be writen beffore reset is issued
+ * @Note              - scratchpad registers 2, 3, 4 must all be written before reset is issued
  */
-void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20, uint8_t temp_resolution, uint8_t th, uint8_t tl)
+void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20, uint8_t temp_resolution, int8_t th, int8_t tl)
 {
 	Ds18b20_command(pDs18b20, DS18B20_MEMORY_PAD_WRITE);
 	Ds18b20_write_byte(pDs18b20, th);

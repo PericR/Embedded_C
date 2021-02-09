@@ -1,30 +1,10 @@
-12:52:00 **** Incremental Build of configuration Debug for project ds18d20_driver ****
+08:56:48 **** Incremental Build of configuration Debug for project ds18d20_driver ****
 make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:139:9: warning: unused variable 'temp2' [-Wunused-variable]
-   float temp2 = Ds18b20_read_temp(&hds18b20);
-         ^~~~~
-../Core/Src/main.c:73:11: warning: variable 'pad' set but not used [-Wunused-but-set-variable]
-  uint64_t pad;
-           ^~~
-../Core/Src/main.c:72:11: warning: variable 'rom' set but not used [-Wunused-but-set-variable]
-  uint64_t rom;
-           ^~~
-arm-none-eabi-gcc -o "ds18d20_driver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/robert/Projects/Embedded-C/MCU2/ds18d20_driver/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ds18d20_driver.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: ds18d20_driver.elf
- 
-arm-none-eabi-objdump -h -S  ds18d20_driver.elf  > "ds18d20_driver.list"
-arm-none-eabi-objcopy  -O binary  ds18d20_driver.elf  "ds18d20_driver.bin"
 arm-none-eabi-size   ds18d20_driver.elf 
    text	   data	    bss	    dec	    hex	filename
-   9996	     20	   1644	  11660	   2d8c	ds18d20_driver.elf
+  10132	     20	   1644	  11796	   2e14	ds18d20_driver.elf
 Finished building: default.size.stdout
-Finished building: ds18d20_driver.bin
- 
- 
-Finished building: ds18d20_driver.list
  
 
-12:52:01 Build Finished. 0 errors, 3 warnings. (took 1s.222ms)
+08:56:49 Build Finished. 0 errors, 0 warnings. (took 486ms)
 

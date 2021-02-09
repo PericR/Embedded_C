@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="GPIO_TypeDef"/>
+		<item key="selection" value="Ds18b20_command"/>
 		<list key="findhistory">
+			<item value="Ds18b20_rom_command"/>
 			<item value="GPIO_TypeDef"/>
 			<item value="GPIO"/>
 			<item value="phtim1"/>
@@ -19,6 +20,7 @@
 			<item value="UART_Word_Length"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Ds18b20_command"/>
 			<item value="pHtim1"/>
 			<item value="pGpio_port"/>
 		</list>

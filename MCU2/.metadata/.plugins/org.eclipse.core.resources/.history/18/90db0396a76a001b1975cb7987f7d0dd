@@ -1,0 +1,96 @@
+/*
+ * ds18b20_driver.h
+ *
+ *  Created on: Feb 6, 2021
+ *      Author: robert
+ */
+
+#include "stm32f4xx_hal.h"
+#include "delay.h"
+
+#ifndef INC_DS18B20_DRIVER_H_
+#define INC_DS18B20_DRIVER_H_
+
+/*
+ * DS18B20 macros
+ */
+#define HIGH						1
+#define LOW							0
+
+//ROM comands
+#define DS18B20_ROM_READ			0X33
+#define DS18B20_ROM_MATCH			0X55
+#define DS18B20_ROM_SKIP			0XCC
+#define DS18B20_ROM_SEARCH			0XF0
+#define DS18B20_ROM_ALARM_SEARCH	0XEC
+
+//MEMORY commands
+#define DS18B20_MEMORY_PAD_WRITE	0X4E
+#define DS18B20_MEMORY_PAD_READ		0XBE
+#define DS18B20_MEMORY_PAD_COPY		0X48
+#define DS18B20_MEMORY_CONVERT_T	0X44
+#define DS18B20_MEMORY_RECALL_EE	0XB8
+#define DS18B20_MEMORY_PW_READ		0XB4
+
+//Temperature resolution macros
+#define DS18B20_TEMP_RES_9BIT		0
+#define DS18B20_TEMP_RES_10BIT		1
+#define DS18B20_TEMP_RES_11BIT		2
+#define DS18B20_TEMP_RES_12BIT		3
+
+typedef struct{
+	uint8_t GPIO_pin;
+	GPIO_TypeDef *pGPIOx;
+}DS18B20_Handle_t;
+
+/******************************************************DS18B20 API************************************************/
+/*
+ * DS18B20 has protocol of 4 sequences so this file will reflect that organization
+ * Initialization phase
+ * ROM function command
+ * Memory function command
+ * Transaction/Data phase
+ */
+
+
+/*
+ * Initialization Phase
+ */
+uint8_t Ds18b20_init_phase(DS18B20_Handle_t *hds18b20);
+void Ds18b20_command(DS18B20_Handle_t *pDs18b20, uint8_t command);
+
+/*
+ * ROM Function Commands
+ */
+uint64_t Ds18b20_rom_read(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_rom_match(DS18B20_Handle_t *pDs18b20, uint64_t rom_sequence);
+void Ds18b20_rom_skip(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_rom_search(DS18B20_Handle_t *pDs18b20);
+uint8_t Ds18b20_rom_alarm_single(DS18B20_Handle_t *pDs18b20);
+
+/*
+ * Memory Functions
+ */
+uint64_t Ds18b20_pad_read(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_pad_write(DS18B20_Handle_t *pDs18b20, uint8_t temp_resolution, uint8_t th, uint8_t tl);
+float Ds18b20_read_temp(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_pad_copy(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_conv_t(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_recal_ee(DS18B20_Handle_t *pDs18b20);
+uint8_t Ds18b20_read_pw_supply(DS18B20_Handle_t *pDs18b20);
+
+/*
+ * Transanction/Data functions
+ */
+uint8_t Ds18b20_read_bit(DS18B20_Handle_t *pDs18b20);
+void Ds18b20_write_bit(DS18B20_Handle_t *pDs18b20, uint8_t write_data);
+void Ds18b20_write_byte(DS18B20_Handle_t *pDs18b20, uint8_t write_data);
+uint8_t Ds18b20_read_byte(DS18B20_Handle_t *pDs18b20);
+
+/*
+ *helper functions for GPIO I/O
+ */
+
+void sd18b20_gpio_init(DS18B20_Handle_t *pDs18b20);
+
+#endif /* INC_DS18B20_DRIVER_H_ */
